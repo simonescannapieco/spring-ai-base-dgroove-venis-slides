@@ -1,0 +1,165 @@
+\RequirePackage{etex}
+\documentclass[10pt]{beamer}
+
+\usepackage{etex}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Use Moloch theme (evolution of Metropolis)
+\usetheme[numbering=fraction,progressbar=frametitle,block=transparent,titleformat=smallcaps]{moloch}
+\useoutertheme{moloch}
+\useinnertheme{moloch}
+\usefonttheme{moloch}
+\usecolortheme{moloch}
+
+% Set theme colors
+\usepackage[x11names]{xcolor} % See https://latex-tutorial.com/color-latex/ for all loaded colors
+
+\definecolor{venis-darker-blue}{RGB}{2,48,89} % Darker blue extracted with color.adobe.com
+\definecolor{venis-lighter-blue}{RGB}{2,72,115} % Lighter blue extracted with color.adobe.com
+\definecolor{venis-faithful-blue}{RGB}{0,60,105} % Faithful blue hue extracted from Venis logo
+\definecolor{venis-darker-yellow}{RGB}{242,135,5} % Darker yellow hue extracted with color.adobe.com
+\definecolor{venis-faithful-yellow}{RGB}{255,161,0} % Faithful yellow hue extracted from Venis logo
+\definecolor{monokai-bg}{RGB}{34,35,28} % Faithful Monokai theme for minted package (background)
+\definecolor{solarized-light-bg}{RGB}{251,242,200}
+
+\setbeamercolor{normal text}{fg=venis-darker-blue}
+\setbeamercolor{alerted text}{fg=venis-darker-yellow}
+\setbeamercolor{example text}{fg=venis-faithful-blue}
+\setbeamercolor{progress bar}{fg=venis-faithful-yellow}
+\setbeamercolor{progress bar in head/foot}{fg=venis-faithful-yellow}
+\setbeamercolor{progress bar in section page}{fg=venis-faithful-yellow}
+\setbeamercolor{title separator}{fg=venis-darker-yellow}
+\setbeamercolor{block title}{bg=venis-lighter-blue,fg=frametitle.fg}
+\setbeamercolor{block body}{bg=solarized-light-bg,fg=frametitle.bg}
+
+
+% No navigation symbols on slides
+\setbeamertemplate{navigation symbols}{}
+% Set the footer
+\setbeamertemplate{frame footer}{\alert{\faicon{users}} Simone Scannapieco \qquad\qquad\qquad\qquad\qquad\qquad \alert{\faicon{book}} Spring AI - Corso base \qquad\qquad\qquad\qquad\qquad\qquad \alert{\faicon{institution}} Venis S.p.A, Venezia, IT}
+% Set general frame configuration
+\setbeamertemplate{page number in head/foot}[appendixframenumber]
+\setbeamertemplate{section in toc}[sections numbered]
+% Set block configuration
+\setbeamertemplate{blocks}[rounded][shadow=true]
+% Set special block for code
+\newenvironment<>{shellcodeblock}[1]{%
+  \setbeamercolor{block body}{bg=solarized-light-bg}%
+  \begin{block}{#1}}{\end{block}}
+
+\usepackage[cache=false]{minted}
+\usemintedstyle[shell-session]{monokai}
+\setminted[shell-session]{
+	escapeinside=\@\~\$,
+	bgcolor=solarized-light-bg,
+	bgcolorpadding=0.5em,
+	autogobble,
+	fontfamily=tt,
+	fontsize=\scriptsize,
+	stripall,
+	stripnl
+}
+
+% Set bibliography properties
+\setbeamerfont{bibliography item}{size=\scriptsize}
+\setbeamerfont{bibliography entry author}{size=\scriptsize}
+\setbeamerfont{bibliography entry title}{size=\scriptsize}
+\setbeamerfont{bibliography entry location}{size=\scriptsize}
+\setbeamerfont{bibliography entry note}{size=\scriptsize}
+
+\setbeamerfont{block body}{size=\scriptsize}
+
+% Set the color of enumerate labels as the same color of alerted foreground for the current theme
+%\setbeamercolor{section number projected}{bg=alerted text.fg}
+
+% Add logo on frame title
+\addtobeamertemplate{frametitle}{}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north east,xshift=-5pt,yshift=-7pt] at (current page.north east) 		{\includesvg[height=15pt,keepaspectratio]{img/base/dgroove-white.svg}\hspace*{5pt}\includegraphics[height=15pt,keepaspectratio]{img/base/venis-logo-round.png}};
+	\end{tikzpicture}
+  	\ifx\insertframesubtitle\@empty\else%
+  		\usebeamerfont{framesubtitle}%
+  		\usebeamercolor[fg]{framesubtitle}%
+  		\insertframesubtitle%
+  	\fi%
+}
+
+\usepackage[sfdefault]{roboto}
+
+\usepackage{appendixnumberbeamer}
+
+\usepackage{latexsym}
+\usepackage{amssymb,amsfonts}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{pifont}
+
+\usepackage{fontspec}
+\usepackage{fontawesome}
+
+\usepackage{xspace}
+\usepackage[caption=true,font=scriptsize]{subfig}
+
+\usepackage[algo2e,lined,linesnumbered,titlenumbered,longend,italiano]{algorithm2e}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{colortbl}
+
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.eps}
+\usepackage{svg}
+\setsvg{inkscapeexe=inkscape, inkscapeopt=-z -D}
+
+% To use fontawesome icons as item label in itemize environments
+\usepackage{enumitem}
+\SetLabelAlign{center}{\strut\smash{\parbox[t]\labelwidth{\centering#1}}}
+\setenumerate[1]{%
+  label=\protect\usebeamerfont{enumerate item}%
+        \protect\usebeamercolor[fg]{enumerate item}%
+        \insertenumlabel.
+}
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}
+}
+
+\newcommand*\circled[3]{\tikz[baseline=(char.base)]{						   
+            \node[shape=circle,fill=#1,inner sep=2pt] (char)				   
+{\color{#2}{\textbf{#3}}};}}
+
+\makeatletter
+\def\beamer@framenotesbegin{% at beginning of slide
+\usebeamercolor[fg]{normal text}
+\gdef\beamer@noteitems{}%
+\gdef\beamer@notes{}%
+}
+\makeatother
+
+\begin{document}
+
+\title[Spring AI base]{Spring AI}
+
+\subtitle{Generative Artificial Intelligence con Java}
+
+\institute{Corso base per Venis S.p.A, Venezia, Italia}
+
+\date{Settembre 2025}
+
+\author[S.Scannapieco]{Simone Scannapieco}
+
+\titlegraphic{\hfill\includegraphics[height=20pt,keepaspectratio]{img/base/dgroove-alpha.png}\includegraphics[height=20pt,keepaspectratio]{img/base/venis-logo-round.png}}
+
+\begin{frame}[fragile]
+	
+	\titlepage
+
+\end{frame}
+
+%\begin{frame} \frametitle{Sommario}  
+%  \setbeamertemplate{section in toc}[circle]
+%  \tableofcontents
+%\end{frame}
