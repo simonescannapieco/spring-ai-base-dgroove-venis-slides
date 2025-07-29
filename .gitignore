@@ -1,4 +1,2 @@
-0_Intro/out/
-!0_Intro/out/.gitignore
-1_AI/out/
-!1_AI/out/.gitignore
+0_Intro/svg-inkscape/
+1_AI/svg-inkscape/
