@@ -185,8 +185,12 @@
 	\framesubtitle{1950-1975: cause del primo inverno AI}
 	{\small
 	\begin{itemize}[leftmargin=10pt,align=right]
-	\only<1>{\item[\alert{\faHandORight}] \alert{Aspettative esagerate:} la ricerca in IA fece previsioni troppo audaci sulle capacità dell'IA che non si sono materializzate (Rosenblatt, 1958)}
+	\only<1>{\item[\alert{\faHandORight}] \alert{Aspettative esagerate:} la ricerca in AI fece previsioni troppo audaci sulle capacità dell'AI che non si sono materializzate}
 	\only<2>{\item[\alert{\faHandORight}] \alert{Limitazioni tecniche:} potenza di calcolo e algoritmi insufficienti per risolvere problemi complessi del mondo reale (\textit{perceptron})}
+	\only<3>{\item[\alert{\faHandORight}] \alert{Esplosione combinatoria:} molti problemi di AI affrontavano una crescita esponenziale della complessità all'aumentare delle dimensioni dell'\textit{input}}
+	\only<4>{\item[\alert{\faHandORight}] \alert{Rapporto ALPAC (1966):} infattibilità tecnologica della traduzione automatica, con relativo tagli dei finanziamenti
+	         \item[\alert{\faHandORight}] \alert{Rapporto Lighthill (1973):} critica feroce agli obiettivi AI non realizzati; i tagli in UK causarono un effetto domino a livello mondiale (DARPA in USA)}
+	\only<5>{\item[\alert{\faHandORight}] \alert{Paradosso di Moravec:} più il compito è semplice per un umano, più è difficile per una macchina da emulare (percezione, mobilità); più è facile per una macchina, più è difficile per un umano (calcolo veloce)}
 	\end{itemize}
 	\only<1>{
 	\begin{minipage}[t]{\textwidth}
@@ -224,13 +228,63 @@
 				{\tiny\\Neurone umano vs. \textit{perceptron}\\\vspace*{-4pt}\textit{\textcopyright Simone Scannapieco, Wikimedia Creative Commons}}
 			\end{figure}
 		\end{minipage}
-		\onslide<1->
+		\hfill
 		\begin{minipage}[t]{0.4\textwidth}
 			\centering
 			\begin{figure}[ht]
-				\includegraphics[width=.61\textwidth]{img/Frank-Rosenblatt.jpg}
+				\includegraphics[width=.8\textwidth]{img/Frank-Rosenblatt.jpg}
 				{\tiny\\Frank Rosenblatt\\\vspace*{-4pt}\textit{\textcopyright Wikimedia Creative Commons}}
 			\end{figure}
+		\end{minipage}
+	\end{minipage}
+	}
+	\only<3>{
+	\begin{minipage}[t]{\textwidth}
+		\begin{minipage}[t]{0.3\textwidth}
+			\begin{minipage}[t]{\textwidth}
+				\begin{figure}[ht]
+					\includegraphics[width=.45\textwidth]{img/Marvin-Misky.png}
+					{\tiny\\Marvin Minsky\\\vspace*{-4pt}\textit{\textcopyright Donna Coveny}}
+				\end{figure}
+			\end{minipage}
+			\\
+			\begin{minipage}[t]{\textwidth}
+				\begin{figure}[ht]
+					\includegraphics[width=.45\textwidth]{img/Seymour_Papert.jpg}
+					{\tiny\\Seymour Papert\\\vspace*{-4pt}\textit{\textcopyright Matematicamente}}
+				\end{figure}
+			\end{minipage}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.65\textwidth}
+			\begin{itemize}[leftmargin=0pt,align=right]
+			\item[\alert{\faHandORight}] Dimostrazione matematica che il \textit{perceptron} risolve operazioni elementari (\alert{linearmente separabili})
+			\begin{figure}[ht]
+				\includegraphics[width=\textwidth]{img/AND-OR-XOR-0.png}
+			\end{figure}
+			\item[\alert{\faHandORight}] Proposta teorica di \alert{aggregare più \textit{perceptron}} per risolvere problemi più complessi
+		\end{itemize}
+		\end{minipage}
+	\end{minipage}
+	}
+	\only<4>{
+	\begin{minipage}[t]{\textwidth}
+		\begin{minipage}[t]{0.35\textwidth}
+			\begin{minipage}[t]{\textwidth}
+				\begin{figure}[ht]
+					\includegraphics[width=\textwidth]{img/IBM-704.jpg}
+					{\tiny\\Mark I Perceptron, IBM 704\\\vspace*{-4pt}\textit{\textcopyright IBM Italia}}
+				\end{figure}
+			\end{minipage}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.6\textwidth}
+			\begin{itemize}[leftmargin=10pt,align=right]
+			\item[\alert{\faHandORight}] Finanziato dalla Marina statunitense
+			\item[\alert{\faHandORight}] Dimensioni unità centrale (H $\times$ L $\times$ P): \alert{167 $\times$ 176 $\times$ 80 cm}
+			\item[\alert{\faHandORight}] Peso: \alert{5 Ton circa}
+			\item[\alert{\faHandORight}] Investimento dichiarato per ingegnerizzazione (al 2025): \alert{1.2 Milioni USD circa}
+		\end{itemize}
 		\end{minipage}
 	\end{minipage}
 	}
