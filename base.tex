@@ -130,9 +130,11 @@
 }
 
 \newcommand*\circled[3]{\tikz[baseline=(char.base)]{						   
-            \node[shape=circle,fill=#1,inner sep=2pt] (char)				   
+            \node[shape=circle,fill=#1,inner sep=1pt] (char)				   
 {\color{#2}{\textbf{#3}}};}}
 
+\newcommand*\normalcircled[1]{\circled{venis-darker-blue}{white}{#1}}
+\newcommand*\alertedcircled[1]{\circled{venis-darker-yellow}{white}{#1}}
 
 % To import media (video and audio):
 % From: https://tex.stackexchange.com/questions/516029/media9-is-becoming-obsolete-dec-2020-any-alternatives-for-embedding-video-audio/516102#516102
@@ -263,7 +265,7 @@
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=venis-faithful-yellow,
+    linkcolor=venis-faithful-blue,
     filecolor=venis-faithful-yellow,      
     urlcolor=venis-faithful-yellow,
     pdftitle={Overleaf Example},
