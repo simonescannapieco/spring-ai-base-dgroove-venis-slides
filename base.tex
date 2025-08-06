@@ -109,6 +109,7 @@
 \usepackage{colortbl}
 \usepackage{epigraph}
 
+% Multimedia configuration
 \usepackage{graphicx}
 \graphicspath{{img/}}
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.eps}
@@ -132,6 +133,120 @@
             \node[shape=circle,fill=#1,inner sep=2pt] (char)				   
 {\color{#2}{\textbf{#3}}};}}
 
+\usepackage{xkeyval}
+\usepackage{media9}
+\usepackage{zref-abspage}
+
+\makeatletter
+\define@boolkey{simplemedia}{autoplay}{\def\simplemediaautoplay{#1}}
+\define@boolkey{simplemedia}{showGUI}{\def\simplemediashowGUI{#1}}
+\presetkeys{simplemedia}{autoplay=true,showGUI=true}{}
+
+% all page-references relate to: Adobe PDF Reference, sixth edition, November 2006, can be found e.g.:
+%https://ghostscript.com/~robin/pdf_reference17.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \simplemedia[<options>]{<poster or text>}{<media file>}{MIME type}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ExplSyntaxOn
+%\cs_new:Npn\simplemedia[3][]{
+\newcommand\simplemedia[4][]{%
+  \setkeys{simplemedia}{#1}%
+  \leavevmode
+  \pbs_pdfobj:nnn{}{fstream}{{}{#3}}
+  \pbs_pdfobj:nnn{}{dict}{
+    /Type/Filespec/F~(#3)/UF~(#3)
+    /EF~<</F~\pbs_pdflastobj:>>
+  }
+  %
+  \pbs_pdfobj:nnn{}{dict}{
+      /CT~(#4)% content type, page 764, table 9.9
+      /D~\pbs_pdflastobj:% full file spcification, page 764, table 9.9
+      /N~(Media~clip~from~#3)% name of media clip, page 764, table 9.8
+      /P~<</TF (TEMPACCESS)>>% media permissions, page 764, table 9.9
+      /S~/MCD% subtype media-clip-data, page 764, table 9.8
+  }
+  %
+  \pbs_pdfobj:nnn{}{dict}{
+      /C~\pbs_pdflastobj:% media clip dictionary, page 762, table 9.6
+      /N~(RenditionFrom#3)% name of rendition, page 759, table 9.1
+      /P~<<% media play parameters dictionary, page 762, table 9.6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Here's the point to switch on/off player GUI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        /BE~<</C~\simplemediashowGUI~%C: display a player-specific controller user interface, page 769, table 9.15
+        /A~true>>~%A: automatically play when activated, page 770, table 9.15
+        % select player (not used here)
+%        /PL~<</A~[% arrray of media player info objects page 777
+%%        <</PID~<</U~(vnd.adobe.swname:ADBE_MCI)~>>~>>~% PID: software identifier object, page 779
+%        <</PID~<</U~(vnd.adobe.swname:MSFT_WindowsMediaPlayer)~/OS[(win16)~(win32)~(win9x)~(winnt)~(wince)]>>~>>~%/OS operating system, page 780
+%        ]~>>
+      ~>>
+      /S~/MR% subtype of rendition, page 759, table 9.1
+  }
+  %
+  \tl_set:Nx\mediarendition{\pbs_pdflastobj:}
+  %  
+  \pbs_pdfobj:nnn{}{dict}{}% obj-number created for later use
+  \tl_set:Nx\renditionactionplay{\pbs_pdflastobj:}%
+  %
+  \pbs_pdfobj:nnn{}{dict}{}% obj-number created for later use
+  \tl_set:Nx\renditionactionstop{\pbs_pdflastobj:}%
+  %
+  \hbox_set:Nn\l_tmpa_box{#2}% size of annotation
+  \tl_set:Nx\l_box_wd_tl{\dim_use:N\box_wd:N\l_tmpa_box}
+  \tl_set:Nx\l_box_ht_tl{\dim_use:N\box_ht:N\l_tmpa_box}
+  \tl_set:Nx\l_box_dp_tl{\dim_use:N\box_dp:N\l_tmpa_box}
+  \pbs_pdfxform:nnnnn{1}{1}{}{}{\l_tmpa_box}
+  %
+  \tl_set:Nx\l_simplem_current_page_tl{\zref@extract{simplem@\int_use:N\g_simplem_id_int}{abspage}}
+  \pbs_pdfannot:nnnn{\l_box_wd_tl}{\l_box_ht_tl}{\l_box_dp_tl}{
+      /T~(AnnotationFrom#3)~% title of screen annotation, page 640, table 8.38 
+      /Subtype~/Screen~% Subtype Sreen, page 616, table 8.20 and page 640, table 8.38
+      /BS~<</W~1/S/S>>% Borderstyle
+      /C~[0.039216~0.039216~0.039216]% color used background, title bar, border, page 607, table 8.15
+      /Contents~(EmbeddedAudiofile#3)% Text to be displayed, page 606, table 8.15
+      /NM~(audioscreenannot:#3)% annotation name, page 606, table 8.15
+      /AP~<</N~\pbs_pdflastxform:>>% appearance dictionary, page 606, table 8.15
+      /F~4~%Annotation flag, page 606, table 8.15 and page 608, table 8.16
+      /A~\renditionactionplay~% Action to be performed, page 640 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Here's the point to switch on/off autoplay
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      % autoplay is realised by "additional action" (page 640), 
+      % PageOpen (PO) -> play "Play Rendition"
+      % PageClose (PC) -> play "Stop Rendition" (see page 650)
+      /AA~<<\ifKV@simplemedia@autoplay~/PO~\renditionactionplay~\fi~/PC~\renditionactionstop~>>~%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       see Adobe pdfmark-reference, I THINK, THIS WORKS ONLY WITH tex->dvips->ps2pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \int_compare:nT{\l_simplem_current_page_tl>0}{
+        /P~\exp_args:Ne\pdf_pageobject_ref:n{\l_simplem_current_page_tl}
+      }
+      /CA~1%constant opacity value, page 618
+  }
+  % Rendition Action: "Play Rendition"
+  \pbs_pdfobj:nnn{\renditionactionplay}{dict}{%
+      /R~\mediarendition%
+      /S~/Rendition
+      /OP~4%operation to perform (page 669): 4 = play rendition specified by R
+      /AN~\pbs_pdflastann:%
+  }
+  % Rendition Action: "Stop Rendition"
+  \pbs_pdfobj:nnn{\renditionactionstop}{dict}{%
+      /R~\mediarendition%
+      /S~/Rendition
+      /OP~1%operation to perform (page 669): 1 = stop rendition specified by R
+      /AN~\pbs_pdflastann:%
+  }
+  %
+  \phantom{#2}
+  \zref@labelbyprops{simplem@\int_use:N\g_simplem_id_int}{abspage}
+  \int_gincr:N\g_simplem_id_int
+}%
+\int_new:N\g_simplem_id_int
+\ExplSyntaxOff
+\makeatother
+
 \makeatletter
 \def\beamer@framenotesbegin{% at beginning of slide
 \usebeamercolor[fg]{normal text}
@@ -139,6 +254,17 @@
 \gdef\beamer@notes{}%
 }
 \makeatother
+
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
 
 \begin{document}
 
