@@ -190,10 +190,10 @@
 	\only<3>{\item[\alert{\faHandORight}] \alert{Esplosione combinatoria:} molti problemi di AI affrontavano una crescita esponenziale della complessità all'aumentare delle dimensioni dell'\textit{input}}
 	\only<4>{\item[\alert{\faHandORight}] \alert{Rapporto ALPAC (1966):} infattibilità tecnologica della traduzione automatica, con relativo tagli dei finanziamenti
 	         \item[\alert{\faHandORight}] \alert{Rapporto Lighthill (1973):} critica feroce agli obiettivi AI non realizzati; i tagli in UK causarono un effetto domino a livello mondiale (DARPA in USA)}
-	\only<5>{\item[\alert{\faHandORight}] \alert{Paradosso di Moravec (1988):} più il compito è semplice per un umano, più è difficile per una macchina da emulare (percezione, mobilità); più è facile per una macchina, più è difficile per un umano (calcolo veloce)}
+	\only<5>{\item[\alert{\faHandORight}] \alert{Paradosso di Moravec (1988):} più il compito è semplice per un umano, più è difficile per una macchina da emulare (e viceversa)}
 	\only<6>{\item[\alert{\faHandORight}] \alert{Crollo dei sistemi esperti:} \normalcircled{1} troppo costosi da mantenere, \normalcircled{2} difficili da aggiornare, \normalcircled{3} non robusti di fronte a \textit{input} insoliti}
 	\end{itemize}
-
+	\vspace*{.3cm}
 	\only<1>{
 	\begin{minipage}[t]{\textwidth}
 		\begin{minipage}[t]{\textwidth}
@@ -323,7 +323,6 @@
 	\end{minipage}
 	}
 	\only<6>{
-		\vfill
 	\begin{minipage}[t]{\textwidth}
 		\begin{minipage}[b]{0.25\textwidth}
 			\centering
@@ -369,8 +368,102 @@
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{Cronistoria della AI}
-	\only<1>{\framesubtitle{1975-2000: fattori di ripresa}}
-
+	\framesubtitle{1975-2000: fattori di ripresa}
+	\vspace*{-.5cm}
+	{\small
+	%\begin{minipage}[t]{\textwidth}
+%		\begin{figure}[ht]
+%			\centering
+%			\includegraphics[width=\textwidth]{img/AI-timeline-2000-alt.png}
+%		\end{figure}
+%	\end{minipage}
+%	\\\vspace*{.3cm}
+	\begin{itemize}[leftmargin=10pt,align=right]
+		\item[\alert{\faHandORight}] \alert{Nascita del \textit{Deep Learning} (DL):} unità neuronali che collaborano in strutture ``profonde''
+	\end{itemize}
+	\only<1>{
+		\begin{minipage}[t]{\textwidth}
+			\begin{figure}[ht]
+				\centering
+				\includegraphics[width=.5\textwidth]{img/vgg-16-image-no-bg.png}
+				{\tiny\\Architettura VGG-16\\\vspace*{-4pt}\textit{\textcopyright LinkedIn}}
+			\end{figure}
+		\end{minipage}
+		\vfill
+		\begin{minipage}[t]{\textwidth}
+			\begin{minipage}[b]{0.33\textwidth}
+				\centering
+				\begin{figure}[ht]
+					\includegraphics[width=.6\textwidth]{img/Geoffrey-Hinton.jpeg}
+					{\tiny\\Geoffrey Hinton\\\vspace*{-4pt}\textit{\textcopyright acm.org}}
+				\end{figure}
+			\end{minipage}
+			\begin{minipage}[b]{0.33\textwidth}
+				\centering
+				\begin{figure}[ht]
+					\includegraphics[width=.6\textwidth]{img/Yann-LeCun.jpeg}
+					{\tiny\\Yann LeCun\\\vspace*{-4pt}\textit{\textcopyright acm.org}}
+				\end{figure}
+			\end{minipage}
+			\begin{minipage}[b]{0.33\textwidth}
+				\centering
+				\begin{figure}[ht]
+					\includegraphics[width=.6\textwidth]{img/Yoshua-Bengio.jpeg}
+					{\tiny\\Yoshua Bengio\\\vspace*{-4pt}\textit{\textcopyright acm.org}}
+				\end{figure}
+			\end{minipage}
+		\end{minipage}
+	}
+	\only<2>{
+		\begin{minipage}[t]{\textwidth}
+			\begin{figure}[ht]
+				\centering
+				\includegraphics[width=.5\textwidth]{img/vgg-16-image-no-bg.png}
+				{\tiny\\Architettura VGG-16\\\vspace*{-4pt}\textit{\textcopyright LinkedIn}}
+			\end{figure}
+		\end{minipage}
+		\vfill
+		{\scriptsize
+		\begin{minipage}[t]{\textwidth}
+			\begin{minipage}[t]{.4\textwidth}
+				\begin{itemize}[leftmargin=10pt,align=right]
+					\item[\alert{\faHandORight}] Modello\\
+					\begin{minipage}[t]{\textwidth}
+						\renewcommand{\epigraphsize}{\scriptsize}
+						\setlength{\afterepigraphskip}{0pt}
+						\setlength{\beforeepigraphskip}{5pt}
+						\setlength{\epigraphwidth}{0.9\textwidth}
+						\epigraph{\textit{[\ldots] del modo in cui opera il sistema nervoso. Le unità di base sono costituite dai neuroni, in genere organizzati in strati [\ldots]}}{IBM (\href{https://www.ibm.com/docs/it/spss-modeler/18.5.0?topic=networks-neural-model}{Fonte}), 2004}
+					\end{minipage}
+				\end{itemize}
+				\end{minipage}
+				\hfill
+				\begin{minipage}[t]{.5\textwidth}
+					\begin{itemize}[leftmargin=10pt,align=right]
+						\item[\alert{\faHandORight}] Architettura
+							\begin{itemize}[leftmargin=20pt,align=right]
+								\item[\alert{\faHandORight}] Dimensione dell'\emph{input}/\emph{output}
+			 					\item[\alert{\faHandORight}] Numero di strati (pi\'{u} strati implica apprendimento pi\'{u} complesso)
+								\item[\alert{\faHandORight}] Funzione di attivazione di ciascun strato
+								\item[\alert{\faHandORight}] Numero di neuroni per strato
+								\item[\alert{\faHandORight}] Funzione costo da minimizzare
+							\end{itemize}
+					\end{itemize}
+				\end{minipage}
+		\end{minipage}
+		}
+	}
+	\only<3>{
+		\begin{figure}[ht]
+        	\centering
+        	\includegraphics[width=.8\textwidth]{img/neural-networks-chart-alpha-rearranged.png}
+    	\end{figure}
+		\begin{flushright}
+    		\vspace*{-10pt}
+        	{\tiny\textit{\textcopyright Medium}}
+		\end{flushright}
+	}
+}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{Intelligenza Artificiale}
