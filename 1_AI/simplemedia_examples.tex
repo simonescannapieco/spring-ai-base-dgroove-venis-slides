@@ -1,0 +1,67 @@
+\begin{document}
+    \begin{frame}{Video inclusion with autoplay and showGUI}
+        \begin{columns}
+            \begin{column}[t]{128mm}
+            \begin{itemize}
+                \item command:\\
+                \scriptsize 
+                \texttt{\textbackslash{}simplemedia\{\textbackslash{}vbox to 3cm\{\textbackslash{}vfil\textbackslash{}hbox to 5cm\{\}\textbackslash{}vfil\}\}\{sample-5s.mp4\}\{video/mp4\}}
+                \normalsize
+                \item result:
+                \simplemedia{\vbox to 3cm{\vfil\hbox to 5cm{}\vfil}}{sample-5s.mp4}{video/mp4}
+                \hspace{0.5cm}\tiny{}https://samplelib.com/sample-mp4.html
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+    \begin{frame}{Audio inclusion with autoplay and GUI}
+        \begin{columns}
+            \begin{column}[t]{128mm}
+                \begin{itemize}
+                    \item command:\\
+                    \scriptsize 
+                    \texttt{\textbackslash{}simplemedia\{My audio\}\{sample-6s.mp3\}\{audio/mp3\}}
+                    \normalsize
+                    \item result:
+                    \simplemedia{My audio}{sample-6s.mp3}{audio/mp3}
+                    \hspace{0.5cm}\tiny{}https://samplelib.com/sample-mp3.html
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Audio inclusion with autoplay, no GUI}
+        \begin{columns}
+            \begin{column}[t]{128mm}
+                \begin{itemize}
+                    \item command:\\
+                    \scriptsize 
+                    \texttt{\textbackslash{}simplemedia[showGUI=false]\{My audio\}\{sample-6s.mp3\}\{audio/mp3\}}
+                    \normalsize
+                    \item result:
+                    \simplemedia[showGUI=false]{My audio}{sample-6s.mp3}{audio/mp3}
+                    \hspace{0.5cm}\tiny{}https://samplelib.com/sample-mp3.html
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Audio inclusion without autoplay}
+        \begin{columns}
+            \begin{column}[t]{128mm}
+                \begin{itemize}
+                    \item command:\\
+                    \scriptsize 
+                    \texttt{\textbackslash{}simplemedia[autoplay=false]\{Klick here to start\}\{sample-6s.mp3\}\{audio/mp3\}}
+                    \normalsize
+                    \item result:
+                    \simplemedia[autoplay=false]{Klick here to start}{sample-6s.mp3}{audio/mp3}
+                    \hspace{0.5cm}\tiny{}https://samplelib.com/sample-mp3.html
+                \end{itemize}   
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+\end{document}

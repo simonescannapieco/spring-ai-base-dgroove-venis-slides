@@ -1,5 +1,5 @@
 \RequirePackage{etex}
-\documentclass[10pt]{beamer}
+\documentclass[10pt,italian,handout]{beamer}
 
 \usepackage{etex}
 \usepackage[italian]{babel}
@@ -120,6 +120,7 @@
 
 % To use fontawesome icons as item label in itemize environments
 \usepackage{enumitem}
+\usepackage{setspace}
 \SetLabelAlign{center}{\strut\smash{\parbox[t]\labelwidth{\centering#1}}}
 \setenumerate[1]{%
   label=\protect\usebeamerfont{enumerate item}%
@@ -273,28 +274,3 @@
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,
     }
-
-\begin{document}
-
-\title[Spring AI base]{Spring AI}
-
-\subtitle{Generative Artificial Intelligence con Java}
-
-\institute{Corso base per Venis S.p.A, Venezia, Italia}
-
-\date{Settembre 2025}
-
-\author[S.Scannapieco]{Simone Scannapieco}
-
-\titlegraphic{\hfill\includegraphics[height=20pt,keepaspectratio]{img/base/dgroove-alpha.png}\includegraphics[height=20pt,keepaspectratio]{img/base/venis-logo-round.png}}
-
-\begin{frame}[fragile]
-	
-	\titlepage
-
-\end{frame}
-
-%\begin{frame} \frametitle{Sommario}  
-%  \setbeamertemplate{section in toc}[circle]
-%  \tableofcontents
-%\end{frame}
