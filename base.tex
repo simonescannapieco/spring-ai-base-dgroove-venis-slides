@@ -1,6 +1,3 @@
-\RequirePackage{etex}
-\documentclass[10pt,italian,handout]{beamer}
-
 \usepackage{etex}
 \usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
@@ -334,6 +331,14 @@
 }
 \ExplSyntaxOff
 % --------------------------------------------------------------------------------------------------------------------------
+
+\mode<beamer|second|trans|article>{
+  \newcommand\presentvideo[2]{\embedvideo{\includegraphics[width=\textwidth]{#1}}{#2}}
+}
+
+\mode<handout>{
+  \newcommand\presentvideo[2]{\includegraphics[width=\textwidth]{#1}}
+}
 
 \makeatletter
 \def\beamer@framenotesbegin{% at beginning of slide
