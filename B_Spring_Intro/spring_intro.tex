@@ -39,96 +39,101 @@ TBA
 	\vspace*{-.5cm}
     {\footnotesize
     \begin{itemize}
-        \only<1|handout:1>{\item[\alertedcircled{1}] Installare le estensioni VSC necessarie}
-        \only<2|handout:2>{\item[\alertedcircled{2}] Aprire una nuova finestra VSC e selezionare \textbf{Create Java Project}}
-        \only<3|handout:3>{\item[\alertedcircled{3}] Selezionare \textbf{Spring Boot} come tipo di progetto (\alert{NON} Maven)}
-        \only<4|handout:4>{\item[\alertedcircled{4}] Selezionare \textbf{Maven project} come tipo di progetto}
-        \only<5|handout:5>{\item[\alertedcircled{5}] Selezionare la versione di Boot per il progetto}
-        \only<6|handout:6>{\item[\alertedcircled{6}] Selezionare \textbf{Java} come linguaggio di progetto}
-        \only<7|handout:7>{\item[\alertedcircled{7}] Definire il \textit{Group ID} di riferimento del progetto}
-        \only<8|handout:8>{\item[\alertedcircled{8}] Definire l'\textit{Artifact ID} di riferimento del progetto}
-        \only<9|handout:9>{\item[\alertedcircled{9}] Definire la tipologia di \textit{packaging} del progetto}
-        \only<10|handout:10>{\item[\alertedcircled{10}] Selezionare la versione di Java di riferimento}
-        \only<11|handout:11>{\item[\alertedcircled{11}] Selezionare come prima dipendenza di progetto \textbf{Spring Web}}
-        \only<12|handout:12>{\item[\alertedcircled{12}] Selezionare come seconda dipendenza di progetto \textbf{OpenAI}}
-        \only<13|handout:13>{\item[\alertedcircled{13}] Continuare la creazione del progetto premendo \textbf{Enter}}
-        \only<14|handout:14>{\item[\alertedcircled{14}] Navigare nel FS e selezionare la cartella padre del progetto}
-        \only<15|handout:15>{\item[\alertedcircled{15}] Verificare la presenza dei file di progetto nel menu \textbf{Explorer}}
+        \only<1-2|handout:1-2>{\item[\alertedcircled{1}] Installare le estensioni VSC necessarie}
+        \only<3|handout:3>{\item[\alertedcircled{2}] Aprire una nuova finestra VSC e selezionare \textbf{Create Java Project}}
+        \only<4|handout:4>{\item[\alertedcircled{3}] Selezionare \textbf{Spring Boot} come tipo di progetto (\alert{NON} Maven)}
+        \only<5|handout:5>{\item[\alertedcircled{4}] Selezionare \textbf{Maven project} come tipo di progetto}
+        \only<6|handout:6>{\item[\alertedcircled{5}] Selezionare la versione di Boot per il progetto}
+        \only<7|handout:7>{\item[\alertedcircled{6}] Selezionare \textbf{Java} come linguaggio di progetto}
+        \only<8|handout:8>{\item[\alertedcircled{7}] Definire il \textit{Group ID} di riferimento del progetto}
+        \only<9|handout:9>{\item[\alertedcircled{8}] Definire l'\textit{Artifact ID} di riferimento del progetto}
+        \only<10|handout:10>{\item[\alertedcircled{9}] Definire la tipologia di \textit{packaging} del progetto}
+        \only<11|handout:11>{\item[\alertedcircled{10}] Selezionare la versione di Java di riferimento}
+        \only<12|handout:12>{\item[\alertedcircled{11}] Selezionare come prima dipendenza di progetto \textbf{Spring Web}}
+        \only<13|handout:13>{\item[\alertedcircled{12}] Selezionare come seconda dipendenza di progetto \textbf{OpenAI}}
+        \only<14|handout:14>{\item[\alertedcircled{13}] Continuare la creazione del progetto premendo \textbf{Enter}}
+        \only<15|handout:15>{\item[\alertedcircled{14}] Navigare nel FS e selezionare la cartella padre del progetto}
+        \only<16|handout:16>{\item[\alertedcircled{15}] Verificare i \textit{file} di progetto nel pannello \textbf{Explorer} (\textbf{CTRL + SHIFT + E})}
     \end{itemize}
     \vfill
     \begin{minipage}[t]{\textwidth}
 		\centering
         \only<1|handout:1>{
 		    \begin{figure}[ht]
-			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-extensions.png}
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-extensions-java.png}
 		    \end{figure}
         }
-         \only<2|handout:2>{
+        \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-extensions-spring-boot.png}
+		    \end{figure}
+        }
+         \only<3|handout:3>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new.png}
 		    \end{figure}
         }
-        \only<3|handout:3>{
+        \only<4|handout:4>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-spring-boot.png}
 		    \end{figure}
         }
-        \only<4|handout:4>{
+        \only<5|handout:5>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-maven.png}
 		    \end{figure}
         }
-        \only<5|handout:5>{
+        \only<6|handout:6>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-spring-boot-version.png}
 		    \end{figure}
         }
-        \only<6|handout:6>{
+        \only<7|handout:7>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-java.png}
 		    \end{figure}
         }
-        \only<7|handout:7>{
+        \only<8|handout:8>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-maven-groupid.png}
 		    \end{figure}
         }
-        \only<8|handout:8>{
+        \only<9|handout:9>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-maven-artifactid.png}
 		    \end{figure}
         }
-        \only<9|handout:9>{
+        \only<10|handout:10>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-java-jar.png}
 		    \end{figure}
         }
-        \only<10|handout:10>{
+        \only<11|handout:11>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-java-version.png}
 		    \end{figure}
         }
-        \only<11|handout:11>{
+        \only<12|handout:12>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-maven-deps-spring-web.png}
 		    \end{figure}
         }
-        \only<12|handout:12>{
+        \only<13|handout:13>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-maven-deps-openai.png}
 		    \end{figure}
         }
-        \only<13|handout:13>{
+        \only<14|handout:14>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-maven-deps-done.png}
 		    \end{figure}
         }
-        \only<14|handout:14>{
+        \only<15|handout:15>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-path.png}
 		    \end{figure}
         }
-        \only<15|handout:15>{
+        \only<16|handout:16>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-done.png}
 		    \end{figure}
@@ -147,4 +152,72 @@ TBA
     \begin{block}{Portale ufficiale}
         \url{https://start.spring.io/}
     \end{block}
+\end{frame}
+
+\section{\faWrench\ Verifica Java Runtime per progetto} % (fold)
+\label{sec:spring-ai-jvm}
+
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Verifica Java Runtime}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Dal pannello dei comandi (\textbf{CTRL + SHIFT + P}), \textbf{Java: Configure Java Runtime}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Selezionare la JDK 21 precedentemente installata}
+    \end{itemize}
+    \vfill
+    \begin{minipage}[t]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-java-runtime.png}
+		    \end{figure}
+        }
+        \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-new-java-runtime-list.png}
+		    \end{figure}
+        }
+	\end{minipage}
+    }
+\end{frame}
+
+\section{\faWrench\ Compilazione ed esecuzione progetto} % (fold)
+\label{sec:spring-ai-compile-run}
+
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Compilazione ed esecuzione}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Dal pannello di \textit{debug} (\textbf{CTRL + SHIFT + D}), creare un nuovo \textit{file} \texttt{launch.json}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Selezionare \textbf{Java} come tipologia di esecuzione/\textit{debug}}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Verificare la presenza delle due configurazioni di base}
+        \only<4|handout:4>{\item[\alertedcircled{4}] Aggiungere metadati se necessario (es. \alert{variabili di ambiente})}
+    \end{itemize}
+    \vfill
+    \begin{minipage}[t]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-run-debug.png}
+		    \end{figure}
+        }
+        \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-launch-json-java.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-launch-json.png}
+		    \end{figure}
+        }
+        \only<4|handout:4>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-launch-json-env.png}
+		    \end{figure}
+        }
+	\end{minipage}
+    }
 \end{frame}
