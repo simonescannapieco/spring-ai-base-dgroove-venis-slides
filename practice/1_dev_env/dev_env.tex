@@ -1,0 +1,511 @@
+\section{Ambiente di sviluppo} % (fold)
+\label{sec:dev-env}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Requisiti \textit{hardware} e tecnologie di base}
+    \begin{itemize}[leftmargin=20pt,align=right]
+        \onslide<1->\item[\alert{\faHandORight}] Qualunque SO che supporti sviluppo Java
+        \onslide<2->\item[\alert{\faHandORight}] \alert{8GB RAM}, 16+GB RAM suggerito
+        \onslide<3->\item[\alert{\faHandORight}] Java Development Kit (JDK)     
+        \begin{itemize}[leftmargin=20pt,align=right]
+            \item[\alert{\faHandORight}] JDK Oracle o OpenJDK
+            \onslide<4->\item[\alert{\faHandORight}] JDK \alert{17+} richiesto, \alert{21} suggerito (LTS)
+            \begin{itemize}[leftmargin=20pt,align=right]
+                \item[\alert{\faHandORight}] Vincolo di Spring Framework \alert{6}/Spring Boot \alert{3}
+            \end{itemize}
+            \onslide<5->\item[\alert{\faExclamationTriangle}] JDK \alert{24 non} suggerito
+            \begin{itemize}[leftmargin=20pt,align=right]
+                \item[\alert{\faHandORight}] Potenziali problematiche con progetto Spring AI (al momento)
+            \end{itemize}
+            \onslide<6->\item[\alert{\faExclamationTriangle}] Java Runtime Environment (JRE) \alert{non} sufficiente
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{\textit{Tool} di compilazione}
+    \begin{itemize}[leftmargin=20pt,align=right]
+        \onslide<1->\item[\alert{\faHandORight}] Apache Maven \alert{3.9.0+}
+        \onslide<2->\item[\alert{\faHandORight}] Ideale strumento da \alert{linea di comando} (\texttt{mvn})
+        \begin{itemize}[leftmargin=20pt,align=right]
+            \onslide<3->\item[\alert{\faHandORight}] Quello fornito da IDE non sempre stabile e complesso da configurare
+            \onslide<4->\item[\alert{\faHandORight}] Approccio \textit{safe} in situazione di utilizzo multi IDE
+        \end{itemize}
+    \end{itemize}
+    \onslide<5->
+    \begin{block}{Installazione (macOS/Linux/Windows)}
+        \url{https://maven.apache.org/install.html}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{\textit{Tool} di integrazione}
+TBA
+\end{frame}    
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Servizi GENAI}
+    \begin{itemize}
+        \onslide<1->\item[\alertedcircled{1}] Servizi a pagamento
+        \begin{itemize}[leftmargin=20pt,align=right]
+			\item[\alert{\faHandORight}] OpenAI API (GPT, Codex, Sora, \ldots)
+        \end{itemize}
+        \onslide<2->\item[\alertedcircled{2}] Servizi gratuiti a quota
+        \begin{itemize}[leftmargin=20pt,align=right]
+			\item[\alert{\faHandORight}] Google AI API (Gemini, \ldots)
+        \end{itemize}
+        \onslide<3->\item[\alertedcircled{3}] Servizi gratuiti
+        \begin{itemize}[leftmargin=20pt,align=right]
+			\item[\alert{\faHandORight}] Llama, HuggingFace, \ldots
+        \end{itemize}        
+    \end{itemize}
+    \vfill
+    \begin{itemize}
+        \onslide<4->\item[\alert{\faExclamationTriangle}] Consigliata la \textit{incognito mode} per le iscrizioni ai servizi!
+        \begin{itemize}[leftmargin=20pt,align=right]
+			\item[\alert{\faHandORight}] Possibili inconsistenze dovute ai metadati delle sessioni già aperte
+        \end{itemize} 
+    \end{itemize}
+\end{frame}
+%
+\section{\faWrench\ Verifica ambiente di sviluppo} % (fold)
+\label{sec:diy-check-dev-env}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Verifica ambiente}
+    \vspace*{-.5cm}
+    \onslide<1->
+    \begin{shellcodeblock}{Verifica Java e JDK}
+        \begin{minted}{shell-session}
+            sysadmin@localhost:~$ java -version                          # Verifica Java
+            java version "21.0.8" 2025-07-15 LTS
+            Java(TM) SE Runtime Environment (build 21.0.8+12-LTS-250)
+            Java HotSpot(TM) 64-Bit Server VM (build 21.0.8+12-LTS-250, mixed mode, sharing)
+            sysadmin@localhost:~$ javac -version                         # Verifica JDK
+            javac 21.0.8
+        \end{minted}
+    \end{shellcodeblock}
+    \onslide<2->
+    \begin{shellcodeblock}{Verifica Maven}
+        \begin{minted}{shell-session}
+            sysadmin@localhost:~$ mvn -v                                 # Verifica Maven
+            Apache Maven 3.8.7
+            Maven home: /usr/share/maven
+            Java version: 21.0.8, vendor: Oracle Corp., runtime: /usr/lib/jvm/jdk-21.0.8
+            Default locale: en_US, platform encoding: UTF-8
+            OS name: "linux", version: "6.1.0-37-amd64", arch: "amd64", family: "unix"
+        \end{minted}
+    \end{shellcodeblock}
+    \onslide<3->
+    \begin{shellcodeblock}{Verifica Git}   
+        \begin{minted}{shell-session}
+            sysadmin@localhost:~$ git -v                                 # Verifica Git
+            git version 2.39.5
+        \end{minted}
+    \end{shellcodeblock}
+\end{frame}
+%
+\section{\faWrench\ Abilitazione OpenAI APIs} % (fold)
+\label{sec:diy-openai-apis}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{OpenAI API - Istruzioni (EN)}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Accedere all'indirizzo \url{https://openai.com/api/}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Accedere al servizio di \textit{login} per \textbf{API Platform}}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Inserire le credenziali di accesso (oppure iscriversi al servizio)}
+        \only<4|handout:4>{\item[\alertedcircled{4}] Se richiesto, inserire il codice a sei cifre di verifica}
+        \only<5|handout:5>{\item[\alertedcircled{5}] Accedere a \textbf{Projects} per verificare la presenza del progetto \textit{default}}
+        \only<6|handout:6>{\item[\alertedcircled{6}] Ricercare \textbf{API keys} nell'apposita casella di testo}
+        \only<7|handout:7>{\item[\alertedcircled{7}] Creare una chiave con nome, progetto di \textit{default} e tutti i permessi}
+        \only<8|handout:8>{\item[\alertedcircled{8}] Salvare la chiave in un luogo sicuro!}
+    \end{itemize}
+    }
+    \vfill
+    \begin{minipage}[b]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal.png}
+		    \end{figure}
+        }
+         \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal-login.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal-login-email.png}
+		    \end{figure}
+        }
+        \only<4|handout:4>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal-login-email-code.png}
+		    \end{figure}
+        }
+        \only<5|handout:5>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal-default-project.png}
+		    \end{figure}
+        }
+        \only<6|handout:6>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal-api-keys-search.png}
+		    \end{figure}
+        }
+        \only<7|handout:7>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal-api-key-create.png}
+		    \end{figure}
+        }
+        \only<8|handout:8>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/openai-portal-api-key-created.png}
+		    \end{figure}
+        }    
+	\end{minipage}
+\end{frame}
+%
+\section{\faWrench\ Abilitazione Gemini APIs} % (fold)
+\label{sec:diy-gemini-apis}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Gemini API - Macro-fasi}
+    \begin{itemize}
+        \onslide<1->\item[\alertedcircled{1}] Creazione di un progetto su portale Google Cloud API e servizi
+        \onslide<2->\item[\alertedcircled{2}] Creazione di una API \textit{key} legata al progetto
+        \onslide<3->\item[\alertedcircled{3}] Abilitazione delle Gemini API
+        \onslide<4->\item[\alertedcircled{4}] Configurazione credenziali (OAUTH \textit{client})
+        \begin{itemize}[leftmargin=20pt,align=right]
+			\item[\alert{\faHandORight}] Assicura il corretto monitoraggio delle quote di utilizzo API/servizio/progetto
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Gemini API - 1 - Creazione progetto}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Accedere all'indirizzo \url{https://console.cloud.google.com/}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Inserire le credenziali di accesso ai servizi Google}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Se richiesto, fornire autenticazione a due fattori}
+        \only<4-5|handout:4-5>{\item[\alertedcircled{4}] Aprire il selettore dei progetti e selezionare \textbf{Nuovo progetto}}
+        \only<6|handout:6>{\item[\alertedcircled{5}] Denominare il nuovo progetto e selezionare \textbf{Crea}}
+        \only<7|handout:7>{\item[\alertedcircled{6}] Selezionare il progetto appena creato come progetto di lavoro}
+        \only<8|handout:8>{\item[\alertedcircled{7}] Verificare la corretta selezione del progetto}
+    \end{itemize}
+    }
+    \vfill
+    \begin{minipage}[b]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-portal.png}
+		    \end{figure}
+        }
+         \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-login-2.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-2-step-verification.png}
+		    \end{figure}
+        }
+        \only<4|handout:4>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-new-project-1.png}
+		    \end{figure}
+        }
+        \only<5|handout:5>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-new-project-2.png}
+		    \end{figure}
+        }
+        \only<6|handout:6>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-create-project.png}
+		    \end{figure}
+        }
+        \only<7|handout:7>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-select-project.png}
+		    \end{figure}
+        }
+        \only<8|handout:8>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-selected-project.png}
+		    \end{figure}
+        }    
+	\end{minipage}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Gemini API - 2 - Creazione chiave API per progetto}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Accedere all'indirizzo \url{https://aistudio.google.com/}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Selezionare \textbf{Get started} nella pagina del portale}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Inserire le credenziali di accesso ai servizi Google}
+        \only<4|handout:4>{\item[\alertedcircled{4}] Se richiesto, fornire autenticazione a due fattori}
+        \only<5|handout:5>{\item[\alertedcircled{5}] Selezionare \textbf{Get API key} dal portale AI Studio}
+        \only<6|handout:6>{\item[\alertedcircled{6}] Selezionare \textbf{Crea chiave API}}
+        \only<7|handout:7>{\item[\alertedcircled{7}] Nella barra di ricerca, selezionare il progetto appena creato}
+        \only<8|handout:8>{\item[\alertedcircled{8}] Selezionare \textbf{Crea chiave API nel progetto esistente}}
+        \only<9|handout:9>{\item[\alertedcircled{9}] Salvare la chiave in un luogo sicuro!}
+    \end{itemize}
+    }
+    \vfill
+    \begin{minipage}[b]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-portal.png}
+		    \end{figure}
+        }
+         \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-get-started.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-login.png}
+		    \end{figure}
+        }
+        \only<4|handout:4>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-2-step-verification.png}
+		    \end{figure}
+        }
+        \only<5|handout:5>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-get-api-key.png}
+		    \end{figure}
+        }
+        \only<6|handout:6>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-create-api-key.png}
+		    \end{figure}
+        }
+        \only<7|handout:7>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-select-project.png}
+		    \end{figure}
+        }
+        \only<8|handout:8>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-create-api-key-in-project.png}
+		    \end{figure}
+        }
+        \only<9|handout:9>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-aistudio-created-api-key-in-project.png}
+		    \end{figure}
+        }    
+	\end{minipage}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Gemini API - 3 - Abilitazione Gemini API}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Nel portale Google Cloud, selezionare \textbf{API e servizi}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Ricercare \textbf{Gemini API} nell'apposita casella di testo}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Selezionare \textbf{Abilita} nella schermata \textbf{Gemini API}}
+    \end{itemize}
+    }
+    \vfill
+    \begin{minipage}[b]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-api-services.png}
+		    \end{figure}
+        }
+         \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-search.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-enable.png}
+		    \end{figure}
+        }   
+	\end{minipage}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Gemini API - 4 - Configurazione credenziali}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] In \textbf{API e servizi - API e servizi abilitati}, selezionare \textbf{Generative Language API}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Selezionare \textbf{Crea credenziali} in alto a destra}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Selezionare \textbf{Generative Language API} e \textbf{Dati utente}, procedere con \textbf{Avanti}}
+        \only<4|handout:4>{\item[\alertedcircled{4}] Riportare il nome del progetto nel \textbf{Nome applicazione} e la \textit{mail} dell'\textit{account}}
+        \only<5|handout:5>{\item[\alertedcircled{5}] Lasciare inalterata la fase di \textbf{Ambiti}}
+        \only<6|handout:6>{\item[\alertedcircled{6}] Selezionare \textbf{Applicazione desktop} in \textbf{Tipo di applicazione} e definire un \textbf{Nome}}
+        \only<7|handout:7>{\item[\alertedcircled{7}] Scaricare le credenziali OAUTH (opzionale) e/o salvare l'\textbf{ID client} (opzionale)}
+        \only<8|handout:8>{\item[\alertedcircled{8}] Verificare in \textbf{Credenziali} la presenza della chiave API e del \textit{client} OAUTH}
+    \end{itemize}
+    }
+    \vfill
+    \begin{minipage}[b]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-check.png}
+		    \end{figure}
+        }
+        \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-create-credentials.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-create-credentials-phase-1.png}
+		    \end{figure}
+        }
+        \only<4|handout:4>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-create-credentials-phase-2.png}
+		    \end{figure}
+        }
+        \only<5|handout:5>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-create-credentials-phase-3.png}
+		    \end{figure}
+        }
+        \only<6|handout:6>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-create-credentials-phase-4.png}
+		    \end{figure}
+        }
+        \only<7|handout:7>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-create-credentials-phase-5.png}
+		    \end{figure}
+        }
+        \only<8|handout:8>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-check-oauth.png}
+		    \end{figure}
+        }
+	\end{minipage}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Gemini API - Limiti di utilizzo}
+	\vspace*{-.5cm}
+    \onslide<1->
+    {\small
+        \begin{description}[labelwidth=\widthof{\alert{Tier} \alertedcircled{3} (\alert{T3})},leftmargin=!]
+			\item[\alert{Free} (\alert{F})] iscrizione \textit{account} Google
+            \item[\alert{Tier} \alertedcircled{1} (\alert{T1})] \textit{account} di pagamento legato al progetto
+            \item[\alert{Tier} \alertedcircled{2} (\alert{T2})] >250 USD spesi in utilizzo API da almeno 30gg
+            \item[\alert{Tier} \alertedcircled{3} (\alert{T3})] >1000 USD spesi in utilizzo API da almeno 30gg
+        \end{description}
+    }
+    \onslide<2->
+    \begin{minipage}[t]{\textwidth}
+	{\footnotesize
+	    \begin{table}
+		    %% increase table row spacing, adjust to taste
+		    \setlength{\tabcolsep}{5pt}
+		    \renewcommand{\arraystretch}{1.3}
+		    \centering
+		    \begin{tabular}{p{3cm}lll}
+		        \toprule
+		        \textbf{Modello}       & \textbf{RPM (\alert{F}/\alert{T1})} & \textbf{TPM (\alert{F}/\alert{T1})} & \textbf{RPD (\alert{F}/\alert{T1})}\\
+		        \midrule
+                Gemini 2.5 Pro         & 5/150                               & 250k/2000k                          & 100/1000                           \\
+                Gemini 2.5 Flash       & 10/1000                             & 250k/1000k                          & 250/10k                            \\
+                Gemini 2.5 Flash-Lite  & 15/4000                             & 250k/4000k                          & 1000/-                             \\
+                Gemini 2.0 Flash       & 15/2000                             & 1000k/4000k                         & 200/-                              \\
+                Gemini 2.0 Flash-Lite  & 30/4000                             & 1000k/4000k                         & 200/-                              \\
+			    \bottomrule
+			\end{tabular}
+		\end{table}
+	}
+	\end{minipage}
+    \begin{minipage}[t]{.5\textwidth}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{.4\textwidth}
+        {\footnotesize
+        \begin{description}[labelwidth=\widthof{TPM},leftmargin=!]
+			\item[RPM] Requests Per Minute
+            \item[TPM] Tokens Per Minute
+            \item[RPD] Requests Per Day
+        \end{description}
+        }
+    \end{minipage}
+\end{frame}
+%
+\section{\faWrench\ Abilitazione Tier 1 (opzionale)} % (fold)
+\label{sec:diy-tier-1}
+%
+\begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
+\framesubtitle{Gemini API - Abilitazione Tier 1}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Selezionare \textbf{Fatturazione}}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Selezionare \textbf{Collega un account di fatturazione}}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Selezionare \textbf{Gestisci account di fatturazione}}
+        \only<4|handout:4>{\item[\alertedcircled{4}] Selezionare \textbf{Crea account}}
+        \only<5|handout:5>{\item[\alertedcircled{5}] Inserire un nome identificativo dell'\textit{account} e selezionare \textbf{Continua}}
+        \only<6|handout:6>{\item[\alertedcircled{6}] Inserire contatti, metodo di pagamento (C/c banc. o C.C.) e selezionare \textbf{Invia}}
+        \only<7|handout:7>{\item[\alertedcircled{7}] In \textbf{Fatturazione - Gestione account} verificare la presenza del progetto}
+    \end{itemize}
+    }
+    \vfill
+    \begin{minipage}[b]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-billing.png}
+		    \end{figure}
+        }
+        \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-billing-link.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-billing-manage.png}
+		    \end{figure}
+        }
+        \only<4|handout:4>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-billing-create.png}
+		    \end{figure}
+        }
+        \only<5|handout:5>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-billing-create-name.png}
+		    \end{figure}
+        }
+        \only<6|handout:6>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-billing-configure.png}
+		    \end{figure}
+        }
+        \only<7|handout:7>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/google-cloud-gemini-api-billing-check.png}
+		    \end{figure}
+        }
+	\end{minipage}
+\end{frame}
