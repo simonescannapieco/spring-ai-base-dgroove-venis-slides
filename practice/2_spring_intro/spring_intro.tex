@@ -1,15 +1,123 @@
 \section{Introduzione a Spring AI} % (fold)
-\label{sec:spring-intro}
-
-\begin{frame}
-TBA
-\end{frame}
-
-\section{\faWrench\ Inizializzazione \textit{stub} Spring AI} % (fold)
 \label{sec:spring-ai-intro}
 
+\begin{frame}[t] \frametitle{Spring AI}
+    \framesubtitle{Cos'è Spring AI}
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \onslide<1->\item[\alert{\faLightbulbO}] Framework Spring per l'integrazione con servizi AI
+        \onslide<2->\item[\alert{\faLightbulbO}] Astrazione unificata per diversi provider AI (OpenAI, Azure OpenAI, Google, Anthropic)
+        \onslide<3->\item[\alert{\faLightbulbO}] Supporto per chat, embedding, image generation e function calling
+        \onslide<4->\item[\alert{\faLightbulbO}] Integrazione nativa con l'ecosistema Spring Boot
+    \end{itemize}
+    
+    \vspace{1cm}
+    \onslide<5->
+    \begin{block}{Obiettivo}
+        Semplificare l'integrazione di funzionalità AI nelle applicazioni Spring, mantenendo la flessibilità e la portabilità
+    \end{block}
+\end{frame}
+
+\begin{frame}[t] \frametitle{Spring AI}
+    \framesubtitle{Architettura e componenti principali}
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \onslide<1->\item[\alert{\faCogs}] \textbf{ChatClient}: Interfaccia per conversazioni con modelli linguistici
+        \onslide<2->\item[\alert{\faCogs}] \textbf{EmbeddingClient}: Gestione di embeddings per similarity search
+        \onslide<3->\item[\alert{\faCogs}] \textbf{ImageClient}: Generazione e manipolazione di immagini
+        \onslide<4->\item[\alert{\faCogs}] \textbf{VectorStore}: Archiviazione vettoriale per RAG (Retrieval Augmented Generation)
+        \onslide<5->\item[\alert{\faCogs}] \textbf{Function Calling}: Invocazione di funzioni Java dai modelli AI
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \onslide<6->
+    \begin{alertblock}{Principio fondamentale}
+        Un'API, molteplici implementazioni - cambio di provider senza modifiche al codice
+    \end{alertblock}
+\end{frame}
+
+\section{\faThumbsUp\ Pregi di Spring AI} % (fold)
+\label{sec:spring-ai-pros}
+
+\begin{frame}[t] \frametitle{Spring AI}
+    \framesubtitle{Vantaggi principali}
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \onslide<1->\item[\alert{\faCheckCircle}] \textbf{Astrazione unificata}: Stesso codice per provider diversi
+        \onslide<2->\item[\alert{\faCheckCircle}] \textbf{Integrazione nativa}: Auto-configuration, dependency injection, properties
+        \onslide<3->\item[\alert{\faCheckCircle}] \textbf{Type safety}: Strongly typed con supporto per record Java
+        \onslide<4->\item[\alert{\faCheckCircle}] \textbf{Observability}: Metrics, tracing e logging integrati
+        \onslide<5->\item[\alert{\faCheckCircle}] \textbf{Spring ecosystem}: Compatibility con Spring Security, Data, Cloud
+        \onslide<6->\item[\alert{\faCheckCircle}] \textbf{Gestione errori}: Retry, circuit breaker, fallback mechanisms
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile] \frametitle{Spring AI}
+    \framesubtitle{Esempio pratico - ChatClient}
+    \begin{block}{Configurazione automatica}
+    \begin{lstlisting}[language=java, basicstyle=\tiny\ttfamily]
+@RestController
+public class ChatController {
+    
+    private final ChatClient chatClient;
+    
+    public ChatController(ChatClient.Builder chatClientBuilder) {
+        this.chatClient = chatClientBuilder
+            .defaultSystem("Sei un assistente utile e preciso")
+            .build();
+    }
+    
+    @PostMapping("/chat")
+    public String chat(@RequestBody String message) {
+        return chatClient.prompt()
+            .user(message)
+            .call()
+            .content();
+    }
+}
+    \end{lstlisting}
+    \end{block}
+    
+    \onslide<2->
+    \begin{alertblock}{Zero boilerplate}
+        Spring AI gestisce automaticamente configurazione, serializzazione e gestione errori
+    \end{alertblock}
+\end{frame}
+
+\section{\faThumbsDown\ Limiti di Spring AI} % (fold)
+\label{sec:spring-ai-cons}
+
+\begin{frame}[t] \frametitle{Spring AI}
+    \framesubtitle{Svantaggi e limitazioni}
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \onslide<1->\item[\alert{\faExclamationTriangle}] \textbf{Progetto giovane}: API ancora in evoluzione, breaking changes possibili
+        \onslide<2->\item[\alert{\faExclamationTriangle}] \textbf{Astrazione limitante}: Non espone tutte le funzionalità specifiche dei provider
+        \onslide<3->\item[\alert{\faExclamationTriangle}] \textbf{Dipendenza da Spring}: Vendor lock-in nell'ecosistema Spring
+        \onslide<4->\item[\alert{\faExclamationTriangle}] \textbf{Performance overhead}: Livello di astrazione aggiuntivo
+        \onslide<5->\item[\alert{\faExclamationTriangle}] \textbf{Documentazione}: Ancora incompleta in alcune aree
+        \onslide<6->\item[\alert{\faExclamationTriangle}] \textbf{Supporto provider}: Non tutti i provider hanno le stesse funzionalità
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t] \frametitle{Spring AI}
+    \framesubtitle{Quando NON usare Spring AI}
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \onslide<1->\item[\alert{\faTimesCircle}] Applicazioni \textbf{non-Spring} (overhead ingiustificato)
+        \onslide<2->\item[\alert{\faTimesCircle}] Necessità di \textbf{funzionalità specifiche} di un provider
+        \onslide<3->\item[\alert{\faTimesCircle}] Progetti con \textbf{performance critiche} (ogni millisecondo conta)
+        \onslide<4->\item[\alert{\faTimesCircle}] Team che preferisce \textbf{controllo granulare} sulle API
+        \onslide<5->\item[\alert{\faTimesCircle}] Ambienti \textbf{legacy} con vincoli di dipendenze
+    \end{itemize}
+    
+    \vspace{1cm}
+    \onslide<6->
+    \begin{block}{Alternativa}
+        Uso diretto delle SDK native dei provider (OpenAI Java SDK, etc.)
+    \end{block}
+\end{frame}
+%
+\section{\faWrench\ Setup progetto Spring AI} % (fold)
+\label{sec:spring-ai-project-setup}
+%
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
-    \framesubtitle{Inizializzazione \textit{stub} progetto}
+    \framesubtitle{Obiettivo}
     \begin{itemize}[leftmargin=10pt,align=right]
         \onslide<1->\item[\alert{\faHandORight}] Inizializzare un progetto Spring con le seguenti caratteristiche:     
         \onslide<2->
@@ -24,18 +132,27 @@ TBA
         \end{itemize}
     \end{itemize}
 \end{frame}
-
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+    \setbeamertemplate{subsection in toc}[\alertedcircled{#1}]
+    \tableofcontents[sections={2}]
+\end{frame}
+%
+\subsection{\faWrench\ Inizializzazione \textit{stub} Spring AI} % (fold)
+\label{subsec:spring-ai-intro}
+%
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
     \framesubtitle{Strategie di inizializzazione}
 	\vspace*{-.5cm}
     \begin{itemize}
-        \onslide<1->{\item[\alertedcircled{1}] Da IDE}
+        \onslide<1->{\item[\alertedcircled{1}] Da IDE (VSCode)}
         \onslide<2->{\item[\alertedcircled{2}] Da Spring Initializr}
     \end{itemize}
 \end{frame}
-
+%
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
-    \framesubtitle{1 - Inizializzazione da IDE (VSCode)}
+    \framesubtitle{Inizializzazione da IDE (VSCode)}
 	\vspace*{-.5cm}
     {\footnotesize
     \begin{itemize}
@@ -141,9 +258,9 @@ TBA
 	\end{minipage}
     }
 \end{frame}
-
+%
 \begin{frame}[t,fragile] \frametitle{Progetto Spring}
-    \framesubtitle{2 - Inizializzazione da Spring Initializr}
+    \framesubtitle{Inizializzazione da Spring Initializr}
     \vspace*{-.5cm}
     \centering
     \includegraphics[width=.9\textwidth, frame]{img/spring-initializr.png}
@@ -153,10 +270,10 @@ TBA
         \url{https://start.spring.io/}
     \end{block}
 \end{frame}
-
-\section{\faWrench\ Verifica JRE per progetto} % (fold)
-\label{sec:spring-ai-jvm}
-
+%
+\subsection{\faWrench\ Verifica JRE per progetto} % (fold)
+\label{subsec:spring-ai-jvm}
+%
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
     \framesubtitle{Verifica Java Runtime}
 	\vspace*{-.5cm}
@@ -181,10 +298,10 @@ TBA
 	\end{minipage}
     }
 \end{frame}
-
-\section{\faWrench\ Esecuzione progetto} % (fold)
-\label{sec:spring-ai-compile-run}
-
+%
+\subsection{\faWrench\ Esecuzione progetto} % (fold)
+\label{subsec:spring-ai-compile-run}
+%
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
     \framesubtitle{Compilazione ed esecuzione}
 	\vspace*{-.5cm}
@@ -216,6 +333,37 @@ TBA
         \only<4|handout:4>{
 		    \begin{figure}[ht]
 			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-launch-json-env.png}
+		    \end{figure}
+        }
+	\end{minipage}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Se va tutto bene\ldots}
+    \framesubtitle{\ldots dovrebbe andare tutto male}
+	\vspace*{-.5cm}
+    {\footnotesize
+    \begin{itemize}
+        \only<1|handout:1>{\item[\alertedcircled{1}] Eseguendo il progetto, dovremmo ottenere una eccezione!}
+        \only<2|handout:2>{\item[\alertedcircled{2}] Definiamo la chiave richiesta da Spring AI (\texttt{spring.ai.openai.api-key})}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Ora non dovremmo ottenere eccezioni!}
+    \end{itemize}
+    \vfill
+    \begin{minipage}[t]{\textwidth}
+		\centering
+        \only<1|handout:1>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-launch-error.png}
+		    \end{figure}
+        }
+        \only<2|handout:2>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-application-yml-api-key.png}
+		    \end{figure}
+        }
+        \only<3|handout:3>{
+		    \begin{figure}[ht]
+			    \includegraphics[width=\textwidth, frame]{img/spring-vsc-demo-project-launch-done.png}
 		    \end{figure}
         }
 	\end{minipage}
