@@ -1,32 +1,804 @@
-\section{Language AI\\Natural Language Processing} % (fold)
-\label{sec:langai}
+\section{Artificial Intelligence del Linguaggio} % (fold)
+\label{sec:language_ai}
 %
-\begin{frame}[t,fragile] \frametitle{Quando?}
-\framesubtitle{Cronoprogramma del corso}
-    \begin{itemize}[leftmargin=10pt,align=right]
-        \onslide<1->\item[\alert{\faHandORight}] 28 ore totali
-        \onslide<2->\item[\alert{\faHandORight}] Date
-        \begin{itemize}[leftmargin=10pt,align=right]
-            \item[\alert{\faHandORight}] 23 Settembre 2025
-            \item[\alert{\faHandORight}] 25 Settembre 2025
-            \item[\alert{\faHandORight}] 07 Ottobre 2025
-            \item[\alert{\faHandORight}] 09 Ottobre 2025
-        \end{itemize}
-        \onslide<3->\item[\alert{\faHandORight}] Orari
-        \begin{itemize}[leftmargin=10pt,align=right]
-            \item[\alert{\faHandORight}] 9:00 - 13:00; 14:00 - 17:00
-        \end{itemize}         
-    \end{itemize}
-    \onslide<4->
-    \begin{center}
-        \begin{minipage}[b]{.45\textwidth}
-		    \begin{figure}[ht]
-			    \includegraphics[width=\textwidth]{img/full-metal-jacket.jpg}
-		    \end{figure}
-            \begin{flushright}
-                \vspace*{-10pt}
-                {\tiny\textsuperscript{\textcopyright}Wikimedia Creative Commons}
-            \end{flushright}
-	    \end{minipage}
-    \end{center}
+\begin{frame}[t,fragile] \frametitle{Introduzione alla Language AI}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Dall'elaborazione del linguaggio naturale ai modelli linguistici di grandi dimensioni}
+            \vspace*{-15pt}
+             \begin{minipage}[t]{\textwidth}
+             	%\begin{figure}[ht]
+                %    \centering
+                %    \includegraphics[width=\textwidth]{img/language-ai-timeline.png}
+                %\end{figure}
+            \end{minipage}
+            \\\vspace*{3pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{Language AI:} sottocampo dell'AI dedicato allo sviluppo di tecnologie capaci di \alert{comprendere, elaborare e generare} linguaggio umano
+						\onslide<3->\item[\alert{\faHandORight}] Spesso utilizzato \alert{intercambiabilmente} con Natural Language Processing (NLP)
+						\onslide<4->\item[\alert{\faHandORight}] Il successo continuo dei metodi di \alert{machine learning} ha rivoluzionato il campo
+						\onslide<5->\item[\alert{\faHandORight}] Include tecnologie che tecnicamente potrebbero non essere LLM ma hanno un \alert{impatto significativo} sul campo
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/nlp-concept.png}
+                    %	{\tiny\\Evoluzione del NLP\\\vspace*{-1pt}\textit{\textcopyright AI Research}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Le Origini: ELIZA (1966)}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Il primo chatbot della storia}
+            \vspace*{-15pt}
+            \begin{minipage}[t]{\textwidth}
+             	%\begin{figure}[ht]
+                %    \centering
+                %    \includegraphics[width=\textwidth]{img/eliza-timeline.png}
+                %\end{figure}
+            \end{minipage}
+            \\\vspace*{3pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] Sviluppato da \alert{Joseph Weizenbaum} al MIT
+						\onslide<3->\item[\alert{\faHandORight}] Simulava una conversazione con uno \alert{psicoterapeuta} rogersiano
+						\onslide<4->\item[\alert{\faHandORight}] Utilizzava semplici \alert{pattern matching} e regole di sostituzione
+						\onslide<5->\item[\alert{\faHandORight}] Dimostrava quanto facilmente le persone potessero essere \alert{ingannate} da un programma semplice
+						\onslide<6->\item[\alert{\faHandORight}] Primo esempio di \alert{illusione di comprensione} da parte di una macchina
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.6\textwidth]{img/joseph-weizenbaum.png}
+                    %	{\tiny\\Joseph Weizenbaum\\\vspace*{-1pt}\textit{\textcopyright MIT Archives}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{ELIZA: Come Funzionava}
+	{\small
+		\onslide<1->
+		\framesubtitle{Pattern matching e trasformazioni di template}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Regole di pattern matching:} riconoscimento di parole chiave nell'input
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Trasformazioni grammaticali:} "I am" -> "you are"
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Template di risposta:} frasi predefinite con slot per le sostituzioni
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Strategia di fallback:} domande generiche quando non trova pattern
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Utente: "I am feeling sad today"\\
+			ELIZA: "Why do you think you are feeling sad today?"\\
+			Pattern: "I am *" -> "Why do you think you are *?"}}{\textbf{Esempio di pattern matching ELIZA}}
+		\end{minipage}
+		}
+		\only<3|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Trasformazioni grammaticali:\\
+			"I" -> "you"\\
+			"my" -> "your"\\
+			"am" -> "are"\\
+			"me" -> "you"}}{\textbf{Regole di trasformazione ELIZA}}
+		\end{minipage}
+		}
+		\only<4|handout:3>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Template di risposta:\\
+			"Tell me more about *"\\
+			"How does that make you feel?"\\
+			"What else comes to mind when you think of *?"\\
+			"Why do you think *?"}}{\textbf{Esempi di template ELIZA}}
+		\end{minipage}
+		}
+		\only<5|handout:4>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Domande generiche quando nessun pattern è riconosciuto:\\
+			"Can you elaborate on that?"\\
+			"I see."\\
+			"What does that suggest to you?"\\
+			"Please go on."}}{\textbf{Strategie di fallback ELIZA}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Rappresentazione del Linguaggio: Bag-of-Words}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Il primo metodo per rappresentare testo non strutturato}
+            \vspace*{-15pt}
+            \begin{minipage}[t]{\textwidth}
+             	%\begin{figure}[ht]
+                %    \centering
+                %    \includegraphics[width=\textwidth]{img/bow-timeline.png}
+                %\end{figure}
+            \end{minipage}
+            \\\vspace*{3pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{Menzionato per la prima volta} negli anni '50, popolare negli anni 2000
+						\onslide<3->\item[\alert{\faHandORight}] Metodo per rappresentare il testo \alert{non strutturato} in formato numerico
+						\onslide<4->\item[\alert{\faHandORight}] Il \alert{linguaggio è complicato} per i computer: il testo perde significato quando rappresentato da zeri e uni
+						\onslide<5->\item[\alert{\faHandORight}] Focus principale: rappresentare il linguaggio in \alert{modo strutturato} per l'uso da parte dei computer
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/text-structure.png}
+                    %	{\tiny\\Strutturazione del Testo\\\vspace*{-1pt}\textit{\textcopyright Data Science}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Bag-of-Words: Come Funziona}
+	{\small
+		\onslide<1->
+		\framesubtitle{Processo di tokenizzazione e creazione del vocabolario}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Tokenizzazione:} processo di divisione delle frasi in parole individuali o sub-parole (token)
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Creazione del vocabolario:} combinazione di tutte le parole uniche dalle frasi
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Conteggio delle parole:} rappresentazione numerica basata sulla frequenza
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Frase 1: "That is a cute dog"\\
+			Frase 2: "My cat is cute"\\
+			Tokenizzazione (divisione per spazio):\\
+			("that", "is", "a", "cute", "dog", "my", "cat", "is", "cute")}}{\textbf{Processo di tokenizzazione}}
+		\end{minipage}
+		}
+		\only<3|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Vocabolario (parole uniche):\\
+			("that", "is", "a", "cute", "dog", "my", "cat")\\
+			Dimensione del vocabolario: 7 parole}}{\textbf{Creazione del vocabolario}}
+		\end{minipage}
+		}
+		\only<4|handout:3>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Rappresentazione vettoriale:\\
+			"That is a cute dog": (1, 1, 1, 1, 1, 0, 0)\\
+			"My cat is cute": (0, 1, 0, 1, 0, 1, 1)\\
+			Ogni numero rappresenta la frequenza della parola}}{\textbf{Vettori bag-of-words}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Limitazioni del Bag-of-Words}
+	{\small
+		\onslide<1->
+		\framesubtitle{Perché servivano rappresentazioni migliori}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Perdita dell'ordine:} "The dog bit the man" = "The man bit the dog"
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Mancanza di semantica:} non cattura il significato delle parole
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Alta dimensionalità:} vocabolari enormi con molti zeri
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Nessuna generalizzazione:} "happy" e "joyful" sono completamente diverse
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Due frasi con significati opposti:\\
+			"The dog bit the man" -> (1, 1, 1, 1, 1)\\
+			"The man bit the dog" -> (1, 1, 1, 1, 1)\\
+			Identiche rappresentazioni per significati diversi!}}{\textbf{Problema dell'ordine delle parole}}
+		\end{minipage}
+		}
+		\only<3|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Parole correlate semanticamente:\\
+			"king" e "queen" (concetti correlati)\\
+			"happy" e "joyful" (sinonimi)\\
+			"dog" e "puppy" (relazione iperonimo-iponimo)\\
+			Nel bag-of-words sono tutte completamente diverse}}{\textbf{Mancanza di relazioni semantiche}}
+		\end{minipage}
+		}
+		\only<4|handout:3>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Esempio con vocabolario di Wikipedia:\\
+			- Vocabolario: ~6 milioni di parole\\
+			- Vettore per ogni documento: 6 milioni di dimensioni\\
+			- La maggior parte dei valori è 0 (matrice sparsa)\\
+			Computazionalmente inefficiente!}}{\textbf{Problema della dimensionalità}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Evoluzione: Word Embeddings (2013)}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Word2Vec e la rivoluzione delle rappresentazioni dense}
+            \vspace*{-15pt}
+            \begin{minipage}[t]{\textwidth}
+             	%\begin{figure}[ht]
+                %    \centering
+                %    \includegraphics[width=\textwidth]{img/word2vec-timeline.png}
+                %\end{figure}
+            \end{minipage}
+            \\\vspace*{3pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{Word2Vec:} primo tentativo di successo per catturare il significato del testo negli embeddings
+						\onslide<3->\item[\alert{\faHandORight}] \alert{Embeddings:} rappresentazioni vettoriali di dati che tentano di catturarne il significato
+						\onslide<4->\item[\alert{\faHandORight}] Addestrato su \alert{enormi quantità} di dati testuali (intera Wikipedia)
+						\onslide<5->\item[\alert{\faHandORight}] Utilizza \alert{reti neurali} per generare rappresentazioni semantiche
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/word2vec-concept.png}
+                    %	{\tiny\\Concetto di Word2Vec\\\vspace*{-1pt}\textit{\textcopyright Google Research}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Word2Vec: Come Funziona}
+	{\small
+		\onslide<1->
+		\framesubtitle{Apprendimento delle relazioni tra parole}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Principio fondamentale:} parole che appaiono in contesti simili hanno significati simili
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Addestramento:} predire se due parole sono vicine in una frase
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Risultato:} parole con significati simili hanno embeddings vicini nello spazio
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Ipotesi distributiva:\\
+			"You shall know a word by the company it keeps"\\
+			Esempi di contesti:\\
+			"The \_\_\_ is barking" -> probabilmente "dog"\\
+			"I love my pet \_\_\_" -> "dog", "cat", "bird"}}{\textbf{Principio alla base di Word2Vec}}
+		\end{minipage}
+		}
+		\only<3|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Processo di addestramento:\\
+			1. Assegna a ogni parola un vettore casuale (50 dimensioni)\\
+			2. Prendi coppie di parole dal testo\\
+			3. La rete predice: sono vicine in una frase?\\
+			4. Aggiorna i vettori in base alla correttezza}}{\textbf{Training di Word2Vec}}
+		\end{minipage}
+		}
+		\only<4|handout:3>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Risultati sorprendenti:\\
+			king - man + woman ≈ queen\\
+			Paris - France + Italy ≈ Rome\\
+			walking - walk + swim ≈ swimming\\
+			Gli embeddings catturano relazioni semantiche!}}{\textbf{Proprietà emergenti degli embeddings}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Dalle Reti Ricorrenti ai Transformer (2017)}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{L'evoluzione verso l'attenzione}
+            \vspace*{-15pt}
+            \begin{minipage}[t]{\textwidth}
+             	%\begin{figure}[ht]
+                %    \centering
+                %    \includegraphics[width=\textwidth]{img/transformer-timeline.png}
+                %\end{figure}
+            \end{minipage}
+            \\\vspace*{3pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{Problema delle RNN:} processamento sequenziale, difficoltà con sequenze lunghe
+						\onslide<3->\item[\alert{\faHandORight}] \alert{Meccanismo di attenzione:} permette al modello di "prestare attenzione" a parti rilevanti dell'input
+						\onslide<4->\item[\alert{\faHandORight}] \alert{Paper "Attention Is All You Need":} introduce l'architettura Transformer
+						\onslide<5->\item[\alert{\faHandORight}] \alert{Vantaggi:} parallelizzazione, migliori performance, base per i moderni LLM
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/attention-mechanism.png}
+                    %	{\tiny\\Meccanismo di Attenzione\\\vspace*{-1pt}\textit{\textcopyright Google Research}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Transformer: Rivoluzione dell'Attenzione}
+	{\small
+		\onslide<1->
+		\framesubtitle{Come l'attenzione ha cambiato tutto}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Self-attention:} ogni parola può "prestare attenzione" a ogni altra parola nella sequenza
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Parallelizzazione:} non più processamento sequenziale, ma simultaneo
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Gestione del contesto:} cattura relazioni a lungo raggio tra parole
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Esempio di self-attention:\\
+			Frase: "The animal didn't cross the street because it was too tired"\\
+			La parola "it" presta alta attenzione a "animal"\\
+			Il modello comprende il riferimento pronominale}}{\textbf{Self-attention in azione}}
+		\end{minipage}
+		}
+		\only<3|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{RNN: parola1 -> parola2 -> parola3 -> ... (sequenziale)\\
+			Transformer: tutte le parole processate simultaneamente\\
+			Risultato: training 100x più veloce su GPU}}{\textbf{Vantaggio della parallelizzazione}}
+		\end{minipage}
+		}
+		\only<4|handout:3>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Gestione di dipendenze a lungo raggio:\\
+			"Maria, che aveva studiato linguistica per anni, \_\_\_ esperta"\\
+			Il Transformer collega "Maria" con il verbo finale\\
+			anche attraverso la lunga frase subordinata}}{\textbf{Cattura del contesto a lungo raggio}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{BERT vs GPT: Due Paradigmi}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Modelli di rappresentazione vs modelli generativi}
+            \vspace*{-10pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{BERT (2018):} Bidirectional Encoder Representations from Transformers
+						\begin{itemize}[leftmargin=10pt,align=right]
+							\item[\alert{\faHandORight}] Architettura encoder-only
+							\item[\alert{\faHandORight}] Masked Language Modeling
+							\item[\alert{\faHandORight}] Eccelle nella comprensione
+						\end{itemize}
+						\onslide<3->\item[\alert{\faHandORight}] \alert{GPT (2018):} Generative Pretrained Transformer
+						\begin{itemize}[leftmargin=10pt,align=right]
+							\item[\alert{\faHandORight}] Architettura decoder-only
+							\item[\alert{\faHandORight}] Next Token Prediction
+							\item[\alert{\faHandORight}] Eccelle nella generazione
+						\end{itemize}
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/bert-vs-gpt.png}
+                    %	{\tiny\\BERT vs GPT\\\vspace*{-1pt}\textit{\textcopyright HuggingFace}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\section{Artificial Intelligence del Linguaggio} % (fold)
+\label{sec:language_ai}
+%
+\begin{frame}[t,fragile] \frametitle{Introduzione alla Language AI}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Dall'elaborazione del linguaggio naturale ai modelli linguistici di grandi dimensioni}
+            \vspace*{-15pt}
+             \begin{minipage}[t]{\textwidth}
+             	%\begin{figure}[ht]
+                %    \centering
+                %    \includegraphics[width=\textwidth]{img/llm-timeline.png}
+                %\end{figure}
+            \end{minipage}
+            \\\vspace*{3pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{GPT-2 (2019):} 1.5 miliardi di parametri, "troppo pericoloso da rilasciare"
+						\onslide<3->\item[\alert{\faHandORight}] \alert{GPT-3 (2020):} 175 miliardi di parametri, capacità emergenti
+						\onslide<4->\item[\alert{\faHandORight}] \alert{ChatGPT (2022):} fine-tuning con feedback umano (RLHF)
+						\onslide<5->\item[\alert{\faHandORight}] \alert{GPT-4 e successivi:} modelli multimodali, ragionamento avanzato
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/llm-growth.png}
+                    %	{\tiny\\Crescita dei LLM\\\vspace*{-1pt}\textit{\textcopyright OpenAI}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Capacità Emergenti dei LLM}
+	{\small
+		\onslide<1->
+		\framesubtitle{Abilità che emergono con la scala}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{In-context Learning:} apprendimento da pochi esempi nel prompt
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Chain-of-Thought:} ragionamento step-by-step
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Code Generation:} generazione di codice da descrizioni
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Multimodalità:} comprensione di testo, immagini, audio
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Esempi di in-context learning:\\
+			"Translate to French: Hello -> Bonjour\\
+			Translate to French: Goodbye -> Au revoir\\
+			Translate to French: Thank you -> Merci"\\
+			Il modello impara il pattern senza training!}}{\textbf{Few-shot learning con i LLM}}
+		\end{minipage}
+		}
+		\only<3|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Chain-of-Thought prompting:\\
+			"Risolvi step by step: Se ho 15 mele e ne mangio 3, poi ne compro il doppio di quelle rimanenti, quante mele ho?"\\
+			Risposta: "Prima calcolo: 15 - 3 = 12 mele rimaste\\
+			Poi: 12 × 2 = 24 mele comprate\\
+			Totale: 12 + 24 = 36 mele"}}{\textbf{Ragionamento esplicito}}
+		\end{minipage}
+		}
+		\only<4|handout:3>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Prompt: "Scrivi una funzione Python che calcola il fattoriale"\\
+			Output:\\
+			def factorial(n):\\
+			\quad if n == 0 or n == 1:\\
+			\quad\quad return 1\\
+			\quad return n * factorial(n-1)}}{\textbf{Generazione di codice}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Architetture dei Moderni LLM}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Decoder-only Transformers dominano}
+            \vspace*{-10pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{Architettura dominante:} Decoder-only Transformers
+						\onslide<3->\item[\alert{\faHandORight}] \alert{Autoregressive Generation:} generazione token per token
+						\onslide<4->\item[\alert{\faHandORight}] \alert{Scaling Laws:} performance migliora con più parametri e dati
+						\onslide<5->\item[\alert{\faHandORight}] \alert{Emergenza:} nuove capacità appaiono improvvisamente oltre certe scale
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/scaling-laws.png}
+                    %	{\tiny\\Scaling Laws\\\vspace*{-1pt}\textit{\textcopyright Anthropic}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Tipi di Embeddings nei LLM}
+	{\small
+		\onslide<1->
+		\framesubtitle{Dall'input agli embeddings contestuali}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Token Embeddings:} rappresentazioni delle singole parole/subword
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Positional Embeddings:} informazione sulla posizione nella sequenza
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Contextual Embeddings:} rappresentazioni che cambiano in base al contesto
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Tokenizzazione subword (BPE):\\
+			"GPT-4 is amazing" ->\\
+			("G", "PT", "-4", " is", " amazing")\\
+			Ogni token ha il suo embedding vettoriale}}{\textbf{Da testo a token embeddings}}
+		\end{minipage}
+		}
+		\only<3|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{I Transformers non hanno concetto di ordine\\
+			Positional embeddings aggiungono informazione:\\
+			Posizione 1: (0.1, -0.5, 0.8, ...)\\
+			Posizione 2: (0.3, -0.1, 0.2, ...)\\
+			...\\
+			Sommati agli embeddings dei token}}{\textbf{Encoding della posizione}}
+		\end{minipage}
+		}
+		\only<4|handout:3>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Stesso token, diversi contesti:\\
+			"I went to the bank" (istituto finanziario)\\
+			"I sat by the river bank" (sponda del fiume)\\
+			L'embedding di "bank" cambia in base al contesto\\
+			grazie ai layer di attenzione}}{\textbf{Embeddings contestuali}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Training e Fine-tuning dei LLM}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Dal pre-training all'allineamento}
+            \vspace*{-10pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{Pre-training:} apprendimento auto-supervisionato su enormi corpus di testo
+						\onslide<3->\item[\alert{\faHandORight}] \alert{Instruction Tuning:} fine-tuning per seguire istruzioni
+						\onslide<4->\item[\alert{\faHandORight}] \alert{RLHF:} Reinforcement Learning from Human Feedback
+						\onslide<5->\item[\alert{\faHandORight}] \alert{Constitutional AI:} addestramento con principi etici
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/training-stages.png}
+                    %	{\tiny\\Fasi di Training\\\vspace*{-1pt}\textit{\textcopyright Anthropic}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Applicazioni dei LLM}
+	{\small
+		\onslide<1->
+		\framesubtitle{Dai chatbot agli assistenti specializzati}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Assistenti conversazionali:} ChatGPT, Claude, Bard
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Generazione di codice:} GitHub Copilot, CodeT5
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Ricerca e RAG:} Retrieval-Augmented Generation
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Agenti autonomi:} AutoGPT, LangChain
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<3|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{// Scrivi una funzione per ordinare una lista\\
+			function quickSort(arr) \{\\
+			\quad if (arr.length <= 1) return arr;\\
+			\quad const pivot = arr[0];\\
+			\quad const left = arr.slice(1).filter(x => x < pivot);\\
+			\quad const right = arr.slice(1).filter(x => x >= pivot);\\
+			\quad return [...quickSort(left), pivot, ...quickSort(right)];\\
+			\}}}{\textbf{Generazione automatica di codice}}
+		\end{minipage}
+		}
+		\only<4|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{RAG (Retrieval-Augmented Generation):\\
+			1. Utente fa una domanda\\
+			2. Sistema cerca informazioni rilevanti in un database\\
+			3. LLM genera risposta usando le informazioni trovate\\
+			4. Risposta accurata e aggiornata\\
+			Combina ricerca e generazione!}}{\textbf{Ricerca potenziata dalla generazione}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Sfide e Limitazioni Attuali}
+	{\small
+		\onslide<1->
+		\framesubtitle{Problemi ancora aperti}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Allucinazioni:} generazione di informazioni false o inventate
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Bias:} pregiudizi presenti nei dati di training
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Interpretabilità:} difficoltà nel capire come ragionano
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Costi computazionali:} enormi risorse necessarie per training e inferenza
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<2|handout:1>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Esempi di allucinazioni:\\
+			"Chi ha vinto il Nobel per la Fisica nel 2025?"\\
+			LLM: "Mario Rossi per i suoi studi sui buchi neri"\\
+			Genera risposte plausibili ma completamente false}}{\textbf{Il problema delle allucinazioni}}
+		\end{minipage}
+		}
+		\only<5|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{Costi di GPT-4:\\
+			- Training: >100 milioni di dollari\\
+			- 25.000 GPU A100 per mesi\\
+			- Inferenza: migliaia di GPU in parallelo\\
+			- Consumo energetico: paragonabile a una piccola città\\
+			Sostenibilità ambientale ed economica?}}{\textbf{Costi computazionali enormi}}
+		\end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Futuro della Language AI}
+	{\small
+		\onslide<1->
+		\framesubtitle{Verso l'AGI e oltre}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Modelli multimodali:} integrazione di testo, immagini, audio, video
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Agenti autonomi:} LLM che possono interagire con il mondo
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Efficienza:} modelli più piccoli ma più capaci
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Specializzazione:} LLM per domini specifici (medicina, legge, scienza)
+		\end{itemize}
+		\vspace*{.5cm}
+		\begin{center}
+			\alert{\Large Il viaggio da ELIZA a GPT-4 ha richiesto 58 anni.\\
+			Cosa ci riserveranno i prossimi 10?}
+		\end{center}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Riassunto: L'Evoluzione della Language AI}
+	{\scriptsize
+		\framesubtitle{Dal pattern matching all'intelligenza artificiale}
+		\begin{center}
+		{\tiny
+		\begin{table}
+			\setlength{\tabcolsep}{4pt}
+			\renewcommand{\arraystretch}{1.3}
+			\centering
+			\begin{tabular}{p{1.8cm}p{2.2cm}p{2cm}p{2.5cm}p{2cm}}
+				\toprule
+				\textbf{Era} & \textbf{Modello} & \textbf{Anno} & \textbf{Approccio} & \textbf{Capacità}\\
+				\midrule
+				\alert{Regole} & ELIZA & 1966 & Pattern matching & Conversazione basilare\\
+				\alert{Statistico} & Bag-of-Words & 1950-2000 & Conteggio parole & Classificazione testi\\
+				\alert{Embeddings} & Word2Vec & 2013 & Reti neurali & Semantica delle parole\\
+				\alert{Attenzione} & Transformer & 2017 & Self-attention & Comprensione contesto\\
+				\alert{Pre-training} & BERT/GPT & 2018 & Transfer learning & Task multipli\\
+				\alert{Scaling} & GPT-3/4 & 2020-2023 & Modelli enormi & Capacità emergenti\\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+		}
+		\end{center}
+		\vspace*{.3cm}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\item[\alert{\faHandORight}] \alert{Lezione principale:} la scala (dati + parametri + compute) porta a capacità emergenti
+			\item[\alert{\faHandORight}] \alert{Trend futuro:} efficienza, multimodalità, specializzazione
+			\item[\alert{\faHandORight}] \alert{Impatto:} trasformazione di ogni settore che utilizza il linguaggio
+		\end{itemize}
+	}
 \end{frame}
