@@ -1,116 +1,361 @@
-\section{Introduzione a Spring AI} % (fold)
-\label{sec:spring-ai-intro}
-
-\begin{frame}[t] \frametitle{Spring AI}
-    \framesubtitle{Cos'è Spring AI}
-    \begin{itemize}[leftmargin=10pt,align=right]
-        \onslide<1->\item[\alert{\faLightbulbO}] Framework Spring per l'integrazione con servizi AI
-        \onslide<2->\item[\alert{\faLightbulbO}] Astrazione unificata per diversi provider AI (OpenAI, Azure OpenAI, Google, Anthropic)
-        \onslide<3->\item[\alert{\faLightbulbO}] Supporto per chat, embedding, image generation e function calling
-        \onslide<4->\item[\alert{\faLightbulbO}] Integrazione nativa con l'ecosistema Spring Boot
-    \end{itemize}
-    
-    \vspace{1cm}
-    \onslide<5->
-    \begin{block}{Obiettivo}
-        Semplificare l'integrazione di funzionalità AI nelle applicazioni Spring, mantenendo la flessibilità e la portabilità
-    \end{block}
-\end{frame}
-
-\begin{frame}[t] \frametitle{Spring AI}
-    \framesubtitle{Architettura e componenti principali}
-    \begin{itemize}[leftmargin=10pt,align=right]
-        \onslide<1->\item[\alert{\faCogs}] \textbf{ChatClient}: Interfaccia per conversazioni con modelli linguistici
-        \onslide<2->\item[\alert{\faCogs}] \textbf{EmbeddingClient}: Gestione di embeddings per similarity search
-        \onslide<3->\item[\alert{\faCogs}] \textbf{ImageClient}: Generazione e manipolazione di immagini
-        \onslide<4->\item[\alert{\faCogs}] \textbf{VectorStore}: Archiviazione vettoriale per RAG (Retrieval Augmented Generation)
-        \onslide<5->\item[\alert{\faCogs}] \textbf{Function Calling}: Invocazione di funzioni Java dai modelli AI
-    \end{itemize}
-    
-    \vspace{0.5cm}
-    \onslide<6->
-    \begin{alertblock}{Principio fondamentale}
-        Un'API, molteplici implementazioni - cambio di provider senza modifiche al codice
-    \end{alertblock}
-\end{frame}
-
-\section{\faThumbsUp\ Pregi di Spring AI} % (fold)
-\label{sec:spring-ai-pros}
-
-\begin{frame}[t] \frametitle{Spring AI}
-    \framesubtitle{Vantaggi principali}
-    \begin{itemize}[leftmargin=10pt,align=right]
-        \onslide<1->\item[\alert{\faCheckCircle}] \textbf{Astrazione unificata}: Stesso codice per provider diversi
-        \onslide<2->\item[\alert{\faCheckCircle}] \textbf{Integrazione nativa}: Auto-configuration, dependency injection, properties
-        \onslide<3->\item[\alert{\faCheckCircle}] \textbf{Type safety}: Strongly typed con supporto per record Java
-        \onslide<4->\item[\alert{\faCheckCircle}] \textbf{Observability}: Metrics, tracing e logging integrati
-        \onslide<5->\item[\alert{\faCheckCircle}] \textbf{Spring ecosystem}: Compatibility con Spring Security, Data, Cloud
-        \onslide<6->\item[\alert{\faCheckCircle}] \textbf{Gestione errori}: Retry, circuit breaker, fallback mechanisms
-    \end{itemize}
-\end{frame}
-
+\section{Spring AI: Introduzione} % (fold)
+\label{sec:spring_ai_intro}
+%
 \begin{frame}[t,fragile] \frametitle{Spring AI}
-    \framesubtitle{Esempio pratico - ChatClient}
-    \begin{block}{Configurazione automatica}
-    \begin{lstlisting}[language=java, basicstyle=\tiny\ttfamily]
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{L'evoluzione dell'ecosistema Spring}
+            \vspace*{-15pt}
+            \begin{minipage}[t]{\textwidth}
+             	%\begin{figure}[ht]
+                %    \centering
+                %    \includegraphics[width=0.8\textwidth]{img/spring-ai-logo.png}
+                %\end{figure}
+            \end{minipage}
+            \\\vspace*{3pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] Framework per \alert{integrare l'Intelligenza Artificiale} nelle applicazioni Spring Boot
+						\onslide<3->\item[\alert{\faHandORight}] \alert{Astrazione unificata} per diversi provider AI (OpenAI, Azure OpenAI, AWS Bedrock, Google Vertex AI)
+						\onslide<4->\item[\alert{\faHandORight}] Integrazione \alert{nativa} con l'ecosistema Spring esistente
+						\onslide<5->\item[\alert{\faHandORight}] Supporto per \alert{Vector Stores}, \alert{Embedding} e \alert{Retrieval-Augmented Generation (RAG)}
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    %	\includegraphics[width=.8\textwidth]{img/spring-ecosystem.png}
+                    %	{\tiny\\Ecosistema Spring\\\vspace*{-1pt}\textit{\textcopyright Spring Team}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Spring AI}
+	{\scriptsize
+		\onslide<1->
+            \framesubtitle{Perché Spring AI?}
+            \vspace*{-10pt}
+	    	\begin{minipage}[t]{\textwidth}
+				\begin{minipage}[t]{0.6\textwidth}
+	    			\begin{itemize}[leftmargin=10pt,align=right]
+						\onslide<2->\item[\alert{\faHandORight}] \alert{Problema:} ogni provider AI ha API e modelli diversi
+						\onslide<3->\item[\alert{\faHandORight}] \alert{Soluzione Spring AI:} interfaccia unificata e portabile
+						\onslide<4->\item[\alert{\faHandORight}] \alert{Principi Spring:}
+						\begin{itemize}[leftmargin=10pt,align=right]
+							\item[\alert{\faHandORight}] Dependency Injection
+							\item[\alert{\faHandORight}] Auto-configuration
+							\item[\alert{\faHandORight}] Testabilità
+							\item[\alert{\faHandORight}] Observability
+						\end{itemize}
+						\onslide<5->\item[\alert{\faHandORight}] \alert{Integrazione} con Spring Boot, Spring Security, Spring Data
+					\end{itemize}
+            	\end{minipage}
+            	%
+				\onslide<1->
+            	\begin{minipage}[t]{0.4\textwidth}
+                	%\centering
+                	%\begin{figure}[ht]
+                    % 	\includegraphics[width=.8\textwidth]{img/ai-providers-chaos.png}
+                    %	{\tiny\\Frammentazione dei provider AI\\\vspace*{-1pt}\textit{\textcopyright Tech Comparison}}
+                	%\end{figure}
+            	\end{minipage}
+	    	\end{minipage}
+	}
+\end{frame}
+%
+\section{Architettura di Spring AI} % (fold)
+\label{sec:spring_ai_architecture}
+%
+\begin{frame}[t,fragile] \frametitle{Architettura Spring AI}
+    \framesubtitle{Componenti principali}
+    \vspace*{-10pt}
+    %\begin{figure}[ht]
+    %    \centering
+    %    \includegraphics[width=\textwidth]{img/spring-ai-architecture.png}
+    %\end{figure}
+    %\begin{flushright}
+    %    \vspace*{-10pt}
+    %    {\tiny\textit{\textcopyright Spring AI Documentation}}
+    %\end{flushright}
+\end{frame}
+%
+%
+\begin{frame}[t,fragile] \frametitle{Chat Client}
+	{\small
+		\framesubtitle{Il cuore dell'interazione AI}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{ChatClient:} interfaccia principale per conversazioni AI
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Fluent API} per costruire richieste complesse
+			\onslide<4->\item[\alert{\faHandORight}] Supporto per \alert{streaming}, \alert{function calling} e \alert{multimodal}
+		\end{itemize}
+		\vspace*{.3cm}
+		\onslide<1->
+\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
 @RestController
 public class ChatController {
     
     private final ChatClient chatClient;
     
     public ChatController(ChatClient.Builder chatClientBuilder) {
-        this.chatClient = chatClientBuilder
-            .defaultSystem("Sei un assistente utile e preciso")
-            .build();
+        this.chatClient = chatClientBuilder.build();
     }
     
-    @PostMapping("/chat")
-    public String chat(@RequestBody String message) {
+    @PostMapping("/ai/chat")
+    public String chat(@RequestBody String userInput) {
         return chatClient.prompt()
-            .user(message)
-            .call()
-            .content();
+                .user(userInput)
+                .call()
+                .content();
     }
 }
-    \end{lstlisting}
-    \end{block}
-    
-    \onslide<2->
-    \begin{alertblock}{Zero boilerplate}
-        Spring AI gestisce automaticamente configurazione, serializzazione e gestione errori
-    \end{alertblock}
+\end{minted}
+	}
 \end{frame}
-
-\section{\faThumbsDown\ Limiti di Spring AI} % (fold)
-\label{sec:spring-ai-cons}
-
-\begin{frame}[t] \frametitle{Spring AI}
-    \framesubtitle{Svantaggi e limitazioni}
-    \begin{itemize}[leftmargin=10pt,align=right]
-        \onslide<1->\item[\alert{\faExclamationTriangle}] \textbf{Progetto giovane}: API ancora in evoluzione, breaking changes possibili
-        \onslide<2->\item[\alert{\faExclamationTriangle}] \textbf{Astrazione limitante}: Non espone tutte le funzionalità specifiche dei provider
-        \onslide<3->\item[\alert{\faExclamationTriangle}] \textbf{Dipendenza da Spring}: Vendor lock-in nell'ecosistema Spring
-        \onslide<4->\item[\alert{\faExclamationTriangle}] \textbf{Performance overhead}: Livello di astrazione aggiuntivo
-        \onslide<5->\item[\alert{\faExclamationTriangle}] \textbf{Documentazione}: Ancora incompleta in alcune aree
-        \onslide<6->\item[\alert{\faExclamationTriangle}] \textbf{Supporto provider}: Non tutti i provider hanno le stesse funzionalità
-    \end{itemize}
-\end{frame}
-
-\begin{frame}[t] \frametitle{Spring AI}
-    \framesubtitle{Quando NON usare Spring AI}
-    \begin{itemize}[leftmargin=10pt,align=right]
-        \onslide<1->\item[\alert{\faTimesCircle}] Applicazioni \textbf{non-Spring} (overhead ingiustificato)
-        \onslide<2->\item[\alert{\faTimesCircle}] Necessità di \textbf{funzionalità specifiche} di un provider
-        \onslide<3->\item[\alert{\faTimesCircle}] Progetti con \textbf{performance critiche} (ogni millisecondo conta)
-        \onslide<4->\item[\alert{\faTimesCircle}] Team che preferisce \textbf{controllo granulare} sulle API
-        \onslide<5->\item[\alert{\faTimesCircle}] Ambienti \textbf{legacy} con vincoli di dipendenze
-    \end{itemize}
+%
+\begin{frame}[t,fragile] \frametitle{Vector Stores}
+	{\small
+		\framesubtitle{Gestione della memoria semantica}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Vector Store:} database ottimizzati per similarity search
+			\onslide<3->\item[\alert{\faHandORight}] Supporto per \alert{Redis}, \alert{Chroma}, \alert{Weaviate}, \alert{Pinecone}
+			\onslide<4->\item[\alert{\faHandORight}] Integrazione con \alert{Spring Data} patterns
+		\end{itemize}
+		\vspace*{.3cm}
+		\onslide<1->
+\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+@Configuration
+public class VectorStoreConfig {
     
-    \vspace{1cm}
-    \onslide<6->
-    \begin{block}{Alternativa}
-        Uso diretto delle SDK native dei provider (OpenAI Java SDK, etc.)
-    \end{block}
+    @Bean
+    public VectorStore vectorStore(EmbeddingClient embeddingClient) {
+        return new SimpleVectorStore(embeddingClient);
+    }
+    
+    @Bean 
+    public DocumentRetriever documentRetriever(VectorStore vectorStore) {
+        return VectorStoreDocumentRetriever.builder()
+                .vectorStore(vectorStore)
+                .topK(5)
+                .similarityThreshold(0.7)
+                .build();
+    }
+}
+\end{minted}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Embedding Models}
+	{\small
+		\framesubtitle{Trasformazione testo in vettori}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{EmbeddingClient:} interfaccia per modelli di embedding
+			\onslide<3->\item[\alert{\faHandORight}] Trasforma testo in \alert{rappresentazioni vettoriali} per similarity search
+			\onslide<4->\item[\alert{\faHandORight}] Supporto per \alert{OpenAI}, \alert{Ollama}, \alert{Azure OpenAI}
+		\end{itemize}
+		\vspace*{.3cm}
+		\onslide<1>
+\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+@Service
+public class DocumentService {
+    
+    private final EmbeddingClient embeddingClient;
+    private final VectorStore vectorStore;
+    
+    public void addDocument(String content, Map<String, Object> metadata) {
+        // Crea embedding del contenuto
+        List<Float> embedding = embeddingClient.embed(content);
+        
+        // Salva nel vector store
+        Document document = new Document(content, metadata);
+        document.setEmbedding(embedding);
+        
+        vectorStore.add(List.of(document));
+    }
+}
+\end{minted}
+	}
+\end{frame}
+%
+\section{Vantaggi di Spring AI} % (fold)
+\label{sec:spring_ai_advantages}
+%
+\begin{frame}[t,fragile] \frametitle{Vantaggi di Spring AI}
+	{\small
+		\framesubtitle{Perché scegliere Spring AI}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<1->\item[\alert{\faHandORight}] \alert{Portabilità tra provider:} cambio di provider AI senza modificare codice business
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Integrazione Spring nativa:} sfrutta tutte le funzionalità dell'ecosistema
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Auto-configuration:} configurazione automatica basata su dependencies
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Testabilità migliorata:} mock e test integration semplificati
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Observability:} metriche e monitoring integrati
+			\onslide<6->\item[\alert{\faHandORight}] \alert{Gestione errori:} retry policies e fallback automatici
+		\end{itemize}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Portabilità tra Provider}
+	{\small
+		\framesubtitle{Un codice, molti provider}
+		\onslide<1->
+\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+// Configurazione per OpenAI
+@Configuration
+public class OpenAIConfig {
+    @Bean
+    public ChatClient chatClient() {
+        return ChatClient.builder()
+                .chatModel(new OpenAiChatModel(apiKey))
+                .build();
+    }
+}
+
+// Configurazione per Azure OpenAI  
+@Configuration
+public class AzureConfig {
+    @Bean  
+    public ChatClient chatClient() {
+        return ChatClient.builder()
+                .chatModel(new AzureOpenAiChatModel(endpoint, apiKey))
+                .build();
+    }
+}
+\end{minted}
+	\only<2>{
+		\begin{center}
+			\alert{Il business logic rimane identico!}
+		\end{center}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Auto-configuration}
+	{\small
+		\framesubtitle{Zero boilerplate code}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{application.properties} definisce tutto
+			\onslide<3->\item[\alert{\faHandORight}] \alert{@ConditionalOn*} annotations per configurazione condizionale
+		\end{itemize}
+		\vspace*{.3cm}
+		\onslide<1->
+\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{properties}
+# OpenAI Configuration
+spring.ai.openai.api-key=${OPENAI_API_KEY}
+spring.ai.openai.chat.model=gpt-4
+spring.ai.openai.chat.temperature=0.7
+
+# Vector Store Configuration  
+spring.ai.vectorstore.redis.uri=redis://localhost:6379
+spring.ai.vectorstore.redis.index=spring-ai-index
+spring.ai.vectorstore.redis.prefix=doc:
+
+# Embedding Configuration
+spring.ai.openai.embedding.model=text-embedding-ada-002
+\end{minted}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Testabilità}
+	{\small
+		\framesubtitle{Testing semplificato}
+		\onslide<1->
+\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+@SpringBootTest
+class ChatServiceTest {
+    
+    @MockBean
+    private ChatClient chatClient;
+    
+    @Autowired
+    private ChatService chatService;
+    
+    @Test
+    void shouldGenerateResponse() {
+        // Given
+        when(chatClient.prompt().user("Hello").call().content())
+                .thenReturn("Hello! How can I help you?");
+        
+        // When  
+        String response = chatService.chat("Hello");
+        
+        // Then
+        assertThat(response).isEqualTo("Hello! How can I help you?");
+    }
+}
+\end{minted}
+	}
+\end{frame}
+%
+\section{Svantaggi e Limitazioni} % (fold)
+\label{sec:spring_ai_disadvantages}
+%
+\begin{frame}[t,fragile] \frametitle{Svantaggi di Spring AI}
+	{\small
+		\framesubtitle{Considerazioni e limitazioni}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<1->\item[\alert{\faHandORight}] \alert{Progetto giovane:} API ancora in evoluzione (versione 1.x)
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Astrazione overhead:} layer aggiuntivo rispetto alle API native
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Dipendenza dall'ecosistema Spring:} lock-in tecnologico
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Supporto provider limitato:} non tutti i provider sono supportati
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Funzionalità avanzate:} alcuni provider offrono feature specifiche non astratte
+			\onslide<6->\item[\alert{\faHandORight}] \alert{Learning curve:} necessario apprendere nuovi concetti AI oltre Spring
+		\end{itemize}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{API in Evoluzione}
+	{\small
+		\framesubtitle{Rischi del progetto giovane}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faHandORight}] \alert{Breaking changes:} possibili modifiche incompatibili tra versioni
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Documentazione incompleta:} esempi e best practices in sviluppo
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Community piccola:} meno risorse e troubleshooting disponibili
+		\end{itemize}
+		\vspace*{.3cm}
+		\only<1-4>{
+		\begin{center}
+		\renewcommand{\epigraphsize}{\small}
+		\setlength{\afterepigraphskip}{0pt}
+		\setlength{\beforeepigraphskip}{5pt}
+		\setlength{\epigraphwidth}{0.8\textwidth}
+		\epigraph{\textit{Spring AI è attualmente in versione 1.0.0 (GA). Sebbene l'API principale sia stabile, alcune funzionalità potrebbero cambiare nelle future versioni minor.}}{Considerazione per progetti enterprise}
+		\end{center}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Overhead dell'Astrazione}
+	{\small
+		\framesubtitle{Il prezzo della portabilità}
+		\onslide<1->
+\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+// Chiamata diretta OpenAI (senza Spring AI)
+OpenAiService service = new OpenAiService("sk-...");
+CompletionRequest request = CompletionRequest.builder()
+    .model("gpt-4")
+    .prompt("Explain Spring Boot")
+    .temperature(0.7)
+    .maxTokens(150)
+    .build();
+CompletionResult result = service.createCompletion(request);
+
+// VS Spring AI (più semplice ma con overhead)  
+ChatClient client = ChatClient.builder().build();
+String response = client.prompt()
+    .user("Explain Spring Boot")
+    .call()
+    .content();
+\end{minted}
+		}
+		\only<2>{
+		\begin{center}
+			\alert{Semplicità vs Performance: trade-off da valutare}
+		\end{center}
+		}
 \end{frame}
 %
 \section{\faWrench\ Setup progetto Spring AI} % (fold)
