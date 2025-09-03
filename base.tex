@@ -74,7 +74,7 @@
 % Add logo on frame title
 \addtobeamertemplate{frametitle}{}{%
 	\begin{tikzpicture}[remember picture,overlay]
-		\node[anchor=north east,xshift=-5pt,yshift=-7pt] at (current page.north east) 		{\includesvg[height=15pt,keepaspectratio]{img/base/dgroove-white.svg}\hspace*{5pt}\includegraphics[height=15pt,keepaspectratio]{img/base/venis-logo-round.png}};
+		\node[anchor=north east,xshift=-5pt,yshift=-7pt] at (current page.north east) 		{\includesvg[height=15pt,keepaspectratio]{dgroove-white.svg}\hspace*{5pt}\includegraphics[height=15pt,keepaspectratio]{venis-logo-round.png}};
 	\end{tikzpicture}
   	\ifx\insertframesubtitle\@empty\else%
   		\usebeamerfont{framesubtitle}%
@@ -108,9 +108,9 @@
 
 % Multimedia configuration
 \usepackage{graphicx}
+\graphicspath{{./img/}{../../img/base/}}
 % Load the adjustbox package with the export option to make functions available to the \includegraphics command 
 \usepackage[export]{adjustbox}
-\graphicspath{{img/}}
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.eps}
 \usepackage{svg}
 \setsvg{inkscapeexe=inkscape, inkscapeopt=-z -D}
