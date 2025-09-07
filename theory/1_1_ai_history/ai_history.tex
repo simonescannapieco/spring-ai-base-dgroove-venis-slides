@@ -1,5 +1,5 @@
 \section{Artificial Intelligence\\{\small Cenni storici}} % (fold)
-\label{sec:ai}
+\label{sec:ai_history}
 %
 \begin{frame}[t,fragile] \frametitle{Nascita della AI}
 	{\scriptsize
@@ -446,20 +446,23 @@
 						\epigraph{\textit{[\ldots] del modo in cui opera il sistema nervoso. Le unità di base sono costituite dai neuroni, in genere organizzati in strati [\ldots]}}{IBM (\href{https://www.ibm.com/docs/it/spss-modeler/18.5.0?topic=networks-neural-model}{Fonte}), 2004}
 					\end{minipage}
 				\end{itemize}
-				\end{minipage}
-				\hfill
-				\begin{minipage}[t]{.5\textwidth}
-					\begin{itemize}[leftmargin=10pt,align=right]
-						\item[\alert{\faHandORight}] Architettura
-							\begin{itemize}[leftmargin=20pt,align=right]
-								\item[\alert{\faHandORight}] Dimensione dell'\emph{input}/\emph{output}
-			 					\item[\alert{\faHandORight}] Numero di strati (pi\'{u} strati implica apprendimento pi\'{u} complesso)
-								\item[\alert{\faHandORight}] Funzione di attivazione di ciascun strato
-								\item[\alert{\faHandORight}] Numero di neuroni per strato
-								\item[\alert{\faHandORight}] Funzione costo da minimizzare
-							\end{itemize}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[t]{.5\textwidth}
+				\begin{itemize}[leftmargin=10pt,align=right]
+					\item[\alert{\faHandORight}] Architettura
+					\begin{itemize}[leftmargin=20pt,align=right]
+						\item[\alert{\faHandORight}] Dimensione dell'\emph{input}/\emph{output}
+			 			\item[\alert{\faHandORight}] Numero di strati (pi\'{u} strati implica apprendimento pi\'{u} complesso)
+						\item[\alert{\faHandORight}] Funzione di attivazione di ciascun strato
+						\item[\alert{\faHandORight}] Numero di neuroni per strato
+						\item[\alert{\faHandORight}] Funzione costo da minimizzare
 					\end{itemize}
-				\end{minipage}
+				\end{itemize}
+			\end{minipage}
+			\begin{center}
+				\hyperlink{subsec:cnn}{\color{venis-faithful-yellow}\faLink\ Maggiori informazioni}
+			\end{center}		
 		\end{minipage}
 		}
 	}
@@ -523,7 +526,7 @@
 			\onslide<1->\item[\alert{\faHandORight}] \alert{Nascita del WWW:} apre le porte alla \alert{democratizzazione dell'informazione} e al \textit{boom} del fenomeno \alert{\textit{big data}}
 		\end{itemize}
 		\vspace*{.3cm}
-		\only<1-2|handout:1>{
+		\only<1|handout:1>{
 		\begin{center}
 			\begin{minipage}[b]{.45\textwidth}
 				\begin{figure}[ht]
@@ -532,14 +535,11 @@
 					{\tiny\\Tim Berners-Lee\\\textbf{Progetto WorldWideWeb - Nexus (1989-1991-1993)}\\\vspace*{-4pt}\textit{\textcopyright CERN}}
 				\end{figure}
 			\end{minipage}
-		\end{center}
-		}
-		\only<1-2|handout:1>{
-		\begin{center}
+			\\\vspace*{.3cm}
 			\href{http://info.cern.ch}{\faLink\ Per i nostalgici\ldots}
 		\end{center}
 		}
-		\only<3|handout:0>{
+		\only<2|handout:0>{
 		\begin{center}
 			\begin{minipage}[b]{.6\textwidth}
 				\begin{figure}[ht]
@@ -553,7 +553,7 @@
 			\end{minipage}
 		\end{center}
 		}
-		\only<4|handout:2>{
+		\only<3|handout:2>{
 		\begin{center}
 			\begin{minipage}[b]{.6\textwidth}
 				\begin{figure}[ht]
@@ -786,6 +786,65 @@
 		\begin{center}
 			\href{https://plato.stanford.edu/entries/chinese-room/}{\faLink\ Maggiori informazioni}
 		\end{center}
+	\end{minipage}
+}
+\end{frame}
+%
+\subsection{Convolutional Neural Networks}
+\label{subsec:cnn}
+%
+\begin{frame}[t] \frametitle{Convolutional Neural Network (CNN)}
+\framesubtitle{DL per Computer Vision}
+{\footnotesize
+\onslide<1->
+	\begin{itemize}[leftmargin=10pt,align=right]
+		\item[\alert{\faHandORight}] Nato come concetto algoritmico nel 1980
+		\item[\alert{\faHandORight}] Insieme di architetture di reti neurali ottimizzata per \emph{task} su dati strutturati/gerarchici (es. \emph{image processing})
+		\onslide<2->
+		\item[\alert{\faHandORight}] Ricerca in piccoli gruppi di \emph{input} (\emph{\alert{pixel}}) caratteristiche locali (bordi, contorni, colori omogenei, $\ldots$)
+		\onslide<3->
+		\item[\alert{\faHandORight}] Strati sempre pi\'{u} profondi riconoscono \emph{features} (es. visuali) sempre pi\'{u} complesse
+		\onslide<4->
+		\begin{minipage}[t]{.8\textwidth}
+			\begin{figure}[ht]
+				\includegraphics[width=.68\textwidth]{CNN-faces.png}
+			\end{figure}
+		\end{minipage}
+		\onslide<5->
+		\item[\alert{\faHandORight}] Funzioni di attivazione e tipologie di strati ispirati da
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\item[\alert{\faHandORight}] Concetti biologici della corteccia visiva
+			\item[\alert{\faHandORight}] Propriet\'{a} peculiari delle immagini
+		\end{itemize}
+	\end{itemize}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{Convolutional Neural Network (CNN)}
+\framesubtitle{DL per Computer Vision}
+{\scriptsize
+	\vspace*{-.5cm}
+	\begin{minipage}[t]{\textwidth}
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=.45\textwidth]{vgg-16-image-no-bg.png}
+			{\tiny\\Architettura VGG-16\\\textit{\textcopyright LinkedIn}\\\vspace*{-4pt}\href{https://poloclub.github.io/cnn-explainer/}{\faLink\ CNN Explainer}}
+		\end{figure}
+	\end{minipage}
+	\begin{minipage}[t]{\textwidth}
+		\vspace*{-.3cm}
+		\begin{itemize}[leftmargin=10pt,align=right]
+				\onslide<2->\item[\alert{\faHandORight}] \alert{Strato convoluzionale} con pesi dei neuroni dato da una matrice (\emph{kernel}) di convoluzione e funzione di attivazione ``speciale''
+				\onslide<3->\item[\alert{\faHandORight}] \alert{Strato di \emph{downsampling (pooling)}} per ridurre la dimensione della matrice in entrata e diminuire il numero di parametri
+			\end{itemize}
+	\end{minipage}
+	\onslide<4->
+	\begin{minipage}[t]{\textwidth}
+		\vspace*{.3cm}
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=.7\textwidth]{Activation_functions.png}
+		\end{figure}
 	\end{minipage}
 }
 \end{frame}
