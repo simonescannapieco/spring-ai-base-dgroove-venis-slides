@@ -1,174 +1,166 @@
-\section{Artificial Intelligence del Linguaggio} % (fold)
+\section{Language Artificial Intelligence} % (fold)
 \label{sec:language_ai}
 %
-\begin{frame}[t,fragile] \frametitle{Introduzione alla Language AI}
-	{\scriptsize
-		\onslide<1->
-            \framesubtitle{Dall'elaborazione del linguaggio naturale ai modelli linguistici di grandi dimensioni}
-            \vspace*{-15pt}
-             \begin{minipage}[t]{\textwidth}
-             	%\begin{figure}[ht]
-                %    \centering
-                %    \includegraphics[width=\textwidth]{img/language-ai-timeline.png}
-                %\end{figure}
-            \end{minipage}
-            \\\vspace*{3pt}
-	    	\begin{minipage}[t]{\textwidth}
-				\begin{minipage}[t]{0.6\textwidth}
-	    			\begin{itemize}[leftmargin=10pt,align=right]
-						\onslide<2->\item[\alert{\faHandORight}] \alert{Language AI:} sottocampo dell'AI dedicato allo sviluppo di tecnologie capaci di \alert{comprendere, elaborare e generare} linguaggio umano
-						\onslide<3->\item[\alert{\faHandORight}] Spesso utilizzato \alert{intercambiabilmente} con Natural Language Processing (NLP)
-						\onslide<4->\item[\alert{\faHandORight}] Il successo continuo dei metodi di \alert{machine learning} ha rivoluzionato il campo
-						\onslide<5->\item[\alert{\faHandORight}] Include tecnologie che tecnicamente potrebbero non essere LLM ma hanno un \alert{impatto significativo} sul campo
-					\end{itemize}
-            	\end{minipage}
-            	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/nlp-concept.png}
-                    %	{\tiny\\Evoluzione del NLP\\\vspace*{-1pt}\textit{\textcopyright AI Research}}
-                	%\end{figure}
-            	\end{minipage}
-	    	\end{minipage}
+\begin{frame}[t,fragile] \frametitle{Language AI}
+    \framesubtitle{\ldots o NLP}
+	{\small
+	    \begin{minipage}[t]{\textwidth}
+	    	\begin{itemize}[leftmargin=10pt,align=right]
+				\onslide<1->\item[\alert{\faHandORight}] Sottocampo dell'AI dedicato allo sviluppo di tecnologie per il linguaggio umano
+				\begin{itemize}[leftmargin=10pt,align=right]
+					\item[\alert{\faHandORight}] Comprensione
+					\item[\alert{\faHandORight}] Elaborazione
+					\item[\alert{\faHandORight}] Generazione
+				\end{itemize}
+				\onslide<2->\item[\alert{\faHandORight}] Utilizzato intercambiabilmente con \alert{Natural Language Processing} (NLP)
+				\onslide<3->\item[\alert{\faExclamationTriangle}] \alert{Trasversale} rispetto alla classificazione canonica
+			\end{itemize}
+	    \end{minipage}
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{Le Origini: ELIZA (1966)}
-	{\scriptsize
+\begin{frame}[t,fragile] \frametitle{Le origini: ELIZA (1966)}
+    \framesubtitle{Il primo \textit{chatbot} della storia}
+	{\small
+	    \begin{minipage}[t]{\textwidth}
+	    	\begin{itemize}[leftmargin=10pt,align=right]
+				\onslide<1->\item[\alert{\faHandORight}] Sviluppato da \alert{Joseph Weizenbaum} al MIT
+				\onslide<2->\item[\alert{\faHandORight}] Simulava una conversazione con uno \alert{psicoterapeuta} rogersiano
+				\onslide<3->\item[\alert{\faHandORight}] Utilizzava semplici \alert{pattern matching} e regole di sostituzione
+				\onslide<4->\item[\alert{\faHandORight}] Dimostrava quanto facilmente le persone potessero essere \alert{ingannate} da un programma semplice
+				\onslide<5->\item[\alert{\faHandORight}] Primo esempio di \alert{illusione di comprensione} da parte di una macchina
+			\end{itemize}
+        \end{minipage}
+		\vfill
 		\onslide<1->
-            \framesubtitle{Il primo chatbot della storia}
-            \vspace*{-15pt}
-            \begin{minipage}[t]{\textwidth}
-             	%\begin{figure}[ht]
-                %    \centering
-                %    \includegraphics[width=\textwidth]{img/eliza-timeline.png}
-                %\end{figure}
-            \end{minipage}
-            \\\vspace*{3pt}
-	    	\begin{minipage}[t]{\textwidth}
-				\begin{minipage}[t]{0.6\textwidth}
-	    			\begin{itemize}[leftmargin=10pt,align=right]
-						\onslide<2->\item[\alert{\faHandORight}] Sviluppato da \alert{Joseph Weizenbaum} al MIT
-						\onslide<3->\item[\alert{\faHandORight}] Simulava una conversazione con uno \alert{psicoterapeuta} rogersiano
-						\onslide<4->\item[\alert{\faHandORight}] Utilizzava semplici \alert{pattern matching} e regole di sostituzione
-						\onslide<5->\item[\alert{\faHandORight}] Dimostrava quanto facilmente le persone potessero essere \alert{ingannate} da un programma semplice
-						\onslide<6->\item[\alert{\faHandORight}] Primo esempio di \alert{illusione di comprensione} da parte di una macchina
-					\end{itemize}
-            	\end{minipage}
-            	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.6\textwidth]{img/joseph-weizenbaum.png}
-                    %	{\tiny\\Joseph Weizenbaum\\\vspace*{-1pt}\textit{\textcopyright MIT Archives}}
-                	%\end{figure}
-            	\end{minipage}
-	    	\end{minipage}
+		\begin{center}
+			\href{https://www.masswerk.at/elizabot/eliza.html}{\faLink\ Implementazione ELIZA\ldots}
+		\end{center}
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{ELIZA: Come Funzionava}
+\begin{frame}[t,fragile] \frametitle{ELIZA: come funzionava}
+	{\small
+		\framesubtitle{Pattern matching e trasformazioni di template}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\item[\alert{\faHandORight}] \alert{Trasformazioni grammaticali:} regole sintattiche applicate all'\textit{input} utente
+		\end{itemize}
+		\vspace*{.3cm}
+		\hspace*{4cm}
+		\begin{shellcodeblock}{Regole di trasformazione ELIZA}
+        	\begin{minted}{shell-session}
+''I am'' -> ''you are''
+''my'' -> ''your''
+''me'' -> ''you''
+...
+        	\end{minted}
+    	\end{shellcodeblock}
+		\hspace*{4cm}
+		\begin{minipage}[t]{.6\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{\alert{User:} ``\alert{I am} feeling sad today''\\
+			\alert{ELIZA:} (\alert{you are} feeling sad today)}}{\textbf{ELIZA, elaborazione, 1966}}
+		\end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{ELIZA: come funzionava}
+	{\small
+		\framesubtitle{Pattern matching e trasformazioni di template}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\item[\alert{\faHandORight}] \alert{\textit{Template} di risposta:} frasi predefinite con \textit{slot} per le sostituzioni
+		\end{itemize}
+		\vspace*{.3cm}
+		\hspace*{4cm}
+		\begin{shellcodeblock}{Esempi di \textit{template} ELIZA}
+        	\begin{minted}{shell-session}
+''Tell me more about ___''
+''What else comes to mind when ___?''
+''Why ___?''
+...
+        	\end{minted}
+    	\end{shellcodeblock}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{ELIZA: come funzionava}
 	{\small
 		\onslide<1->
 		\framesubtitle{Pattern matching e trasformazioni di template}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<2->\item[\alert{\faHandORight}] \alert{Regole di pattern matching:} riconoscimento di parole chiave nell'input
-			\onslide<3->\item[\alert{\faHandORight}] \alert{Trasformazioni grammaticali:} "I am" -> "you are"
-			\onslide<4->\item[\alert{\faHandORight}] \alert{Template di risposta:} frasi predefinite con slot per le sostituzioni
-			\onslide<5->\item[\alert{\faHandORight}] \alert{Strategia di fallback:} domande generiche quando non trova pattern
+			\item[\alert{\faHandORight}] \alert{Regole di \textit{pattern matching}:} riconoscimento di parole chiave nell'\textit{input} e scelta fra possibili \textit{pattern} correlati
 		\end{itemize}
 		\vspace*{.3cm}
-		\only<2|handout:1>{
-		\begin{minipage}[t]{\textwidth}
+		\begin{shellcodeblock}{Esempi di \textit{pattern matching} ELIZA}
+        	\begin{minted}{shell-session}
+''I think about ___'' -> ''Tell me more about ___''
+''I am thinking of ___'' -> ''What else comes to mind when you think of ___?''
+''I am ___'' -> ''Why do you think ___?''
+        	\end{minted}
+    	\end{shellcodeblock}
+		\hspace*{4cm}
+		\begin{minipage}[t]{.6\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
 			\setlength{\beforeepigraphskip}{5pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Utente: "I am feeling sad today"\\
-			ELIZA: "Why do you think you are feeling sad today?"\\
-			Pattern: "I am *" -> "Why do you think you are *?"}}{\textbf{Esempio di pattern matching ELIZA}}
+			\epigraph{\textit{\alert{User:} ``\alert{I am} feeling sad today''\\
+			\alert{ELIZA:} ``Why do you think you are feeling sad today?''}}{\textbf{ELIZA, esempio di risposta, 1966}}
 		\end{minipage}
-		}
-		\only<3|handout:2>{
-		\begin{minipage}[t]{\textwidth}
-			\renewcommand{\epigraphsize}{\scriptsize}
-			\setlength{\afterepigraphskip}{0pt}
-			\setlength{\beforeepigraphskip}{5pt}
-			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Trasformazioni grammaticali:\\
-			"I" -> "you"\\
-			"my" -> "your"\\
-			"am" -> "are"\\
-			"me" -> "you"}}{\textbf{Regole di trasformazione ELIZA}}
-		\end{minipage}
-		}
-		\only<4|handout:3>{
-		\begin{minipage}[t]{\textwidth}
-			\renewcommand{\epigraphsize}{\scriptsize}
-			\setlength{\afterepigraphskip}{0pt}
-			\setlength{\beforeepigraphskip}{5pt}
-			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Template di risposta:\\
-			"Tell me more about *"\\
-			"How does that make you feel?"\\
-			"What else comes to mind when you think of *?"\\
-			"Why do you think *?"}}{\textbf{Esempi di template ELIZA}}
-		\end{minipage}
-		}
-		\only<5|handout:4>{
-		\begin{minipage}[t]{\textwidth}
-			\renewcommand{\epigraphsize}{\scriptsize}
-			\setlength{\afterepigraphskip}{0pt}
-			\setlength{\beforeepigraphskip}{5pt}
-			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Domande generiche quando nessun pattern è riconosciuto:\\
-			"Can you elaborate on that?"\\
-			"I see."\\
-			"What does that suggest to you?"\\
-			"Please go on."}}{\textbf{Strategie di fallback ELIZA}}
-		\end{minipage}
-		}
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{Rappresentazione del Linguaggio: Bag-of-Words}
-	{\scriptsize
-		\onslide<1->
-            \framesubtitle{Il primo metodo per rappresentare testo non strutturato}
-            \vspace*{-15pt}
-            \begin{minipage}[t]{\textwidth}
-             	%\begin{figure}[ht]
-                %    \centering
-                %    \includegraphics[width=\textwidth]{img/bow-timeline.png}
-                %\end{figure}
-            \end{minipage}
-            \\\vspace*{3pt}
-	    	\begin{minipage}[t]{\textwidth}
-				\begin{minipage}[t]{0.6\textwidth}
-	    			\begin{itemize}[leftmargin=10pt,align=right]
-						\onslide<2->\item[\alert{\faHandORight}] \alert{Menzionato per la prima volta} negli anni '50, popolare negli anni 2000
-						\onslide<3->\item[\alert{\faHandORight}] Metodo per rappresentare il testo \alert{non strutturato} in formato numerico
-						\onslide<4->\item[\alert{\faHandORight}] Il \alert{linguaggio è complicato} per i computer: il testo perde significato quando rappresentato da zeri e uni
-						\onslide<5->\item[\alert{\faHandORight}] Focus principale: rappresentare il linguaggio in \alert{modo strutturato} per l'uso da parte dei computer
-					\end{itemize}
-            	\end{minipage}
-            	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/text-structure.png}
-                    %	{\tiny\\Strutturazione del Testo\\\vspace*{-1pt}\textit{\textcopyright Data Science}}
-                	%\end{figure}
-            	\end{minipage}
-	    	\end{minipage}
+\begin{frame}[t,fragile] \frametitle{ELIZA: come funzionava}
+	\framesubtitle{Pattern matching e trasformazioni di template}
+	{\small
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\item[\alert{\faHandORight}] \alert{Strategia di \textit{fallback}:} formule/domande generiche quando non trova \textit{pattern}
+		\end{itemize}
+		\vspace*{.3cm}
+		\hspace*{4cm}
+		\begin{minipage}[t]{.6\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{0pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{\alert{User:} ``\alert{My} whole world is falling apart.''\\
+			\alert{ELIZA:} ``I see.''\\
+			(oppure)\\
+			\alert{ELIZA:} ``Can you elaborate on that?''\\
+			(oppure)\\
+			\alert{ELIZA:} ``I see.''\\
+			(oppure)\\
+			\alert{ELIZA:} ``What does that suggest to you?''\\
+			(oppure)\\
+			\alert{ELIZA:} ``Please go on.''\\
+			(oppure)\\
+			\alert{ELIZA:} ``How does that make you feel?''
+			}}{\textbf{ELIZA, esempio di risposta, 1966}}
+		\end{minipage}
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{Bag-of-Words: Come Funziona}
+\begin{frame}[t,fragile] \frametitle{Bag-of-Words}
+    \framesubtitle{Rappresentazione testo non strutturato}
+	{\small
+		\begin{minipage}[t]{\textwidth}
+	    	\begin{itemize}[leftmargin=10pt,align=right]
+				\onslide<1->\item[\alert{\faHandORight}] Menzionato per la prima volta negli anni '50, popolare negli anni 2000
+				\onslide<2->\item[\alert{\faHandORight}] Metodo per rappresentare il testo \alert{non strutturato} in formato numerico
+				\onslide<3->\item[\alert{\faHandORight}] Il \alert{linguaggio è complicato} per i computer
+				\begin{itemize}[leftmargin=10pt,align=right]
+					\item[\alert{\faHandORight}] Il testo perde significato quando rappresentato da 0 e 1
+				\end{itemize}
+				\onslide<4->\item[\alert{\faHandORight}] \alert{Focus principale:} rappresentare il linguaggio in \alert{modo strutturato} per l'uso da parte dei computer
+			\end{itemize}
+        \end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Bag-of-Words: come funziona}
 	{\small
 		\onslide<1->
 		\framesubtitle{Processo di tokenizzazione e creazione del vocabolario}
@@ -273,13 +265,6 @@
 		\onslide<1->
             \framesubtitle{Word2Vec e la rivoluzione delle rappresentazioni dense}
             \vspace*{-15pt}
-            \begin{minipage}[t]{\textwidth}
-             	%\begin{figure}[ht]
-                %    \centering
-                %    \includegraphics[width=\textwidth]{img/word2vec-timeline.png}
-                %\end{figure}
-            \end{minipage}
-            \\\vspace*{3pt}
 	    	\begin{minipage}[t]{\textwidth}
 				\begin{minipage}[t]{0.6\textwidth}
 	    			\begin{itemize}[leftmargin=10pt,align=right]
@@ -290,14 +275,6 @@
 					\end{itemize}
             	\end{minipage}
             	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/word2vec-concept.png}
-                    %	{\tiny\\Concetto di Word2Vec\\\vspace*{-1pt}\textit{\textcopyright Google Research}}
-                	%\end{figure}
-            	\end{minipage}
 	    	\end{minipage}
 	}
 \end{frame}
@@ -359,13 +336,6 @@
 		\onslide<1->
             \framesubtitle{L'evoluzione verso l'attenzione}
             \vspace*{-15pt}
-            \begin{minipage}[t]{\textwidth}
-             	%\begin{figure}[ht]
-                %    \centering
-                %    \includegraphics[width=\textwidth]{img/transformer-timeline.png}
-                %\end{figure}
-            \end{minipage}
-            \\\vspace*{3pt}
 	    	\begin{minipage}[t]{\textwidth}
 				\begin{minipage}[t]{0.6\textwidth}
 	    			\begin{itemize}[leftmargin=10pt,align=right]
@@ -376,14 +346,6 @@
 					\end{itemize}
             	\end{minipage}
             	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/attention-mechanism.png}
-                    %	{\tiny\\Meccanismo di Attenzione\\\vspace*{-1pt}\textit{\textcopyright Google Research}}
-                	%\end{figure}
-            	\end{minipage}
 	    	\end{minipage}
 	}
 \end{frame}
@@ -459,33 +421,15 @@
 					\end{itemize}
             	\end{minipage}
             	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/bert-vs-gpt.png}
-                    %	{\tiny\\BERT vs GPT\\\vspace*{-1pt}\textit{\textcopyright HuggingFace}}
-                	%\end{figure}
-            	\end{minipage}
 	    	\end{minipage}
 	}
 \end{frame}
-%
-\section{Artificial Intelligence del Linguaggio} % (fold)
-\label{sec:language_ai}
 %
 \begin{frame}[t,fragile] \frametitle{Introduzione alla Language AI}
 	{\scriptsize
 		\onslide<1->
             \framesubtitle{Dall'elaborazione del linguaggio naturale ai modelli linguistici di grandi dimensioni}
             \vspace*{-15pt}
-             \begin{minipage}[t]{\textwidth}
-             	%\begin{figure}[ht]
-                %    \centering
-                %    \includegraphics[width=\textwidth]{img/llm-timeline.png}
-                %\end{figure}
-            \end{minipage}
-            \\\vspace*{3pt}
 	    	\begin{minipage}[t]{\textwidth}
 				\begin{minipage}[t]{0.6\textwidth}
 	    			\begin{itemize}[leftmargin=10pt,align=right]
@@ -494,15 +438,6 @@
 						\onslide<4->\item[\alert{\faHandORight}] \alert{ChatGPT (2022):} fine-tuning con feedback umano (RLHF)
 						\onslide<5->\item[\alert{\faHandORight}] \alert{GPT-4 e successivi:} modelli multimodali, ragionamento avanzato
 					\end{itemize}
-            	\end{minipage}
-            	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/llm-growth.png}
-                    %	{\tiny\\Crescita dei LLM\\\vspace*{-1pt}\textit{\textcopyright OpenAI}}
-                	%\end{figure}
             	\end{minipage}
 	    	\end{minipage}
 	}
@@ -577,14 +512,6 @@
 					\end{itemize}
             	\end{minipage}
             	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/scaling-laws.png}
-                    %	{\tiny\\Scaling Laws\\\vspace*{-1pt}\textit{\textcopyright Anthropic}}
-                	%\end{figure}
-            	\end{minipage}
 	    	\end{minipage}
 	}
 \end{frame}
@@ -656,14 +583,6 @@
 					\end{itemize}
             	\end{minipage}
             	%
-				\onslide<1->
-            	\begin{minipage}[t]{0.4\textwidth}
-                	%\centering
-                	%\begin{figure}[ht]
-                    %	\includegraphics[width=.8\textwidth]{img/training-stages.png}
-                    %	{\tiny\\Fasi di Training\\\vspace*{-1pt}\textit{\textcopyright Anthropic}}
-                	%\end{figure}
-            	\end{minipage}
 	    	\end{minipage}
 	}
 \end{frame}
