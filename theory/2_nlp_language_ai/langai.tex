@@ -26,7 +26,7 @@
 	    	\begin{itemize}[leftmargin=10pt,align=right]
 				\onslide<1->\item[\alert{\faHandORight}] Sviluppato da \alert{Joseph Weizenbaum} al MIT
 				\onslide<2->\item[\alert{\faHandORight}] Simulava una conversazione con uno \alert{psicoterapeuta} rogersiano
-				\onslide<3->\item[\alert{\faHandORight}] Utilizzava semplici \alert{pattern matching} e regole di sostituzione
+				\onslide<3->\item[\alert{\faHandORight}] Utilizzava semplici \alert{\textit{pattern matching}} e regole di sostituzione
 				\onslide<4->\item[\alert{\faHandORight}] Dimostrava quanto facilmente le persone potessero essere \alert{ingannate} da un programma semplice
 				\onslide<5->\item[\alert{\faHandORight}] Primo esempio di \alert{illusione di comprensione} da parte di una macchina
 			\end{itemize}
@@ -62,7 +62,7 @@
 			\setlength{\beforeepigraphskip}{5pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
 			\epigraph{\textit{\alert{User:} ``\alert{I am} feeling sad today''\\
-			\alert{ELIZA:} (\alert{you are} feeling sad today)}}{\textbf{ELIZA, elaborazione, 1966}}
+			\alert{ELIZA (thinking):} --- \alert{you are} feeling sad today---}}{\textbf{ELIZA, elaborazione, 1966}}
 		\end{minipage}
 	}
 \end{frame}
@@ -99,6 +99,7 @@
 ''I think about ___'' -> ''Tell me more about ___''
 ''I am thinking of ___'' -> ''What else comes to mind when you think of ___?''
 ''I am ___'' -> ''Why do you think ___?''
+...
         	\end{minted}
     	\end{shellcodeblock}
 		\hspace*{4cm}
@@ -117,7 +118,7 @@
 	\framesubtitle{Pattern matching e trasformazioni di template}
 	{\small
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\item[\alert{\faHandORight}] \alert{Strategia di \textit{fallback}:} formule/domande generiche quando non trova \textit{pattern}
+			\item[\alert{\faHandORight}] \alert{Strategia di \textit{fallback}:} formule generiche quando non trova \textit{pattern}
 		\end{itemize}
 		\vspace*{.3cm}
 		\hspace*{4cm}
@@ -150,11 +151,11 @@
 	    	\begin{itemize}[leftmargin=10pt,align=right]
 				\onslide<1->\item[\alert{\faHandORight}] Menzionato per la prima volta negli anni '50, popolare negli anni 2000
 				\onslide<2->\item[\alert{\faHandORight}] Metodo per rappresentare il testo \alert{non strutturato} in formato numerico
-				\onslide<3->\item[\alert{\faHandORight}] Il \alert{linguaggio è complicato} per i computer
+				\onslide<3->\item[\alert{\faHandORight}] Il \alert{linguaggio è complicato} per i calcolatori
 				\begin{itemize}[leftmargin=10pt,align=right]
 					\item[\alert{\faHandORight}] Il testo perde significato quando rappresentato da 0 e 1
 				\end{itemize}
-				\onslide<4->\item[\alert{\faHandORight}] \alert{Focus principale:} rappresentare il linguaggio in \alert{modo strutturato} per l'uso da parte dei computer
+				\onslide<4->\item[\alert{\faHandORight}] \alert{Focus principale:} rappresentare il linguaggio in \alert{modo strutturato} per l'uso da parte dei calcolatori
 			\end{itemize}
         \end{minipage}
 	}
@@ -164,45 +165,100 @@
 	{\small
 		\onslide<1->
 		\framesubtitle{Processo di tokenizzazione e creazione del vocabolario}
-		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<2->\item[\alert{\faHandORight}] \alert{Tokenizzazione:} processo di divisione delle frasi in parole individuali o sub-parole (token)
-			\onslide<3->\item[\alert{\faHandORight}] \alert{Creazione del vocabolario:} combinazione di tutte le parole uniche dalle frasi
-			\onslide<4->\item[\alert{\faHandORight}] \alert{Conteggio delle parole:} rappresentazione numerica basata sulla frequenza
+		\begin{enumerate}[leftmargin=10pt,align=right]
+			\onslide<1->{\item[\alertedcircled{1}] \alert{Tokenizzazione:} processo di divisione delle frasi in parole individuali o sotto-parole (\alert{\textit{token}})
+			\begin{itemize}[leftmargin=10pt,align=right]
+				\item[\alert{\faHandORight}] Rispetto a un \alert{delimitatore} (specifico o \textit{wildcard})
+				\item[\alert{\faHandORight}] Definendo una \alert{\textit{blacklist}}
+			\end{itemize}
+			\onslide<2->{\item[\alertedcircled{2}] \alert{Creazione del vocabolario:} estrazione di entità uniche dai \textit{token}
+			\begin{itemize}[leftmargin=10pt,align=right]
+				\item[\alert{\faHandORight}] Applicando estrazione della radice (\alert{\textit{stemming}})
+				\item[\alert{\faExclamationTriangle}] Vettore \alert{ordinato} di radici
+			\end{itemize}}
+			\onslide<3->{\item[\alertedcircled{3}] \alert{Conteggio delle parole:} rappresentazione numerica basata sulla \alert{frequenza}}
 		\end{itemize}
-		\vspace*{.3cm}
-		\only<2|handout:1>{
-		\begin{minipage}[t]{\textwidth}
+		\vfill
+		\hspace*{1cm}
+		\only<1|handout:1>{
+		\begin{minipage}[t]{.9\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
-			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{0pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Frase 1: "That is a cute dog"\\
-			Frase 2: "My cat is cute"\\
-			Tokenizzazione (divisione per spazio):\\
-			("that", "is", "a", "cute", "dog", "my", "cat", "is", "cute")}}{\textbf{Processo di tokenizzazione}}
+			\epigraph{\textit{\alert{F1:} ``Che\,\Vtextvisiblespace[1em]\,bel\,\Vtextvisiblespace\,cane\,\Vtextvisiblespace[1cm]\,che\,\Vtextvisiblespace[.5em]\,hai\,!''\\
+			\alert{F2:} ``Ma\,\Vtextvisiblespace[.3cm]\,il\,\Vtextvisiblespace[1cm]\,mio\,\Vtextvisiblespace[.1cm]\,gatto\,\Vtextvisiblespace[1em]\,è\,\Vtextvisiblespace[.5em]\,più\,\Vtextvisiblespace[1cm]\,bello''\\
+		{\tiny
+		\begin{table}
+			\setlength{\tabcolsep}{4pt}
+			\renewcommand{\arraystretch}{1.5}
+			\centering
+			\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
+				%\toprule
+				\multicolumn{12}{c}{\textbf{Token}}\\
+				\midrule
+				che & bel & cane & che & hai & ma & il & mio & gatto & è & più & bello\\
+				\midrule
+				%\bottomrule
+			\end{tabular}
+		\end{table}
+		}
+			}}{\textbf{Processo di tokenizzazione}}
+
 		\end{minipage}
 		}
-		\only<3|handout:2>{
-		\begin{minipage}[t]{\textwidth}
+		\only<2|handout:2>{
+		\begin{minipage}[t]{.9\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
-			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{0pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Vocabolario (parole uniche):\\
-			("that", "is", "a", "cute", "dog", "my", "cat")\\
-			Dimensione del vocabolario: 7 parole}}{\textbf{Creazione del vocabolario}}
+			\epigraph{\textit{\alert{F1:} ``Che\,\Vtextvisiblespace[1em]\,bel\,\Vtextvisiblespace\,cane\,\Vtextvisiblespace[1cm]\,che\,\Vtextvisiblespace[.5em]\,hai\,!''\\
+			\alert{F2:} ``Ma\,\Vtextvisiblespace[.3cm]\,il\,\Vtextvisiblespace[1cm]\,mio\,\Vtextvisiblespace[.1cm]\,gatto\,\Vtextvisiblespace[1em]\,è\,\Vtextvisiblespace[.5em]\,più\,\Vtextvisiblespace[1cm]\,bello''\\
+		{\tiny
+		\begin{table}
+			\setlength{\tabcolsep}{4pt}
+			\renewcommand{\arraystretch}{1.5}
+			\centering
+			\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+				%\toprule
+				\multicolumn{11}{c}{\textbf{Vocabolario}}\\
+				\midrule
+				che & bel & cane & avere & ma & il & mio & gatto & essere & più & bello\\
+				\midrule
+				%\bottomrule
+			\end{tabular}
+		\end{table}
+		}
+		}}{\textbf{Creazione del vocabolario}}
 		\end{minipage}
 		}
-		\only<4|handout:3>{
-		\begin{minipage}[t]{\textwidth}
+		\only<3|handout:3>{
+		\begin{minipage}[t]{.9\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
-			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{0pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Rappresentazione vettoriale:\\
-			"That is a cute dog": (1, 1, 1, 1, 1, 0, 0)\\
-			"My cat is cute": (0, 1, 0, 1, 0, 1, 1)\\
-			Ogni numero rappresenta la frequenza della parola}}{\textbf{Vettori bag-of-words}}
+			\epigraph{\textit{\alert{F1:} ``Che\,\Vtextvisiblespace[1em]\,bel\,\Vtextvisiblespace\,cane\,\Vtextvisiblespace[1cm]\,che\,\Vtextvisiblespace[.5em]\,hai\,!''\\
+			\alert{F2:} ``Ma\,\Vtextvisiblespace[.3cm]\,il\,\Vtextvisiblespace[1cm]\,mio\,\Vtextvisiblespace[.1cm]\,gatto\,\Vtextvisiblespace[1em]\,è\,\Vtextvisiblespace[.5em]\,più\,\Vtextvisiblespace[1cm]\,bello''\\
+		{\tiny
+		\begin{table}
+			\setlength{\tabcolsep}{4pt}
+			\renewcommand{\arraystretch}{1.5}
+			\centering
+			\begin{tabular}{cc|c|c|c|c|c|c|c|c|c|c}
+								& \multicolumn{11}{c}{\textbf{Vocabolario}}\\
+				\cmidrule{2-12}
+				        & che & bel & cane & avere & ma & il & mio & gatto & essere & più & bello\\
+				\cmidrule{2-12}
+				\alert{F1} & 2   & 1   & 1    & 1     & 0  & 0  & 0   & 0     & 0      & 0   & 0    \\
+				\alert{F2} & 0   & 0   & 0    & 0     & 1  & 1  & 1   & 1     & 1      & 1   & 1    \\
+				\midrule
+				%\bottomrule
+			\end{tabular}
+		\end{table}
+		}
+		}}{\textbf{Vettori \textit{bag-of-words}}}
 		\end{minipage}
 		}
 	}
@@ -214,9 +270,9 @@
 		\framesubtitle{Perché servivano rappresentazioni migliori}
 		\begin{itemize}[leftmargin=10pt,align=right]
 			\onslide<2->\item[\alert{\faHandORight}] \alert{Perdita dell'ordine:} "The dog bit the man" = "The man bit the dog"
-			\onslide<3->\item[\alert{\faHandORight}] \alert{Mancanza di semantica:} non cattura il significato delle parole
-			\onslide<4->\item[\alert{\faHandORight}] \alert{Alta dimensionalità:} vocabolari enormi con molti zeri
-			\onslide<5->\item[\alert{\faHandORight}] \alert{Nessuna generalizzazione:} "happy" e "joyful" sono completamente diverse
+			\onslide<3->\item[\alert{\faHandORight}] \alert{Mancanza di semantica:} Non cattura il significato delle parole
+			\onslide<4->\item[\alert{\faHandORight}] \alert{Alta dimensionalità:} Vocabolari enormi con molti zeri
+			\onslide<5->\item[\alert{\faHandORight}] \alert{Nessuna generalizzazione:} i sinonimi sono trattati come elementi \alert{totalmente separati}
 		\end{itemize}
 		\vspace*{.3cm}
 		\only<2|handout:1>{

@@ -96,6 +96,11 @@
 \usepackage{fontspec}
 \usepackage{fontawesome}
 
+\newcommand\Vtextvisiblespace[1][.3em]{%
+  \mbox{\kern.06em\vrule height.3ex}%
+  \vbox{\hrule width#1}%
+  \hbox{\vrule height.3ex}}
+
 \usepackage{xspace}
 \usepackage[caption=true,font=scriptsize]{subfig}
 
