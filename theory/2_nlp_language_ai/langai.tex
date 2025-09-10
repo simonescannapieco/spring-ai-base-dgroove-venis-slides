@@ -162,7 +162,7 @@
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{Bag-of-Words: come funziona}
-	{\small
+	{\footnotesize
 		\onslide<1->
 		\framesubtitle{Processo di tokenizzazione e creazione del vocabolario}
 		\begin{enumerate}[leftmargin=10pt,align=right]
@@ -178,7 +178,6 @@
 			\end{itemize}}
 			\onslide<3->{\item[\alertedcircled{3}] \alert{Conteggio delle parole:} rappresentazione numerica basata sulla \alert{frequenza}}
 		\end{itemize}
-		\vfill
 		\hspace*{1cm}
 		\only<1|handout:1>{
 		\begin{minipage}[t]{.9\textwidth}
@@ -191,8 +190,7 @@
 		{\tiny
 		\begin{table}
 			\setlength{\tabcolsep}{4pt}
-			\renewcommand{\arraystretch}{1.5}
-			\centering
+			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
 				%\toprule
 				\multicolumn{12}{c}{\textbf{Token}}\\
@@ -203,7 +201,7 @@
 			\end{tabular}
 		\end{table}
 		}
-			}}{\textbf{Processo di tokenizzazione}}
+			}}{\textbf{Tokenizzazione}}
 
 		\end{minipage}
 		}
@@ -218,8 +216,7 @@
 		{\tiny
 		\begin{table}
 			\setlength{\tabcolsep}{4pt}
-			\renewcommand{\arraystretch}{1.5}
-			\centering
+			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
 				%\toprule
 				\multicolumn{11}{c}{\textbf{Vocabolario}}\\
@@ -244,8 +241,7 @@
 		{\tiny
 		\begin{table}
 			\setlength{\tabcolsep}{4pt}
-			\renewcommand{\arraystretch}{1.5}
-			\centering
+			\renewcommand{\arraystretch}{1}
 			\begin{tabular}{cc|c|c|c|c|c|c|c|c|c|c}
 								& \multicolumn{11}{c}{\textbf{Vocabolario}}\\
 				\cmidrule{2-12}
