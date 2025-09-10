@@ -191,7 +191,7 @@
 		\begin{table}
 			\setlength{\tabcolsep}{4pt}
 			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
+			\hskip-2.0cm\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
 				%\toprule
 				\multicolumn{12}{c}{\textbf{Token}}\\
 				\midrule
@@ -217,7 +217,7 @@
 		\begin{table}
 			\setlength{\tabcolsep}{4pt}
 			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+			\hskip-2.0cm\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
 				%\toprule
 				\multicolumn{11}{c}{\textbf{Vocabolario}}\\
 				\midrule
@@ -242,7 +242,7 @@
 		\begin{table}
 			\setlength{\tabcolsep}{4pt}
 			\renewcommand{\arraystretch}{1}
-			\begin{tabular}{cc|c|c|c|c|c|c|c|c|c|c}
+			\hskip-1.5cm\begin{tabular}{cc|c|c|c|c|c|c|c|c|c|c}
 								& \multicolumn{11}{c}{\textbf{Vocabolario}}\\
 				\cmidrule{2-12}
 				        & che & bel & cane & avere & ma & il & mio & gatto & essere & più & bello\\
@@ -260,88 +260,93 @@
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{Limitazioni del Bag-of-Words}
+\begin{frame}[t,fragile] \frametitle{Bag-of-Words}
 	{\small
 		\onslide<1->
-		\framesubtitle{Perché servivano rappresentazioni migliori}
+		\framesubtitle{Limitazioni}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<2->\item[\alert{\faHandORight}] \alert{Perdita dell'ordine:} "The dog bit the man" = "The man bit the dog"
-			\onslide<3->\item[\alert{\faHandORight}] \alert{Mancanza di semantica:} Non cattura il significato delle parole
-			\onslide<4->\item[\alert{\faHandORight}] \alert{Alta dimensionalità:} Vocabolari enormi con molti zeri
-			\onslide<5->\item[\alert{\faHandORight}] \alert{Nessuna generalizzazione:} i sinonimi sono trattati come elementi \alert{totalmente separati}
+			\onslide<1->{\item[\alert{\faHandORight}] \alert{Perdita dell'ordine:} frasi diammetralmente opposte hanno la medesima rappresentazione}
+			\onslide<2->{\item[\alert{\faHandORight}] \alert{Mancanza di semantica:} Non cattura il significato delle parole
+			\item[\alert{\faHandORight}] \alert{Nessuna generalizzazione:} i sinonimi sono trattati come elementi \alert{totalmente separati}}
+			\onslide<3->{\item[\alert{\faHandORight}] \alert{Alta dimensionalità:} Vocabolari enormi con molti zeri}
+			
 		\end{itemize}
-		\vspace*{.3cm}
-		\only<2|handout:1>{
-		\begin{minipage}[t]{\textwidth}
+		\hspace*{2cm}
+		\only<1|handout:1>{
+		\begin{minipage}[t]{.75\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
-			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{0pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Due frasi con significati opposti:\\
-			"The dog bit the man" -> (1, 1, 1, 1, 1)\\
-			"The man bit the dog" -> (1, 1, 1, 1, 1)\\
-			Identiche rappresentazioni per significati diversi!}}{\textbf{Problema dell'ordine delle parole}}
+			\epigraph{\textit{\alert{F1:} ``Simone\,\Vtextvisiblespace[1em]\,mangiò\,\Vtextvisiblespace[1em]\,l'\,\Vtextvisiblespace[1em]\,insalata''\\
+			\alert{F2:} ``L'\,\Vtextvisiblespace[1em]\,insalata\,\Vtextvisiblespace[1em]\,mangiò\,\Vtextvisiblespace[1em]\,Simone''\\\\
+		{\tiny
+		\begin{table}
+			\setlength{\tabcolsep}{4pt}
+			\renewcommand{\arraystretch}{1}
+			\hskip-3.5cm\begin{tabular}{cc|c|c|c}
+								& \multicolumn{3}{c}{\textbf{Vocabolario}}\\
+				\cmidrule{2-5}
+				        & Simone & mangiare & la & insalata\\
+				\cmidrule{2-5}
+				\alert{F1} & 1   & 1   & 1    & 1\\
+				\alert{F2} & 1   & 1   & 1    & 1\\
+				\midrule
+				%\bottomrule
+			\end{tabular}
+		\end{table}
+		}
+		}}{\textbf{Problema dell'ordine delle parole}}
 		\end{minipage}
 		}
-		\only<3|handout:2>{
-		\begin{minipage}[t]{\textwidth}
+		\only<2|handout:2>{
+		\begin{minipage}[t]{.75\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
 			\setlength{\beforeepigraphskip}{5pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Parole correlate semanticamente:\\
-			"king" e "queen" (concetti correlati)\\
-			"happy" e "joyful" (sinonimi)\\
-			"dog" e "puppy" (relazione iperonimo-iponimo)\\
-			Nel bag-of-words sono tutte completamente diverse}}{\textbf{Mancanza di relazioni semantiche}}
+			\epigraph{\textit{\alert{F1:} ``Concetti come <<Re>> e <<Regina>> dovrebbero essere correlati\ldots''\\
+			\alert{F2:} ``Sinonimi come <<felice>> e <<gioioso>> dovrebbero avere una rappresentazione simile\ldots''\\
+			\alert{F3:} ``E con parole come <<pitone>> e <<serpente>>, una generalizzazione dell'altra?!''}}{\textbf{Mancanza di relazioni semantiche}}
 		\end{minipage}
 		}
-		\only<4|handout:3>{
-		\begin{minipage}[t]{\textwidth}
+		\only<3|handout:3>{
+		\begin{minipage}[t]{.75\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
 			\setlength{\beforeepigraphskip}{5pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{Esempio con vocabolario di Wikipedia:\\
-			- Vocabolario: ~6 milioni di parole\\
-			- Vettore per ogni documento: 6 milioni di dimensioni\\
-			- La maggior parte dei valori è 0 (matrice sparsa)\\
-			Computazionalmente inefficiente!}}{\textbf{Problema della dimensionalità}}
+			\epigraph{\textit{\alert{Utente:} ``Fornisci una stima del vocabolario usato in Wikipedia.''\\
+			\alert{GPT:} ``[\ldots] English Wikipedia: ordine di grandezza \alert{$10^5$--$10^7$} (cioè da poche centinaia di migliaia fino a pochi milioni di forme distinte; stime più ottimistiche arrivano a decine di milioni se si contano tutte le forme, nomi scientifici, acronimi, errori, ecc.) [\ldots] Tutte le Wikipedie insieme (tutte le lingue, forme di parola): ordine di grandezza \alert{$10^5$--$10^8$} (da alcune centinaia di migliaia fino a qualche decina di milioni — in casi estremi circa $10^8$ se non si normalizza nulla).\\
+			\alert{Utente:} ``Quindi un documento Wikipedia in Bag-Of-Words sarebbe rappresentato da un vettore di dimensione almeno \alert{$10^5$}?!''}}{\textbf{Problema della dimensionalità}}
 		\end{minipage}
 		}
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{Evoluzione: Word Embeddings (2013)}
-	{\scriptsize
-		\onslide<1->
-            \framesubtitle{Word2Vec e la rivoluzione delle rappresentazioni dense}
-            \vspace*{-15pt}
-	    	\begin{minipage}[t]{\textwidth}
-				\begin{minipage}[t]{0.6\textwidth}
-	    			\begin{itemize}[leftmargin=10pt,align=right]
-						\onslide<2->\item[\alert{\faHandORight}] \alert{Word2Vec:} primo tentativo di successo per catturare il significato del testo negli embeddings
-						\onslide<3->\item[\alert{\faHandORight}] \alert{Embeddings:} rappresentazioni vettoriali di dati che tentano di catturarne il significato
-						\onslide<4->\item[\alert{\faHandORight}] Addestrato su \alert{enormi quantità} di dati testuali (intera Wikipedia)
-						\onslide<5->\item[\alert{\faHandORight}] Utilizza \alert{reti neurali} per generare rappresentazioni semantiche
-					\end{itemize}
-            	\end{minipage}
-            	%
-	    	\end{minipage}
+\begin{frame}[t,fragile] \frametitle{Word Embeddings (2013)}
+	\framesubtitle{Word2Vec e le rappresentazioni dense}
+	    \begin{minipage}[t]{\textwidth}
+	    	\begin{itemize}[leftmargin=10pt,align=right]
+				\onslide<1->\item[\alert{\faHandORight}] \alert{Word2Vec:} primo tentativo di successo per catturare il significato del testo negli embeddings
+				\onslide<2->\item[\alert{\faHandORight}] \alert{Embeddings:} rappresentazioni vettoriali di dati che tentano di catturarne il significato
+				\onslide<3->\item[\alert{\faHandORight}] Addestrato su \alert{enormi quantità} di dati testuali (intera Wikipedia)
+				\onslide<4->\item[\alert{\faHandORight}] Utilizza \alert{reti neurali} per generare rappresentazioni semantiche
+				\end{itemize}
+	    \end{minipage}
 	}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{Word2Vec: Come Funziona}
+	\framesubtitle{Apprendimento delle relazioni tra parole}
 	{\small
-		\onslide<1->
-		\framesubtitle{Apprendimento delle relazioni tra parole}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<2->\item[\alert{\faHandORight}] \alert{Principio fondamentale:} parole che appaiono in contesti simili hanno significati simili
-			\onslide<3->\item[\alert{\faHandORight}] \alert{Addestramento:} predire se due parole sono vicine in una frase
-			\onslide<4->\item[\alert{\faHandORight}] \alert{Risultato:} parole con significati simili hanno embeddings vicini nello spazio
+			\onslide<1->{\item[\alert{\faHandORight}] \alert{Principio fondamentale:} parole che appaiono in contesti simili tendono ad avere significati simili}
+			\onslide<2->{\item[\alert{\faHandORight}] \alert{Addestramento:} predire se due parole sono vicine in una frase}
+			\onslide<3->{\item[\alert{\faHandORight}] \alert{Risultato:} parole con significati simili hanno \textit{embeddings} vicini nello spazio}
 		\end{itemize}
 		\vspace*{.3cm}
-		\only<2|handout:1>{
+		\only<1|handout:1>{
 		\begin{minipage}[t]{\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
@@ -350,24 +355,25 @@
 			\epigraph{\textit{Ipotesi distributiva:\\
 			"You shall know a word by the company it keeps"\\
 			Esempi di contesti:\\
-			"The \_\_\_ is barking" -> probabilmente "dog"\\
-			"I love my pet \_\_\_" -> "dog", "cat", "bird"}}{\textbf{Principio alla base di Word2Vec}}
+			"Il mio \_\_\_ dorme nella cuccia" -> probabilmente "cane", "gatto", \ldots\\
+			"Ho portato il mio \_\_\_ dal veterinario" -> "cane", "gatto", "pappagallo", \ldots\\
+			"Il \_\_\_ gioca in giardino" -> "bambino", "cane", \ldots}}{\textbf{Principio alla base di Word2Vec}}
 		\end{minipage}
 		}
-		\only<3|handout:2>{
+		\only<2|handout:2>{
 		\begin{minipage}[t]{\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
 			\setlength{\beforeepigraphskip}{5pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
 			\epigraph{\textit{Processo di addestramento:\\
-			1. Assegna a ogni parola un vettore casuale (50 dimensioni)\\
-			2. Prendi coppie di parole dal testo\\
-			3. La rete predice: sono vicine in una frase?\\
-			4. Aggiorna i vettori in base alla correttezza}}{\textbf{Training di Word2Vec}}
+			\alertedcircled{1} Assegna a ogni parola un vettore casuale (dimensione fissa)\\
+			\alertedcircled{2} Prendi coppie di parole dal testo\\
+			\alertedcircled{3} La rete predice: sono vicine in una frase?\\
+			\alertedcircled{4} Aggiorna i vettori in base alla correttezza}}{\textbf{Training di Word2Vec}}
 		\end{minipage}
 		}
-		\only<4|handout:3>{
+		\only<3|handout:3>{
 		\begin{minipage}[t]{\textwidth}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{0pt}
