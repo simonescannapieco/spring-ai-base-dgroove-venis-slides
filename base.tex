@@ -20,6 +20,7 @@
 \definecolor{venis-faithful-yellow}{RGB}{255,161,0} % Faithful yellow hue extracted from Venis logo
 \definecolor{monokai-bg}{RGB}{34,35,28} % Faithful Monokai theme for minted package (background)
 \definecolor{solarized-light-bg}{RGB}{251,242,200} % Faithful Solarized theme for minted package (background)
+\definecolor{vscode-dark-bg}{RGB}{70,70,70} % Dark grey for background (picked from VSCode bg theme)
 
 \setbeamercolor{normal text}{fg=venis-darker-blue}
 \setbeamercolor{alerted text}{fg=venis-darker-yellow}
@@ -42,15 +43,15 @@
 % Set block configuration
 \setbeamertemplate{blocks}[rounded][shadow=true]
 % Set special block for code
-\newenvironment<>{shellcodeblock}[1]{%
-  \setbeamercolor{block body}{bg=solarized-light-bg}%
+\newenvironment<>{codeblock}[1]{%
+  \setbeamercolor{block body}{bg=vscode-dark-bg}%
   \begin{block}{#1}}{\end{block}}
 
 \usepackage[cache=false]{minted}
 \usemintedstyle[shell-session]{monokai}
 \setminted[shell-session]{
 	escapeinside=\@\~\$,
-	bgcolor=solarized-light-bg,
+	bgcolor=vscode-dark-bg,
 	bgcolorpadding=0.5em,
 	autogobble,
 	fontfamily=tt,

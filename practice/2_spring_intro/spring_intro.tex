@@ -95,7 +95,7 @@
 		\end{itemize}
 		\vspace*{.3cm}
 		\onslide<1->
-\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
 @RestController
 public class ChatController {
     
@@ -127,7 +127,7 @@ public class ChatController {
 		\end{itemize}
 		\vspace*{.3cm}
 		\onslide<1->
-\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
 @Configuration
 public class VectorStoreConfig {
     
@@ -159,7 +159,7 @@ public class VectorStoreConfig {
 		\end{itemize}
 		\vspace*{.3cm}
 		\onslide<1>
-\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
 @Service
 public class DocumentService {
     
@@ -202,7 +202,7 @@ public class DocumentService {
 	{\small
 		\framesubtitle{Un codice, molti provider}
 		\onslide<1->
-\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
 // Configurazione per OpenAI
 @Configuration
 public class OpenAIConfig {
@@ -242,7 +242,7 @@ public class AzureConfig {
 		\end{itemize}
 		\vspace*{.3cm}
 		\onslide<1->
-\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{properties}
+\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{properties}
 # OpenAI Configuration
 spring.ai.openai.api-key=${OPENAI_API_KEY}
 spring.ai.openai.chat.model=gpt-4
@@ -263,7 +263,7 @@ spring.ai.openai.embedding.model=text-embedding-ada-002
 	{\small
 		\framesubtitle{Testing semplificato}
 		\onslide<1->
-\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
 @SpringBootTest
 class ChatServiceTest {
     
@@ -332,7 +332,7 @@ class ChatServiceTest {
 	{\small
 		\framesubtitle{Il prezzo della portabilità}
 		\onslide<1->
-\begin{minted}[bgcolor=solarized-light-bg, bgcolorpadding=0.5em]{java}
+\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
 // Chiamata diretta OpenAI (senza Spring AI)
 OpenAiService service = new OpenAiService("sk-...");
 CompletionRequest request = CompletionRequest.builder()
