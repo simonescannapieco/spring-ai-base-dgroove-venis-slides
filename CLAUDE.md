@@ -62,7 +62,7 @@ main.tex → initialize_beamer_handout.tex → base.tex → base_notes.tex → i
 
 ### Language & Formatting
 - All content in Italian
-- Progressive reveals: `\onslide<2->\item[\alert{\faHandORight}]`
+- Progressive reveals: `\onslide<2->\item[\alert{\faArrowCircleRight}]`
 - Consistent minipage widths: `0.6\textwidth`
 - FontAwesome icons for bullets and branding
 
