@@ -19,6 +19,146 @@
 	}
 \end{frame}
 %
+\begin{frame}[t]
+    \frametitle{Language AI}
+    \framesubtitle{Esempi di \emph{task} NLP}
+    {\scriptsize
+        \begin{minipage}[t]{\textwidth}
+            \begin{minipage}[t]{.33\textwidth}
+                \begin{figure}[hb]
+                    \centering
+                    \includegraphics[width=\textwidth]{Translator.png}\\Traduzione \emph{context-sensitive}
+                \end{figure}
+            \end{minipage}
+            \begin{minipage}[t]{.33\textwidth}
+                \begin{figure}[hb]
+                    \centering
+                    \includegraphics[width=\textwidth]{essay-writer.png}\\Generazione di testo
+                \end{figure}
+            \end{minipage}
+            \begin{minipage}[t]{.33\textwidth}
+                \begin{figure}[hb]
+                    \centering
+                    \includegraphics[width=\textwidth]{NER.png}\\Estrazione di entità denominate
+                \end{figure}
+            \end{minipage}
+        \end{minipage}
+    \\\vspace*{.5cm}
+        \begin{minipage}[b]{\textwidth}
+            \begin{minipage}[b]{.33\textwidth}
+                \begin{figure}[hb]
+                    \centering
+                    \includegraphics[width=\textwidth]{summarization.png}\\Riassunto di testi
+                \end{figure}
+            \end{minipage}
+            \begin{minipage}[b]{.33\textwidth}
+                \begin{figure}[hb]
+                    \centering
+                    \includegraphics[width=\textwidth]{Code-generator.png}\\Generazione di codice
+                \end{figure}
+            \end{minipage}
+            \begin{minipage}[b]{.33\textwidth}
+                \begin{figure}[hb]
+                    \centering
+                    \includegraphics[width=\textwidth]{assistant.png}\\Assistente digitale
+                \end{figure}
+            \end{minipage}
+        \end{minipage}
+		\begin{center}
+			\href{https://www.google.com}{\faExternalLinkSquare\ Gara GPT vs Claude su traduzione \textit{context-sensitive}}
+		\end{center}
+    }
+\end{frame}
+%
+\begin{frame}[t]
+    \frametitle{\emph{Language models}}
+    \framesubtitle{$\ldots$ o modelli del linguaggio}
+	\vspace*{-1cm}
+	{\footnotesize 
+        \begin{minipage}[t]{\textwidth}
+            \vspace*{.5cm}
+            \begin{itemize}[leftmargin=10pt,align=right]
+				\onslide<1->\item[\alert{\faArrowCircleRight}] Modelli che simulano la comprensione e la generazione del linguaggio umano con approcci statistici e modelli della rete neurale
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Predicono la parola successiva in una sequenza in base al \alert{contesto}$\ldots$
+                \onslide<3->\item[\alert{\faArrowCircleRight}] $\ldots$ calcolando probabilità su ogni singola parola di un \alert{dizionario}
+                \onslide<4->\item[\alert{\faExclamationTriangle}] \alert{Qualunque} \emph{task} NLP può essere trasformata in un problema di generazione di testo
+            \end{itemize}
+        \end{minipage}
+		\hspace*{2cm}
+		\only<4|handout:4>{
+        \begin{minipage}[t]{.8\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{\alert{\faUser\ (thinking)} --- Ho la frase <<Mi piace come recita Hugh Laurie!>>, e devo determinarne il \emph{sentiment} ---\\
+			\alert{\faUser} ``Il \emph{sentiment} della frase <<Mi piace come recita Hugh Laurie!>> é: ''\\
+			\alert{\faTerminal\ (thinking)} --- Eseguo l'inferenza\ldots ---\\
+			\alert{\faTerminal\ (thinking)} --- Ho ottenuto le seguenti probabilità come prossimo \textit{token} da generare: <<positivo>> al 45\%, <<negativo>> al 2\%, <<cane>> al 0.5\%, <<gatto>> al 0.3\%,\ldots ---\\
+			\alert{\faTerminal} ``Il \emph{sentiment} della frase <<Mi piace come recita Hugh Laurie!>> é: positivo''}}{\textbf{Processo di \textit{sentiment analysis}}}
+        \end{minipage}
+		}
+		\only<5|handout:5>{
+        \begin{minipage}[t]{.8\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{\alert{\faUser\ (thinking)} --- Ho la domanda <<Chi ha scritto ``L'origine della specie''?>> e voglio ottenere la risposta ---\\
+			\alert{\faUser} ``D: Chi ha scritto <<L'origine della specie>>? R: ''\\
+			\alert{\faTerminal\ (thinking)} --- Eseguo l'inferenza\ldots ---\\
+			\alert{\faTerminal\ (thinking)} --- Ho ottenuto le seguenti probabilità come prossimo \textit{token} da generare: <<Charles>> al 25\%, <<Darwin>> al 15\%, <<cane>> al 0.2\%, <<gatto>> al 0.1\%,\ldots ---\\
+			\alert{\faTerminal} ``D: Chi ha scritto <<L'origine della specie>>? R: Charles''\\
+			\alert{\faUser} ``D: Chi ha scritto <<L'origine della specie>>? R: Charles ''\\
+			\alert{\faTerminal\ (thinking)} --- Eseguo l'inferenza\ldots ---\\
+			\alert{\faTerminal\ (thinking)} --- Ho ottenuto le seguenti probabilità come prossimo \textit{token} da generare: <<Darwin>> al 65\%, <<Charles>> al 1\%, <<cane>> al 0.2\%, <<gatto>> al 0.1\%,\ldots ---\\
+			\alert{\faTerminal} ``D: Chi ha scritto <<L'origine della specie>>? R: Charles Darwin''}}{\textbf{Processo di \textit{question answering}}}
+        \end{minipage}
+		}
+	}
+\end{frame}
+%
+\begin{frame}[t]
+    \frametitle{Language model}
+    \framesubtitle{Il contesto è tutto}
+    {
+        \begin{minipage}[t]{\textwidth}
+    \only<1>{
+        \begin{figure}[ht]
+            \begin{minipage}[b]{0.95\linewidth}
+                \centering
+                \includegraphics[width=\textwidth]{Context-0.png}
+            \end{minipage}
+        \end{figure}
+    }
+        \only<2>{
+        \begin{figure}[ht]
+            \begin{minipage}[b]{0.95\linewidth}
+                \centering
+                \includegraphics[width=\textwidth]{Context-1.png}
+            \end{minipage}
+        \end{figure}
+    }
+        \onslide<3->{
+        \begin{figure}[ht]
+            \begin{minipage}[b]{0.95\linewidth}
+                \centering
+                \includegraphics[width=\textwidth]{Context-2.png}
+            \end{minipage}
+        \end{figure}
+    }
+    \end{minipage}
+        \begin{minipage}[t]{\textwidth}
+            \vspace*{.8cm}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Il significato di alcune parole è dipendente dal significato di altre (\alert{parole contestuali})
+                \onslide<4->\item[\alert{\faArrowCircleRight}] L'umano affronta questo processo in maniera inconscia ed istantanea$\ldots$
+                \onslide<5->\item[\alert{\faArrowCircleRight}] $\ldots$ ma una macchina?!
+            \end{itemize}
+        \end{minipage}
+    }
+\end{frame}
+%
 \begin{frame}[t,fragile] \frametitle{Le origini: ELIZA (1966)}
     \framesubtitle{Il primo \textit{chatbot} della storia}
 	{\small
@@ -34,14 +174,14 @@
 		\vfill
 		\onslide<1->
 		\begin{center}
-			\href{https://www.masswerk.at/elizabot/eliza.html}{\faExternalLinkSquare\ Implementazione ELIZA\ldots}
+			\href{https://www.masswerk.at/elizabot/eliza.html}{\faExternalLinkSquare\ Implementazione ELIZA}
 		\end{center}
 	}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{ELIZA: come funzionava}
+	\framesubtitle{Pattern matching e trasformazioni di template}
 	{\small
-		\framesubtitle{Pattern matching e trasformazioni di template}
 		\begin{itemize}[leftmargin=10pt,align=right]
 			\item[\alert{\faArrowCircleRight}] \alert{Trasformazioni grammaticali:} regole sintattiche applicate all'\textit{input} utente
 		\end{itemize}
@@ -87,9 +227,8 @@
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{ELIZA: come funzionava}
+	\framesubtitle{Pattern matching e trasformazioni di template}
 	{\small
-		\onslide<1->
-		\framesubtitle{Pattern matching e trasformazioni di template}
 		\begin{itemize}[leftmargin=10pt,align=right]
 			\item[\alert{\faArrowCircleRight}] \alert{Regole di \textit{pattern matching}:} riconoscimento di parole chiave nell'\textit{input} e scelta fra possibili \textit{pattern} correlati
 		\end{itemize}
@@ -247,8 +386,7 @@
 				\setlength{\epigraphwidth}{0.9\textwidth}
 				\epigraph{\textit{\alert{\faFile$_1$} ``Che\,\Vtextvisiblespace[1em]\,bel\,\Vtextvisiblespace\,cane\,\Vtextvisiblespace[1cm]\,che\,\Vtextvisiblespace[.5em]\,hai!''\\
 				\alert{\faFile$_2$} ``Ma\,\Vtextvisiblespace[.3cm]\,il\,\Vtextvisiblespace[1cm]\,mio\,\Vtextvisiblespace[.1cm]\,gatto\,\Vtextvisiblespace[1em]\,è\,\Vtextvisiblespace[.5em]\,più\,\Vtextvisiblespace[1cm]\,bello''
-				}
-				}{\textbf{Vettori \textit{bag-of-words}}}
+				}}{\textbf{Vettori \textit{bag-of-words}}}
 		\end{minipage}
 		}	
 	}
@@ -286,8 +424,7 @@
 			\setlength{\beforeepigraphskip}{0pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
 			\epigraph{\textit{\alert{\faFile$_1$} ``Simone\,\Vtextvisiblespace[1em]\,mangiò\,\Vtextvisiblespace[1em]\,l'\,\Vtextvisiblespace[1em]\,insalata''\\
-			\alert{\faFile$_2$} ``L'\,\Vtextvisiblespace[1em]\,insalata\,\Vtextvisiblespace[1em]\,mangiò\,\Vtextvisiblespace[1em]\,Simone''
-		}}{\textbf{Problema dell'ordine delle parole}}
+			\alert{\faFile$_2$} ``L'\,\Vtextvisiblespace[1em]\,insalata\,\Vtextvisiblespace[1em]\,mangiò\,\Vtextvisiblespace[1em]\,Simone''}}{\textbf{Problema dell'ordine delle parole}}
 		\end{minipage}
 		}
 		\only<2|handout:2>{
@@ -330,6 +467,7 @@
 					\item[\alert{\faArrowCircleRight}] \ldots
 				\end{itemize}
 				\onslide<4->\item[\alert{\faArrowCircleRight}] Utilizza \alert{reti neurali} per generare rappresentazioni semantiche
+				\onslide<5->\item[\alert{\faExclamationTriangle}] Grandezza della rappresentazione vettoriale \alert{limitata a priori}
 			\end{itemize}
 	    \end{minipage}
 \end{frame}
@@ -377,9 +515,9 @@
 			\setlength{\afterepigraphskip}{0pt}
 			\setlength{\beforeepigraphskip}{5pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
-			\epigraph{\textit{\alert{\faTerminal} <<Computer>> è simile a <<laptop>>, <<pc>>, <<desktop>>, <<workstation>>, \ldots''\\	
-			\alert{\faTerminal} <<Re>> sta a <<uomo>> come <<Regina>> sta a <<donna>>!''
-			}}{\textbf{Proprietà emergenti degli \textit{embeddings}}}
+			\epigraph{\textit{\alert{\faTerminal} ``<<Computer>> è simile a <<laptop>>, <<pc>>, <<desktop>>, <<workstation>>, \ldots''\\	
+			\alert{\faTerminal} ``<<Re>> sta a <<uomo>> come <<Regina>> sta a <<donna>>!''\\
+			\alert{\faTerminal} ``<<Lunedì>>, <<martedì>>, <<mercoledì>>, \ldots sono correlate.''}}{\textbf{Proprietà emergenti: sinonimie, classificazioni, relazionalità}}
 			\begin{center}
 				\href{https://vectors.nlpl.eu/explore/embeddings/en/}{\faExternalLinkSquare\ Portale Word2Vec}
 			\end{center}
@@ -388,3 +526,29 @@
 	}
 \end{frame}
 %
+\begin{frame}[t,fragile] \frametitle{Word2Vec}
+	\framesubtitle{Limitazioni}
+		\begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<1->{\item[\alert{\faArrowCircleRight}] \alert{Polisemia:} confusione con parole utilizzabili con diversi significati in contesti diversi}
+			\onslide<2->{\item[\alert{\faArrowCircleRight}] \alert{Contesti insufficienti:} parole rare potrebbero non avere abbastanza esempi}
+		\end{itemize}
+		\hspace*{3cm}
+		\only<1|handout:1>{
+		\begin{minipage}[t]{.7\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\alert{\faTerminal\ (thinking)} --- Ma\ldots <<cannonata>> in senso bellico\ldots O calcistico? ---}{\textbf{Problema della polisemia}}
+		\end{minipage}
+		}
+		\only<2|handout:2>{
+		\begin{minipage}[t]{.7\textwidth}
+			\renewcommand{\epigraphsize}{\scriptsize}
+			\setlength{\afterepigraphskip}{5pt}
+			\setlength{\beforeepigraphskip}{5pt}
+			\setlength{\epigraphwidth}{0.9\textwidth}
+			\epigraph{\textit{\alert{\faTerminal\ (thinking)} --- Non ho molto capito il senso delle parole <<supercazzola>>, <<scappellamento>> e <<Antani>>\ldots ---}}{\textbf{Amici miei, 1975}}
+		\end{minipage}
+		}
+\end{frame}
