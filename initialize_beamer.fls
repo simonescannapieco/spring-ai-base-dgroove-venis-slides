@@ -1,0 +1,8 @@
+PWD /media/EXT4-DATA/work/courses/Spring-AI-base@DGROOVE-VENIS/slides
+INPUT /usr/local/texlive/2025/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /media/EXT4-DATA/work/courses/Spring-AI-base@DGROOVE-VENIS/slides/initialize_beamer.tex
+OUTPUT initialize_beamer.log
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/etex-pkg/etex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/etex-pkg/etex.sty

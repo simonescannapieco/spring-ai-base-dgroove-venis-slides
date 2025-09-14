@@ -93,6 +93,7 @@
 \usepackage{amsmath}
 \usepackage{dsfont}
 \usepackage{pifont}
+\usepackage{mathtools}
 
 \usepackage{fontspec}
 \usepackage{fontawesome}
@@ -101,6 +102,11 @@
   \mbox{\kern.06em\vrule height.3ex}%
   \vbox{\hrule width#1}%
   \hbox{\vrule height.3ex}}
+
+
+\newcommand{\set}[2][\relax]{%
+    \ifthenelse{\equal{#1}{auto}}{\left\{#2\right\}}{#1\{#2#1\}}%
+}
 
 \usepackage{xspace}
 \usepackage[caption=true,font=scriptsize]{subfig}
