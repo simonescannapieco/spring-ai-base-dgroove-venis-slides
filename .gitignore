@@ -1,2 +1,6 @@
 material/
 simplemedia_examples.tex
+*.log
+*.fls
+*.fdb_latexmk
+*.aux
