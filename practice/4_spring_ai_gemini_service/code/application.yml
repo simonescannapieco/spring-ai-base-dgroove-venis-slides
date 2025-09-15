@@ -1,0 +1,13 @@
+\begin{minted}{yaml}
+spring:
+  application:
+    name: demo
+  ai:
+    openai:
+      api-key: ${GOOGLE_AI_API_KEY}
+      base-url: https://generativelanguage.googleapis.com/v1beta/openai
+      chat:
+        completions-path: /chat/completions
+        options:
+          model: gemini-2.0-flash-lite
+\end{minted}

@@ -1,0 +1,58 @@
+\section{\faWrench\ Creazione servizio per Gemini} % (fold)
+\label{sec:spring-ai-gemini-service}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+	\begin{itemize}
+        \item[\alertedcircled{1}] Creazione interfaccia ed implementazione del servizio Gemini
+        \item[\alertedcircled{2}] Configurazione aggiuntiva \texttt{application.yml}
+        \item[\alertedcircled{3}] \textit{Setup} ambiente JUnit
+        \item[\alertedcircled{4}] Esecuzione del \textit{test} di connettività a Gemini 
+	\end{itemize}        
+\end{frame}
+%
+\subsection{\faWrench\ Interfaccia ed implementazione servizio Gemini} % (fold)
+\label{subsec:spring-ai-gemini-service-code}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \begin{block}{Interfaccia servizio Gemini}
+{\tiny\input{code/GeminiService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \begin{block}{Implementazione servizio Gemini}
+{\tiny\input{code/GeminiServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Configurazione Gemini}
+        \begin{block}{Modifiche alle proprietà del progetto}
+{\tiny\input{code/application.yml}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Configurazione Junit (VSCode)}
+        \begin{block}{\textit{File} \texttt{settings.json}}
+{\tiny\input{code/settings.json}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Test servizio Gemini}
+        \begin{block}{Implementazione test Gemini}
+{\tiny\input{code/GeminiServiceImplTest.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{2-spring-ai-gemini-service}}
+	\end{center}
+\end{frame}

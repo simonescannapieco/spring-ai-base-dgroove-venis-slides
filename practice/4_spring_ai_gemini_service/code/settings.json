@@ -1,0 +1,11 @@
+\begin{minted}{json}
+{
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.test.config": {
+        "env": {
+            "GOOGLE_AI_API_KEY": "..."
+        }
+    }
+}
+\end{minted}
