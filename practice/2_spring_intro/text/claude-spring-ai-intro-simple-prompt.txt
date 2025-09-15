@@ -1,4 +1,0 @@
-Struttura una serie di diapositive di presentazione per Spring AI.
-Le diapositive devono spiegare i concetti fondamentali del progetto Spring, evidenziandone vantaggi e svantaggi.
-Le diapositive sono destinate a programmatori Java con esperienza in Spring Boot.
-Le diapositive devono essere strutturate in linguaggio LaTeX, seguendo il file modello ‘ai.tex’ fornito.
