@@ -81,16 +81,17 @@
 				\onslide<1->\item[\alert{\faArrowCircleRight}] Modelli che simulano la comprensione e la generazione del linguaggio umano con approcci statistici e modelli della rete neurale
                 \onslide<2->\item[\alert{\faArrowCircleRight}] Predicono la parola successiva in una sequenza in base al \alert{contesto}$\ldots$
                 \onslide<3->\item[\alert{\faArrowCircleRight}] $\ldots$ calcolando probabilità su ogni singola parola di un \alert{dizionario}
-                \onslide<4->\item[\alert{\faExclamationTriangle}] \alert{Qualunque} \emph{task} NLP può essere trasformata in un problema di generazione di testo
+                \onslide<4->\item[\alert{\faExclamationTriangle}] \alert{Qualunque} \emph{task} NLP può essere trasformata in un problema di generazione di testo!
             \end{itemize}
         \end{minipage}
 		\hspace*{2cm}
-		\only<4|handout:4>{
+		\only<4|handout:1>{
         \begin{minipage}[t]{.8\textwidth}
+			\vspace*{.3cm}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{5pt}
 			\setlength{\beforeepigraphskip}{5pt}
-			\setlength{\epigraphwidth}{0.9\textwidth}
+			\setlength{\epigraphwidth}{\textwidth}
 			\epigraph{\textit{\alert{\faUser\ (thinking)} --- Ho la frase <<Mi piace come recita Hugh Laurie!>>, e devo determinarne il \emph{sentiment} ---\\
 			\alert{\faUser} ``Il \emph{sentiment} della frase <<Mi piace come recita Hugh Laurie!>> é: ''\\
 			\alert{\faTerminal\ (thinking)} --- Eseguo l'inferenza\ldots ---\\
@@ -98,12 +99,13 @@
 			\alert{\faTerminal} ``Il \emph{sentiment} della frase <<Mi piace come recita Hugh Laurie!>> é: positivo''}}{\textbf{Processo di \textit{sentiment analysis}}}
         \end{minipage}
 		}
-		\only<5|handout:5>{
+		\only<5|handout:2>{
         \begin{minipage}[t]{.8\textwidth}
+			\vspace*{.3cm}
 			\renewcommand{\epigraphsize}{\scriptsize}
 			\setlength{\afterepigraphskip}{5pt}
 			\setlength{\beforeepigraphskip}{5pt}
-			\setlength{\epigraphwidth}{0.9\textwidth}
+			\setlength{\epigraphwidth}{\textwidth}
 			\epigraph{\textit{\alert{\faUser\ (thinking)} --- Ho la domanda <<Chi ha scritto ``L'origine della specie''?>> e voglio ottenere la risposta ---\\
 			\alert{\faUser} ``D: Chi ha scritto <<L'origine della specie>>? R: ''\\
 			\alert{\faTerminal\ (thinking)} --- Eseguo l'inferenza\ldots ---\\
@@ -123,7 +125,7 @@
     \framesubtitle{Il contesto è tutto}
     {
         \begin{minipage}[t]{\textwidth}
-    \only<1>{
+    \only<1|handout:0>{
         \begin{figure}[ht]
             \begin{minipage}[b]{0.95\linewidth}
                 \centering
@@ -131,7 +133,7 @@
             \end{minipage}
         \end{figure}
     }
-        \only<2>{
+    \only<2|handout:0>{
         \begin{figure}[ht]
             \begin{minipage}[b]{0.95\linewidth}
                 \centering
@@ -139,7 +141,7 @@
             \end{minipage}
         \end{figure}
     }
-        \onslide<3->{
+    \only<3|handout:1>{
         \begin{figure}[ht]
             \begin{minipage}[b]{0.95\linewidth}
                 \centering
@@ -294,7 +296,7 @@
 				\begin{itemize}[leftmargin=10pt,align=right]
 					\item[\alert{\faArrowCircleRight}] Il testo perde significato quando rappresentato da 0 e 1
 				\end{itemize}
-				\onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Focus principale:} rappresentare il linguaggio in \alert{modo strutturato} per l'uso da parte dei calcolatori
+				\onslide<4->\item[\alert{\faArrowCircleRight}] \alert{\textit{Focus} principale:} rappresentare il linguaggio in \alert{modo strutturato} per l'uso da parte dei calcolatori
 			\end{itemize}
         \end{minipage}
 	}
@@ -348,7 +350,7 @@
 						\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
 							\multicolumn{11}{c}{\textbf{Vocabolario}}\\
 							\midrule
-							che & bel & cane & avere & ma & il & mio & gatto & essere & più & bello\\
+							che & bell- & can- & avere & ma & il & mi- & gatt- & essere & più & bell-\\
 							\midrule
 						\end{tabular}
 					\end{table}
@@ -372,7 +374,7 @@
 						\begin{tabular}{cc|c|c|c|c|c|c|c|c|c|c}
 							& \multicolumn{11}{c}{\textbf{Vocabolario}}\\
 							\cmidrule{2-12}
-				        	& che & bel & cane & avere & ma & il & mio & gatto & essere & più & bello\\
+				        	& che & bell- & can- & avere & ma & il & mi- & gatt- & essere & più & bell-\\
 							\cmidrule{2-12}
 							\alert{\faFile$_1$} & 2   & 1   & 1    & 1     & 0  & 0  & 0   & 0     & 0      & 0   & 0    \\
 							\alert{\faFile$_2$} & 0   & 0   & 0    & 0     & 1  & 1  & 1   & 1     & 1      & 1   & 1    \\
@@ -411,7 +413,7 @@
 			\begin{tabular}{cc|c|c|c}
 								& \multicolumn{3}{c}{\textbf{Vocabolario}}\\
 				\cmidrule{2-5}
-				        & Simone & mangiare & la & insalata\\
+				        & Simone & mangiare & l- & insalat-\\
 				\cmidrule{2-5}
 				\alert{\faFile$_1$} & 1   & 1   & 1    & 1\\
 				\alert{\faFile$_2$} & 1   & 1   & 1    & 1\\
@@ -488,7 +490,7 @@
 			\setlength{\beforeepigraphskip}{5pt}
 			\setlength{\epigraphwidth}{0.9\textwidth}
 			\epigraph{\textit{\alert{\faFile$_1$} ``[\ldots] Il mio cane ama dormire nella sua cuccia [\ldots]''\\
-			\alert{\faFile$_2$} ``[\ldots] Il veterinario ha deciso di sterilizzare il gatto [\ldots]''\\
+			\alert{\faFile$_2$} ``[\ldots] Il \alert{veterinario} ha deciso di sterilizzare il gatto [\ldots]''\\
 			\alert{\faFile$_3$} ``[\ldots] Mentre giocava, il mio cane si è fatto male e l'ho dovuto portare dal veterinario [\ldots]''\\
 			\alert{\faFile$_4$} ``[\ldots] Ho comprato una cuccia per il mio gatto, ma continua a preferire il divano! [\ldots]''\\
 			\alert{\faTerminal\ (thinking)} --- Devo capire quali termini condividono gli stessi contesti linguistici\ldots ---}}{\textbf{Principio alla base di Word2Vec}}
@@ -517,7 +519,7 @@
 			\setlength{\epigraphwidth}{0.9\textwidth}
 			\epigraph{\textit{\alert{\faTerminal} ``<<Computer>> è simile a <<laptop>>, <<pc>>, <<desktop>>, <<workstation>>, \ldots''\\	
 			\alert{\faTerminal} ``<<Re>> sta a <<uomo>> come <<Regina>> sta a <<donna>>!''\\
-			\alert{\faTerminal} ``<<Lunedì>>, <<martedì>>, <<mercoledì>>, \ldots sono correlate.''}}{\textbf{Proprietà emergenti: sinonimie, classificazioni, relazionalità}}
+			\alert{\faTerminal} ``<<Lunedì>>, <<martedì>>, <<mercoledì>>, \ldots formano un unico gruppo.''}}{\textbf{Proprietà emergenti: sinonimie, classificazioni, relazionalità}}
 			\begin{center}
 				\href{https://vectors.nlpl.eu/explore/embeddings/en/}{\faExternalLinkSquare\ Portale Word2Vec}
 			\end{center}

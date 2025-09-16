@@ -21,7 +21,7 @@
 				\setlength{\epigraphwidth}{\textwidth}
 				\epigraph{
 					\textit{\alert{D:} Cosa è l'Intelligenza Artificiale?\\
-					\alert{R:} E' la scienza e l'ingegneria di creare macchine intelligenti, in particolare programmi informatici intelligenti. È correlata al compito simile di utilizzare i computer per comprendere l'intelligenza umana, ma l'intelligenza artificiale non deve limitarsi a metodi che siano osservabili biologicamente.}}{John McCarthy, \textbf{Stanford Uni, 2007}\\Traduzione: \textit{\textcopyright ChatGPT}}
+					\alert{R:} E' la scienza e l'ingegneria di creare macchine intelligenti, in particolare programmi informatici intelligenti. È correlata al compito simile di utilizzare i computer per comprendere l'intelligenza umana, \alert{ma l'intelligenza artificiale non deve limitarsi a metodi che siano osservabili biologicamente}.}}{John McCarthy, \textbf{Stanford Uni, 2007}\\Traduzione: \textit{\textcopyright ChatGPT}}
 			\end{minipage}
 		\end{minipage}
 }
@@ -111,7 +111,7 @@
 			\item[\alert{\faArrowCircleRight}] \alert{Analisi del \textit{sentiment}:} classificare recensioni dei clienti
 		\end{itemize}
 		\vspace*{.3cm}
-		\begin{codeblock}{Analizzatore \textit{sentiment} (\textcopyright\ Claude)}
+		\begin{block}{Analizzatore \textit{sentiment} (\textcopyright\ Claude)}
         	\begin{minted}{java}
     @RestController
     public class SentimentController {
@@ -125,7 +125,7 @@
         }
     }
 			\end{minted}
-    	\end{codeblock}
+    	\end{block}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{AI debole: esempi}
@@ -134,7 +134,7 @@
 			\item[\alert{\faArrowCircleRight}] \alert{\textit{Chatbot} per supporto:} rispondere a domande frequenti
 		\end{itemize}
 		\vspace*{.3cm}
-    	\begin{codeblock}{\textit{Chatbot} tradizionale con regole fisse (\textcopyright\ Claude)}
+    	\begin{block}{\textit{Chatbot} tradizionale con regole fisse (\textcopyright\ Claude)}
         	\begin{minted}{java}
     @Component
     public class ChatbotService {
@@ -148,7 +148,7 @@
         }
     }
 			\end{minted}
-    	\end{codeblock}
+    	\end{block}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{AI debole: esempi}
@@ -157,7 +157,7 @@
 			\item[\alert{\faArrowCircleRight}] \alert{Rilevamento frodi:} identificare transazioni sospette
 		\end{itemize}
 		\vspace*{.3cm}
-    	\begin{codeblock}{Sistema di rilevamento frodi basato su ML (\textcopyright\ Claude)}
+    	\begin{block}{Sistema di rilevamento frodi basato su ML (\textcopyright\ Claude)}
         	\begin{minted}{java}
     @Service
     public class FraudDetectionService {
@@ -169,16 +169,16 @@
         }
     }
 			\end{minted}
-    	\end{codeblock}
+    	\end{block}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{AI debole: esempi}
 	\framesubtitle{Casi d'uso}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\item[\alert{\faArrowCircleRight}] \alert{Rilevamento frodi:} identificare transazioni sospette
+			\item[\alert{\faArrowCircleRight}] \alert{Automazione:} modifiche dinamiche su flussi temporali di dati
 		\end{itemize}
 		\vspace*{.3cm}
-    	\begin{codeblock}{\textit{Pricing} dinamico basato su AI (\textcopyright\ Claude)}
+    	\begin{block}{\textit{Pricing} dinamico basato su AI (\textcopyright\ Claude)}
             \begin{minted}{java}
     @RestController
     public class PricingController {
@@ -194,17 +194,20 @@
         }
     }
 			\end{minted}
-    	\end{codeblock}
+    	\end{block}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{AI Forte: Esempi Ipotetici}
-	\framesubtitle{Cosa potrebbe fare un'AGI}
+	\framesubtitle{Cosa potrebbe fare una GAI}
 	{\small
 		\begin{itemize}[leftmargin=10pt,align=right]
 			\onslide<1->{\item[\alert{\faArrowCircleRight}] \alert{Programmatore universale:} scrivere codice in qualsiasi linguaggio e dominio}
 			\onslide<2->{\item[\alert{\faArrowCircleRight}] \alert{\textit{Problem solver} generale:} risolvere problemi mai visti prima}
 			\onslide<3->{\item[\alert{\faArrowCircleRight}] \alert{Apprendimento rapido:} imparare nuovi concetti da pochi esempi}
 			\onslide<4->{\item[\alert{\faArrowCircleRight}] \alert{Ragionamento causale:} comprendere cause ed effetti complessi}
+			\begin{itemize}[leftmargin=10pt,align=right]
+				\item[\alert{\faArrowCircleRight}] \textit{Explainable} AI
+			\end{itemize}
 		\end{itemize}
 		\vspace*{.3cm}
 		\hspace*{4cm}
@@ -215,7 +218,7 @@
 				\setlength{\afterepigraphskip}{0pt}
 				\setlength{\beforeepigraphskip}{5pt}
 				\setlength{\epigraphwidth}{0.9\textwidth}
-				\epigraph{\textit{Analizzerò il tuo sistema legacy in COBOL, lo convertirò in microservizi Spring Boot, ottimizzerò le performance del database, implementerò la sicurezza OAuth2 e creerò una UI React responsive. Tutto completato in 30 minuti.}}{Scenario ipotetico di AGI programmatore}
+				\epigraph{\textit{Analizzerò il tuo sistema legacy in COBOL, lo convertirò in microservizi Spring Boot, ottimizzerò le performance del database, implementerò la sicurezza OAuth2 e creerò una UI React responsive. Tutto completato in 30 minuti.}}{\textbf{Scenario ipotetico di GAI programmatore}}
 			\end{minipage}
 		\end{minipage}
 		}
@@ -226,7 +229,7 @@
 				\setlength{\afterepigraphskip}{0pt}
 				\setlength{\beforeepigraphskip}{5pt}
 				\setlength{\epigraphwidth}{0.9\textwidth}
-				\epigraph{\textit{Il tuo e-commerce ha un calo delle vendite del 23\%. Dopo aver analizzato dati di mercato, comportamento utenti e tendenze sociali, ho identificato 12 fattori causali e propongo una strategia integrata che combina UX, pricing e marketing personalizzato.}}{Scenario di problem solving generale}
+				\epigraph{\textit{Il tuo e-commerce ha un calo delle vendite del 23\%. Dopo aver analizzato dati di mercato, comportamento utenti e tendenze sociali, ho identificato 12 fattori causali e propongo una strategia integrata che combina UX, pricing e marketing personalizzato.}}{\textbf{Scenario di \textit{problem solving} generale}}
 			\end{minipage}
 		\end{minipage}
 		}
@@ -237,7 +240,7 @@
 				\setlength{\afterepigraphskip}{0pt}
 				\setlength{\beforeepigraphskip}{5pt}
 				\setlength{\epigraphwidth}{0.9\textwidth}
-				\epigraph{\textit{Non ho mai visto il framework Quantum-Spring che avete appena rilasciato, ma dopo aver letto 3 esempi di codice ho compreso i pattern architetturali e posso già ottimizzare la vostra implementazione.}}{Apprendimento rapido da pochi esempi}
+				\epigraph{\textit{Non ho mai visto il framework Quantum-Spring che avete appena rilasciato, ma dopo aver letto 3 esempi di codice ho compreso i pattern architetturali e posso già ottimizzare la vostra implementazione.}}{\textbf{Apprendimento rapido da pochi esempi}}
 			\end{minipage}
 		\end{minipage}
 		}
@@ -248,7 +251,7 @@
 				\setlength{\afterepigraphskip}{0pt}
 				\setlength{\beforeepigraphskip}{5pt}
 				\setlength{\epigraphwidth}{0.9\textwidth}
-				\epigraph{\textit{Il bug nel vostro sistema non è dove pensate. Il vero problema è un race condition causato da un pattern di design che crea dipendenze cicliche tra tre microservizi, amplificato dal garbage collector di JVM sotto carico elevato.}}{Ragionamento causale profondo}
+				\epigraph{\textit{Il bug nel vostro sistema non è dove pensate. Il vero problema è una race condition causato da un pattern di design che crea dipendenze cicliche tra tre microservizi, amplificato dal garbage collector di JVM sotto carico elevato.}}{\textbf{Ragionamento causale profondo}}
 			\end{minipage}
 		\end{minipage}
 		}
@@ -258,7 +261,6 @@
 \begin{frame}[t,fragile] \frametitle{Confronto: AI Debole vs AI Forte}
 	{\small
 		\framesubtitle{Differenze pratiche per lo sviluppatore}
-		\vspace*{-.5cm}
 		\begin{center}
 		{\scriptsize
 		\begin{table}
@@ -269,13 +271,13 @@
 				\toprule
 				\textbf{Aspetto} & \textbf{AI Debole (Narrow)} & \textbf{AI Forte (General)}\\
 				\midrule
-				\alert{Scopo} & Un singolo compito specifico & Qualsiasi compito cognitivo\\
-				\alert{Apprendimento} & Dataset grandi, training lungo & Pochi esempi, apprendimento rapido\\
-				\alert{Trasferibilità} & Zero (limitata al dominio) & Totale (tra qualsiasi dominio)\\
-				\alert{Creatività} & Assente o molto limitata & Creatività genuina\\
-				\alert{Ragionamento} & Pattern matching avanzato & Comprensione causale\\
-				\alert{Implementazione} & Disponibile oggi & Non esiste ancora\\
-				\alert{Costo/Complessità} & Gestibile per singoli casi d'uso & Teoricamente enorme\\
+				Scopo & Un singolo compito specifico & Qualsiasi compito cognitivo\\
+				Apprendimento & \textit{Dataset} grandi, \textit{training} lungo & Pochi esempi, apprendimento rapido\\
+				Trasferibilità & Zero (limitata al dominio) & Totale (tra qualsiasi dominio)\\
+				Creatività & Assente o molto limitata & Creatività genuina\\
+				Ragionamento & \textit{Pattern matching} avanzato & Comprensione causale\\
+				Implementazione & Disponibile oggi & Non esiste ancora\\
+				Costo/Complessità & Gestibile per singoli casi d'uso & Teoricamente enorme\\
 				\bottomrule
 			\end{tabularx}
 		\end{table}
