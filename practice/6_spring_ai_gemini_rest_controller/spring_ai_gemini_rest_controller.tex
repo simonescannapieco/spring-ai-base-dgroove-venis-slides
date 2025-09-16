@@ -1,6 +1,48 @@
 \section{\faWrench\ REST Controller Gemini} % (fold)
 \label{sec:spring-ai-gemini-rest-controller}
 %
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+	\begin{itemize}
+		\item[\alertedcircled{1}] Creazione dei modelli per domande e risposte
+        \item[\alertedcircled{2}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+        \item[\alertedcircled{3}] Creazione del controllore REST per servizio Gemini
+	\end{itemize}        
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Domande e risposte}
+        \begin{block}{Modello per domanda}
+			{\tiny\input{code/Question.java}}
+    	\end{block}
+        \begin{block}{Modello per risposta}
+			{\tiny\input{code/Answer.java}}
+    	\end{block}
+
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \begin{block}{Interfaccia servizio Gemini}
+{\tiny\input{code/GeminiService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini}
+{\tiny\input{code/GeminiServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Controllore del servizio Gemini}
+        \begin{block}{Implementazione controllore REST}
+			{\tiny\input{code/QuestionController.java}}
+    	\end{block}
+\end{frame}
+%
 \begin{frame}[fragile] \frametitle{Codice}
     \framesubtitle{Branch di riferimento}
 	\begin{center}
