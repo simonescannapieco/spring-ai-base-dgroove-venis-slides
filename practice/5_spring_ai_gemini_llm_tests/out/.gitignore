@@ -2,3 +2,5 @@
 *
 # Except this file
 !.gitignore
+!*handout.pdf
+!*handout_notes.pdf
