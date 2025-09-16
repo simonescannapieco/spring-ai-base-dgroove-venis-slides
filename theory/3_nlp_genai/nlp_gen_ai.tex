@@ -2,12 +2,12 @@
 \label{sec:genai_nlp}
 %
 \begin{frame}[t] \frametitle{Machine Learning}
-\framesubtitle{Schema di \emph{workflow} semplificato}
+\framesubtitle{Schema di workflow semplificato}
 	\begin{minipage}[t]{\textwidth}
 		\vspace{-.7cm}
 		\begin{figure}
 			\centering
-			\includegraphics[width=.8\textwidth]{Generative-model-1.png}
+			\includegraphics[height=5.2cm,keepaspectratio]{MLWithoutParameters.png}
 		\end{figure}
         \begin{flushright}
             \vspace*{-10pt}
@@ -17,12 +17,12 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{Modelli generativi}
-\framesubtitle{Schema di \emph{workflow} semplificato}
+\framesubtitle{Schema di workflow semplificato}
 	\begin{minipage}[t]{\textwidth}
 		\vspace{-.7cm}
 		\begin{figure}
 			\centering
-			\includegraphics[width=.8\textwidth]{Generative-model-1.png}
+			\includegraphics[height=6cm,keepaspectratio]{Generative-model-1.png}
 		\end{figure}
         \begin{flushright}
             \vspace*{-10pt}
@@ -36,13 +36,13 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{Modelli generativi}
-\framesubtitle{Schema di \emph{workflow} semplificato - esempio MNIST}
+\framesubtitle{Schema di workflow semplificato - esempio MNIST}
 {\footnotesize
 	\begin{minipage}[t]{\textwidth}
 		\vspace{-.7cm}
 		\begin{figure}
 			\centering
-			\includegraphics[width=.8\textwidth]{Generative-model-2.png}
+			\includegraphics[height=6cm,keepaspectratio]{Generative-model-2.png}
 		\end{figure}
 		\begin{flushright}
 			 \vspace*{-10pt}
@@ -69,7 +69,7 @@
 \begin{frame}[t] \frametitle{GENAI}
 \framesubtitle{Cronistoria architetturale}
 {\scriptsize
-\only<1>{
+\only<1|handout:0>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -77,7 +77,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<2>{
+	\only<2|handout:0>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -85,7 +85,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<3>{
+	\only<3|handout:0>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -93,7 +93,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<4>{
+	\only<4|handout:0>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -101,7 +101,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<5>{
+	\only<5|handout:0>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -109,7 +109,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<6>{
+	\only<6|handout:1>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -117,6 +117,10 @@
 		\end{minipage}
 	\end{figure}
 }
+\begin{flushright}
+    \vspace*{-5pt}
+    {\tiny\textit{\textcopyright Simone Scannapieco}}
+\end{flushright}
 }
 \end{frame}
 %
@@ -171,7 +175,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=.5\textwidth]{RNN-vs-LSTM-no-bg.png}
-			\\RNN vs LSTM\textsuperscript{\textcopyright}Fiverr
+			{\tiny\\RNN vs LSTM\\\textit{\textcopyright Fiverr}}
 		\end{figure}
 	\end{minipage}
 	\\\vspace*{.3cm}
@@ -196,7 +200,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=.7\textwidth]{RNN-vs-LSTM-example.png}
-			\\RNN vs LSTM
+			{\tiny\\RNN vs LSTM\\\textit{\textcopyright Simone Scannapieco}}
 		\end{figure}
 	\end{minipage}
 	\\\vspace*{.3cm}
@@ -217,20 +221,21 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{Architetture principali}
-\framesubtitle{Generative Adversarial Network (GAN)}
+\framesubtitle{Generative Adversarial Network (GAN) - 2014}
 {\scriptsize
 \onslide<1->
 	\begin{minipage}[t]{\textwidth}
 		\begin{figure}
 			\centering
 			\includegraphics[width=.5\textwidth]{GAN.png}
-			\\Architettura GAN
+			{\tiny\\Architettura GAN\\\textit{\textcopyright Simone Scannapieco}}
 		\end{figure}
 	\end{minipage}
-	\\\vspace*{.3cm}
+	\only<1-5|handout:1>{
 	\begin{minipage}[t]{\textwidth}
+		\vspace*{.3cm}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\item[\alert{\faArrowCircleRight}] Nato come concetto algoritmico nel 2014 e reso teoricamente più robusto nel 2016 (\emph{\alert{D}eep \alert{C}onvolutional \alert{GAN}} -- \alert{DCGAN})
+			\item[\alert{\faArrowCircleRight}] Precursore di \emph{\alert{D}eep \alert{C}onvolutional \alert{GAN}} -- \alert{DCGAN} (2016)
 			\onslide<2->\item[\alert{\faArrowCircleRight}] Prima rivoluzione nel modo in cui si creano contenuti artificiali
 			\onslide<3->\item[\alert{\faArrowCircleRight}] Due reti neurali che competono
 			\begin{itemize}[leftmargin=10pt,align=right]
@@ -247,40 +252,29 @@
 			\end{itemize}
 		\end{itemize}
 	\end{minipage}
-}
-\end{frame}
-%
-\begin{frame}[t] \frametitle{Architetture principali}
-\framesubtitle{GAN - Addestramento}
-{\scriptsize
-\onslide<1->
-	\begin{minipage}[t]{\textwidth}
-		\begin{figure}
-			\centering
-			\includegraphics[width=.5\textwidth]{GAN.png}
-			\\Architettura GAN
-		\end{figure}
-	\end{minipage}
-	\\\vspace*{.3cm}
-	\begin{minipage}[t]{\textwidth}
-		\begin{enumerate}[leftmargin=10pt,align=right]
-			\onslide<1->\item[\circled{alerted text.fg}{white}{1}] Addestrare il discriminatore sui dati reali (\emph{dataset} di addestramento)
-			\onslide<2->\item[\circled{alerted text.fg}{white}{2}] Generare i dati falsi per il discriminatore
-			\onslide<3->\item[\circled{alerted text.fg}{white}{3}] Addestrare il discriminatore sui dati falsi
-			\onslide<4->\item[\circled{alerted text.fg}{white}{4}] Addestrare il generatore con l'\emph{output} del discriminatore
-		\end{enumerate}
-		\vspace*{.5cm}
-		\begin{itemize}[leftmargin=10pt,align=right]
-					\item[\alert{\faArrowCircleRight}] $\ldots$ giusto per farvi capire la complessità del processo$\ldots$
-		\end{itemize}
-	\end{minipage}
+	}
+	\only<6-9|handout:2>{
+		\begin{minipage}[t]{\textwidth}
+			\vspace*{.3cm}
+			\begin{itemize}[leftmargin=10pt,align=right]
+				\onslide<6->\item[\alertedcircled{1}] Addestrare il discriminatore sui dati reali (\emph{dataset} di addestramento)
+				\onslide<7->\item[\alertedcircled{2}] Generare i dati falsi per il discriminatore
+				\onslide<8->\item[\alertedcircled{3}] Addestrare il discriminatore sui dati falsi
+				\onslide<9->\item[\alertedcircled{4}] Addestrare il generatore con l'\emph{output} del discriminatore
+			\end{itemize}
+			\vspace*{.5cm}
+			\begin{itemize}[leftmargin=10pt,align=right]
+				\item[\alert{\faArrowCircleRight}] $\ldots$ giusto per farvi capire la complessità del processo$\ldots$
+			\end{itemize}
+		\end{minipage}
+	}
 }
 \end{frame}
 %
 \begin{frame}[t] \frametitle{GENAI}
 \framesubtitle{Limitazioni e contro in NLP}
 {\scriptsize
-\only<1>{
+\only<1|handout:1>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -288,7 +282,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<2>{
+	\only<2|handout:2>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -296,7 +290,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<3>{
+	\only<3|handout:3>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -304,7 +298,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<4>{
+	\only<4|handout:4>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -312,7 +306,7 @@
 		\end{minipage}
 	\end{figure}
 }
-	\only<5>{
+	\only<5|handout:5>{
 	\begin{figure}[ht]
 		\begin{minipage}[b]{0.95\linewidth}
 			\centering
@@ -320,11 +314,15 @@
 		\end{minipage}
 	\end{figure}
 }
+\begin{flushright}
+    \vspace*{-5pt}
+    {\tiny\textit{\textcopyright Simone Scannapieco}}
+\end{flushright}
 }
 \end{frame}
 %
 \begin{frame}[t] \frametitle{Architetture principali}
-\framesubtitle{Transformer}
+\framesubtitle{Transformer - 2017}
 {\scriptsize
 \onslide<1->
 	\begin{minipage}[t]{\textwidth}
@@ -332,14 +330,13 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=.5\textwidth]{Transformer.png}
-			\\Architettura \emph{Transformer}
+			{\tiny\\Architettura Transformer\\\textit{\textcopyright Simone Scannapieco}}
 		\end{figure}
 	\end{minipage}
 	\\\vspace*{.3cm}
 	\begin{minipage}[t]{\textwidth}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\item[\alert{\faArrowCircleRight}] Nato come concetto algoritmico nel 2017
-			\onslide<1->\item[\alert{\faArrowCircleRight}] Architettura rivoluzionaria rispetto a RNN ed LSTM
+			\item[\alert{\faArrowCircleRight}] Architettura rivoluzionaria rispetto a RNN ed LSTM
 			\begin{itemize}[leftmargin=10pt,align=right]
 				\onslide<2->\item[\alert{\faArrowCircleRight}] \alert{\emph{Encoder}}
 				\begin{itemize}[leftmargin=10pt,align=right]
@@ -360,7 +357,7 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{Transformer}
-\framesubtitle{Meccanismo di \emph{attention}}
+\framesubtitle{Meccanismo di attention}
 {\scriptsize
 \onslide<1->
 	\begin{minipage}[t]{\textwidth}
@@ -368,7 +365,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=.5\textwidth]{Transformer.png}
-			\\Architettura \emph{Transformer}
+			{\tiny\\Architettura Transformer\\\textit{\textcopyright Simone Scannapieco}}
 		\end{figure}
 	\end{minipage}
 	\\\vspace*{.3cm}
