@@ -1,4 +1,4 @@
-\section{Ambiente di sviluppo} % (fold)
+\section{Spring AI\\{\small Ambiente di sviluppo}} % (fold)
 \label{sec:dev-env}
 %
 \begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
@@ -30,17 +30,32 @@
         \begin{itemize}[leftmargin=20pt,align=right]
             \onslide<3->\item[\alert{\faArrowCircleRight}] Quello fornito da IDE non sempre stabile e complesso da configurare
             \onslide<4->\item[\alert{\faArrowCircleRight}] Approccio \textit{safe} in situazione di utilizzo multi IDE
+            \onslide<5->\item[\alert{\faExternalLinkSquare}] \href{https://maven.apache.org/install.html}{https://maven.apache.org/install.html}
         \end{itemize}
     \end{itemize}
-    \onslide<5->
-    \begin{block}{Installazione (macOS/Linux/Windows)}
-        \url{https://maven.apache.org/install.html}
-    \end{block}
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
 \framesubtitle{\textit{Tool} di integrazione}
-TBA
+{\small
+\begin{itemize}[leftmargin=10pt,align=right]
+    \onslide<1->\item[\alert{\faArrowCircleRight}] GitHub
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \onslide<2->\item[\alertedcircled{1}] Materiale didattico
+            \begin{itemize}[leftmargin=10pt,align=right]
+            \item[\alert{\faExternalLinkSquare}] \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-slides}{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-slides}
+            \item[\alert{\faArrowCircleRight}] \alert{Teoria:} cartella \texttt{theory/<lezione>/out}
+            \item[\alert{\faArrowCircleRight}] \alert{Pratica:} cartella \texttt{practice/<lezione>/out}
+            \item[\alert{\faArrowCircleRight}] Versioni disponibili: \normalcircled{1} \textit{handout} e \normalcircled{2} \textit{handout} con note
+        \end{itemize}    
+        \onslide<3->\item[\alertedcircled{2}] Codice 
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \item[\alert{\faExternalLinkSquare}] \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code}{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code}      
+            \item[\alert{\faArrowCircleRight}] \textit{Branch} relative ad ogni sotto-modulo di implementazione
+        \end{itemize}
+    \end{itemize}  
+\end{itemize}
+}
 \end{frame}    
 %
 \begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
@@ -49,14 +64,17 @@ TBA
         \onslide<1->\item[\alertedcircled{1}] Servizi a pagamento
         \begin{itemize}[leftmargin=20pt,align=right]
 			\item[\alert{\faArrowCircleRight}] OpenAI API (GPT, Codex, Sora, \ldots)
+			\item[\alert{\faExclamationTriangle}] \textit{Setup} per sviluppi futuri 
         \end{itemize}
         \onslide<2->\item[\alertedcircled{2}] Servizi gratuiti a quota
         \begin{itemize}[leftmargin=20pt,align=right]
 			\item[\alert{\faArrowCircleRight}] Google AI API (Gemini, \ldots)
+			\item[\alert{\faExclamationTriangle}] \textit{Focus} principale nello sviluppo del corso 
         \end{itemize}
         \onslide<3->\item[\alertedcircled{3}] Servizi gratuiti
         \begin{itemize}[leftmargin=20pt,align=right]
 			\item[\alert{\faArrowCircleRight}] Llama, HuggingFace, \ldots
+			\item[\alert{\faExclamationTriangle}] In base al tempo che avremo e alle capacità di Spring AI
         \end{itemize}        
     \end{itemize}
     \vfill
@@ -68,7 +86,7 @@ TBA
     \end{itemize}
 \end{frame}
 %
-\section{\faWrench\ Verifica ambiente di sviluppo} % (fold)
+\section{Spring AI\\{\small \faWrench\ Verifica ambiente di sviluppo}} % (fold)
 \label{sec:diy-check-dev-env}
 %
 \begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
@@ -109,18 +127,18 @@ TBA
 \label{sec:diy-openai-apis}
 %
 \begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
-\framesubtitle{OpenAI API - Istruzioni (EN)}
+\framesubtitle{OpenAI API - Passaggi}
 	\vspace*{-.5cm}
     {\footnotesize
     \begin{itemize}
         \only<1|handout:1>{\item[\alertedcircled{1}] Accedere all'indirizzo \url{https://openai.com/api/}}
         \only<2|handout:2>{\item[\alertedcircled{2}] Accedere al servizio di \textit{login} per \textbf{API Platform}}
-        \only<3|handout:3>{\item[\alertedcircled{3}] Inserire le credenziali di accesso (oppure iscriversi al servizio)}
+        \only<3|handout:3>{\item[\alertedcircled{3}] Inserire le credenziali di accesso (o iscrizione al servizio con \textit{age verification})}
         \only<4|handout:4>{\item[\alertedcircled{4}] Se richiesto, inserire il codice a sei cifre di verifica}
         \only<5|handout:5>{\item[\alertedcircled{5}] Accedere a \textbf{Projects} per verificare la presenza del progetto \textit{default}}
         \only<6|handout:6>{\item[\alertedcircled{6}] Ricercare \textbf{API keys} nell'apposita casella di testo}
         \only<7|handout:7>{\item[\alertedcircled{7}] Creare una chiave con nome, progetto di \textit{default} e tutti i permessi}
-        \only<8|handout:8>{\item[\alertedcircled{8}] Salvare la chiave in un luogo sicuro!}
+        \only<8|handout:8>{\item[\alertedcircled{8}] Salvare la chiave in un luogo sicuro! In caso, eliminarla e ricrearla/rigenerarla}
     \end{itemize}
     }
     \vfill
@@ -173,7 +191,7 @@ TBA
 \label{sec:diy-gemini-apis}
 %
 \begin{frame}[t,fragile] \frametitle{Ambiente di sviluppo}
-\framesubtitle{Gemini API - Macro-fasi}
+\framesubtitle{Gemini API - Passaggi}
     \begin{itemize}
         \onslide<1->\item[\alertedcircled{1}] Creazione di un progetto su portale Google Cloud API e servizi
         \onslide<2->\item[\alertedcircled{2}] Creazione di una API \textit{key} legata al progetto
@@ -258,7 +276,7 @@ TBA
         \only<6|handout:6>{\item[\alertedcircled{6}] Selezionare \textbf{Crea chiave API}}
         \only<7|handout:7>{\item[\alertedcircled{7}] Nella barra di ricerca, selezionare il progetto appena creato}
         \only<8|handout:8>{\item[\alertedcircled{8}] Selezionare \textbf{Crea chiave API nel progetto esistente}}
-        \only<9|handout:9>{\item[\alertedcircled{9}] Salvare la chiave in un luogo sicuro!}
+        \only<9|handout:9>{\item[\alertedcircled{9}] Salvare la chiave in un luogo sicuro! In caso, eliminarla e ricrearla/rigenerarla}
     \end{itemize}
     }
     \vfill
@@ -444,9 +462,9 @@ TBA
     \begin{minipage}[t]{.4\textwidth}
         {\footnotesize
         \begin{description}[labelwidth=\widthof{TPM},leftmargin=!]
-			\item[RPM] Requests Per Minute
-            \item[TPM] Tokens Per Minute
-            \item[RPD] Requests Per Day
+			\item[RPM] \textit{Requests Per Minute}
+            \item[TPM] \textit{Tokens Per Minute}
+            \item[RPD] \textit{Requests Per Day}
         \end{description}
         }
     \end{minipage}
