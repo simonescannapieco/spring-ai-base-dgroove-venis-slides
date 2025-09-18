@@ -1,0 +1,76 @@
+\section{\faWrench\ ChatModel e ChatClient} % (fold)
+\label{sec:spring-ai-gemini-chatmodel-vs-chatclient}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+	\begin{itemize}[leftmargin=10pt,align=right]
+		\item[\alertedcircled{1}] Trasformazione \textit{file} \texttt{GeminiService.java} in \texttt{GeminiFromModelService.java}
+        \item[\alertedcircled{2}] Trasformazione \textit{file} \texttt{GeminiServiceImpl.java} in \texttt{GeminiFromModelServiceImpl.java}
+        \item[\alertedcircled{3}] Trasformazione \textit{file} \texttt{QuestionController.java} in \texttt{QuestionFromModelController.java}
+        \item[\alertedcircled{4}] Creazione \textit{file} \texttt{GeminiFromClientService.java} e \texttt{GeminiFromClientServiceImpl.java}
+        \item[\alertedcircled{5}] Creazione \textit{file} \texttt{QuestionFromClientController.java}
+        \item[\alertedcircled{6}] Modifica \textit{file} \texttt{GeminiServiceImplTest.java}
+        \item[\alertedcircled{7}] \textit{Test} delle funzionalità con Postman/Insomnia
+	\end{itemize}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \begin{block}{Interfaccia servizio Gemini (da modello)}
+{\tiny\input{code/GeminiFromModelService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini (da modello)}
+{\tiny\input{code/GeminiFromModelServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{MVC del servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione controllore REST (da modello)}
+			{\tiny\input{code/QuestionFromModelController.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \begin{block}{Interfaccia servizio Gemini (da \textit{client})}
+{\tiny\input{code/GeminiFromClientService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini (da \textit{client})}
+{\tiny\input{code/GeminiFromClientServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{MVC del servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione controllore REST (da \textit{client})}
+			{\tiny\input{code/QuestionFromClientController.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Test servizio Gemini}
+        \begin{block}{Implementazione \textit{test} Gemini}
+{\tiny\input{code/GeminiServiceImplTest.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{7-spring-ai-gemini-chatmodel-vs-chatclient}}
+	\end{center}
+\end{frame}
