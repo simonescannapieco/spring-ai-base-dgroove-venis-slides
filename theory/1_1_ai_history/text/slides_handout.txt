@@ -1,0 +1,54 @@
+Benvenuti al nostro viaggio nel tempo attraverso la storia dell'Intelligenza Artificiale! Sono entusiasta di condividere con voi questa incredibile avventura che parte dall'800 e arriva fino ai giorni nostri.
+Slide 1-2: Introduzione
+Oggi esploreremo insieme come l'AI sia nata, cresciuta, caduta e risorta più volte, proprio come una fenice. È una storia di visioni straordinarie, fallimenti spettacolari e rinascite inaspettate.
+
+Slide 3-4: Ada Lovelace - La Prima Visionaria (1842)
+Iniziamo con una donna straordinaria, Ada Lovelace. Immaginate: siamo nel 1842, non esistono computer, non c'è elettricità nelle case, eppure Ada sta già immaginando macchine che potrebbero essere riprogrammate per fare calcoli diversi!
+Fu la prima a intuire che la macchina analitica di Babbage poteva andare oltre i semplici calcoli. Nel suo famoso articolo, suggerì persino che una macchina potrebbe comporre musica! Pensate, stiamo parlando di 180 anni fa! Ada definì il concetto di ricorsione algoritmica - fondamentalmente, l'idea che un programma potesse richiamare se stesso. Purtroppo, il suo genio fu riconosciuto solo un secolo dopo, quando Howard Aiken costruì Harvard Mark I nel 1944.
+
+Slide 5-6: Alan Turing - Dal Calcolo all'Intelligenza (1936-1950)
+Passiamo ora al geniale Alan Turing. Nel 1936, mentre cercava di rispondere a una domanda matematica di Hilbert ("Possiamo meccanicamente decidere se un'affermazione matematica è vera o falsa?"), Turing inventò qualcosa di rivoluzionario: la Macchina di Turing.
+Era un modello teorico semplicissimo - un nastro infinito, una testina che legge e scrive, alcune regole - eppure questo modello astratto catturava l'essenza di ogni calcolo possibile! È come se avesse trovato il DNA del computing. Ancora oggi, quando parliamo di complessità computazionale, usiamo la Macchina di Turing come riferimento.
+Ma Turing non si fermò qui. Nel 1950, propose il famoso "Test di Turing" o "Imitation Game". L'idea era geniale nella sua semplicità: se una macchina può ingannare un umano facendogli credere di essere umana attraverso una conversazione, allora possiamo dire che è intelligente. È affascinante come questo test, dopo 75 anni, sia ancora oggetto di dibattito!
+
+Slide 7: Nasce l'AI - Dartmouth 1956
+Ed eccoci al momento cruciale! Estate 1956, Dartmouth College. John McCarthy, Marvin Minsky e altri visionari si riuniscono per una "summer school" di due mesi. La loro proposta era ambiziosa: "Ogni aspetto dell'intelligenza può essere descritto così precisamente che una macchina può simularlo."
+Pensate all'audacia! In soli due mesi volevano capire come far usare il linguaggio alle macchine, formare concetti astratti, risolvere problemi umani. È qui che nasce ufficialmente il termine "Artificial Intelligence". McCarthy in seguito disse che se avesse saputo quanto sarebbe stato difficile, avrebbe chiesto 200 anni, non 2 mesi!
+
+Slide 8-9: L'Era d'Oro e le Aspettative Esagerate (1950-1975)
+Gli anni '50 e '60 furono l'età dell'oro dell'AI. Frank Rosenblatt creò il Perceptron nel 1958, una macchina che pesava 5 tonnellate e occupava un'intera stanza! I giornali impazzirono: "Ecco il cervello elettronico che insegna a se stesso!" titolava il New York Times.
+Il Perceptron riusciva a distinguere cerchi da quadrati con un'accuratezza del 99.8%. Sembrava l'inizio di una rivoluzione! Rosenblatt dichiarò che stavano per creare macchine capaci di "percepire e riconoscere senza controllo umano". Ma c'era un problema...
+
+Slide 10-12: I Limiti del Perceptron
+Nel 1969, Minsky e Papert pubblicarono un libro devastante. Dimostrarono matematicamente che il Perceptron poteva risolvere solo problemi "linearmente separabili". In parole povere: poteva distinguere AND e OR, ma non XOR!
+Immaginate di dover separare con una linea retta punti rossi e blu su un foglio. Se i punti rossi stanno tutti da una parte e i blu dall'altra, facile! Ma se sono mischiati in modo complesso? Impossibile con una sola linea. Servivano più strati di perceptron, ma nessuno sapeva ancora come addestrarli efficacemente.
+
+Slide 13: Il Primo Inverno dell'AI (1974-1980)
+Il rapporto ALPAC del 1966 dichiarò che la traduzione automatica era impossibile. Il rapporto Lighthill del 1973 fu ancora più brutale: definì l'AI un fallimento totale. I finanziamenti furono tagliati ovunque.
+È interessante notare il Paradosso di Moravec che emerse in questo periodo: le cose facili per gli umani (camminare, riconoscere volti) sono difficilissime per le macchine, mentre le cose difficili per noi (giocare a scacchi, fare calcoli complessi) sono relativamente facili per loro! Deep Blue batterà Kasparov a scacchi nel 1997, ma ancora oggi nel 2025 i robot fanno fatica a camminare su terreni irregolari!
+
+Slide 14: I Sistemi Esperti - Una Boccata d'Ossigeno
+Durante il primo inverno, Edward Feigenbaum ebbe un'idea: invece di creare intelligenza generale, perché non creare sistemi esperti in domini specifici? DENDRAL (1965) identificava molecole organiche, MYCIN (1972) diagnosticava infezioni batteriche meglio di molti medici junior, e R1/XCON (1978) configurava computer per Digital Equipment Corporation, facendo risparmiare 40 milioni di dollari in 4 anni!
+Ma anche questi avevano limiti. Erano costosi da mantenere, difficili da aggiornare, e fragili - bastava un input inaspettato per mandarli in crash. Il secondo inverno dell'AI era alle porte.
+
+Slide 15-17: La Rinascita - Deep Learning e Reti Neurali (1975-2000)
+Ma mentre alcuni piangevano la morte dell'AI, altri stavano gettando le basi per la sua rinascita. Le reti neurali profonde iniziarono a emergere. L'idea era semplice ma potente: invece di un singolo strato di neuroni, usiamone molti!
+Ogni strato impara caratteristiche sempre più complesse. In una CNN per il riconoscimento facciale, il primo strato potrebbe riconoscere linee e bordi, il secondo forme semplici come occhi e naso, il terzo combinazioni di features, fino ad arrivare al riconoscimento completo del volto.
+
+Slide 18: I Fattori della Rinascita
+Tre fattori chiave hanno permesso la rinascita:
+
+1. Algoritmi migliori: Paul Werbos nel 1982 perfezionò la backpropagation, finalmente sapevamo come addestrare reti profonde!
+2. Hardware potente: Le GPU, originariamente create per i videogiochi, si rivelarono perfette per l'AI. La GeForce 256 del 1999 fu una svolta.
+3. Big Data: Tim Berners-Lee creò il World Wide Web nel 1991. Improvvisamente avevamo miliardi di esempi per addestrare le nostre reti! I dati generati globalmente sono passati da quasi zero nel 1990 a 180 zettabyte previsti nel 2025.
+
+Slide 19-20: L'Esplosione dei Dati
+Il grafico della crescita dei dati è impressionante. Negli ultimi due anni generiamo il 90% di tutti i dati mai creati! Ogni minuto vengono caricate 500 ore di video su YouTube, inviate 200 milioni di email, fatte 4 milioni di ricerche Google. Questi dati sono il carburante dell'AI moderna.
+
+Riflessioni Finali
+
+La storia dell'AI ci insegna che il progresso non è lineare. Ci sono stati momenti di euforia seguiti da delusioni cocenti. Ma ogni "inverno" ha portato a una primavera più rigogliosa.
+Oggi, con ChatGPT, Claude, e altri LLM, stiamo vivendo un'altra primavera dell'AI. La domanda è: stiamo ripetendo gli errori del passato con aspettative esagerate? O questa volta è diverso?
+Una cosa è certa: voi, come programmatori che state entrando nel mondo dell'AI, avete l'opportunità di plasmare il futuro. Spring AI, che studieremo in questo corso, vi darà gli strumenti per integrare l'AI generativa nelle vostre applicazioni Java.
+Ricordate sempre la lezione della storia: l'AI non è magia, è ingegneria. Ha limiti e potenzialità. Il nostro compito è capire entrambi e costruire sistemi che siano utili, affidabili e allineati con i valori umani.
+Domande? Curiosità? Questo è solo l'inizio del nostro viaggio insieme!

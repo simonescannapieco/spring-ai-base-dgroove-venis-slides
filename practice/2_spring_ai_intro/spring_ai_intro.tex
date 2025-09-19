@@ -38,185 +38,53 @@
 					\onslide<9->\item[\alert{\faArrowCircleRight}] POJO
 					\onslide<10->\item[\alert{\faArrowCircleRight}] Modularità
 				\end{itemize}
-				\onslide<5->\item[\alert{\faArrowCircleRight}] \alert{Integrazione} con Spring Boot, Spring Security, Spring Data
+				\onslide<11->\item[\alert{\faArrowCircleRight}] \alert{Integrazione} con Spring Boot, Spring Security, Spring Data
 			\end{itemize}
         \end{minipage}
 	}
 \end{frame}
 %
-\section{Vantaggi di Spring AI} % (fold)
+\section{Vantaggi} % (fold)
 \label{sec:spring_ai_advantages}
 %
 \begin{frame}[t,fragile] \frametitle{Vantaggi di Spring AI}
 	{\small
 		\framesubtitle{Perché scegliere Spring AI}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<1->\item[\alert{\faArrowCircleRight}] \alert{Portabilità tra provider:} cambio di provider AI senza modificare codice business
+			\onslide<1->\item[\alert{\faArrowCircleRight}] \alert{Portabilità tra provider:} cambio di \textit{provider} AI senza modificare codice
 			\onslide<2->\item[\alert{\faArrowCircleRight}] \alert{Integrazione Spring nativa:} sfrutta tutte le funzionalità dell'ecosistema
-			\onslide<3->\item[\alert{\faArrowCircleRight}] \alert{Auto-configuration:} configurazione automatica basata su dependencies
-			\onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Testabilità migliorata:} mock e test integration semplificati
-			\onslide<5->\item[\alert{\faArrowCircleRight}] \alert{Observability:} metriche e monitoring integrati
-			\onslide<6->\item[\alert{\faArrowCircleRight}] \alert{Gestione errori:} retry policies e fallback automatici
+			\onslide<3->\item[\alert{\faArrowCircleRight}] \alert{\textit{Auto-configuration:}} configurazione automatica basata su \textit{dependencies} (Gradle, Maven, \ldots)
+			\onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Testabilità migliorata:} \textit{mock} e \textit{test integration} semplificati
+			\onslide<5->\item[\alert{\faArrowCircleRight}] \alert{Observability:} metriche e \textit{monitoring} integrati
+			\onslide<6->\item[\alert{\faArrowCircleRight}] \alert{Gestione errori:} \textit{retry policies} e \textit{fallback} automatici
 		\end{itemize}
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{Portabilità tra Provider}
-	{\small
-		\framesubtitle{Un codice, molti provider}
-		\onslide<1->
-\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
-// Configurazione per OpenAI
-@Configuration
-public class OpenAIConfig {
-    @Bean
-    public ChatClient chatClient() {
-        return ChatClient.builder()
-                .chatModel(new OpenAiChatModel(apiKey))
-                .build();
-    }
-}
-
-// Configurazione per Azure OpenAI  
-@Configuration
-public class AzureConfig {
-    @Bean  
-    public ChatClient chatClient() {
-        return ChatClient.builder()
-                .chatModel(new AzureOpenAiChatModel(endpoint, apiKey))
-                .build();
-    }
-}
-\end{minted}
-	\only<2>{
-		\begin{center}
-			\alert{Il business logic rimane identico!}
-		\end{center}
-		}
-	}
-\end{frame}
-%
-\begin{frame}[t,fragile] \frametitle{Auto-configuration}
-	{\small
-		\framesubtitle{Zero boilerplate code}
-		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<2->\item[\alert{\faArrowCircleRight}] \alert{application.properties} definisce tutto
-			\onslide<3->\item[\alert{\faArrowCircleRight}] \alert{@ConditionalOn*} annotations per configurazione condizionale
-		\end{itemize}
-		\vspace*{.3cm}
-		\onslide<1->
-\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{properties}
-# OpenAI Configuration
-spring.ai.openai.api-key=${OPENAI_API_KEY}
-spring.ai.openai.chat.model=gpt-4
-spring.ai.openai.chat.temperature=0.7
-
-# Vector Store Configuration  
-spring.ai.vectorstore.redis.uri=redis://localhost:6379
-spring.ai.vectorstore.redis.index=spring-ai-index
-spring.ai.vectorstore.redis.prefix=doc:
-
-# Embedding Configuration
-spring.ai.openai.embedding.model=text-embedding-ada-002
-\end{minted}
-	}
-\end{frame}
-%
-\begin{frame}[t,fragile] \frametitle{Testabilità}
-	{\small
-		\framesubtitle{Testing semplificato}
-		\onslide<1->
-\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
-@SpringBootTest
-class ChatServiceTest {
-    
-    @MockBean
-    private ChatClient chatClient;
-    
-    @Autowired
-    private ChatService chatService;
-    
-    @Test
-    void shouldGenerateResponse() {
-        // Given
-        when(chatClient.prompt().user("Hello").call().content())
-                .thenReturn("Hello! How can I help you?");
-        
-        // When  
-        String response = chatService.chat("Hello");
-        
-        // Then
-        assertThat(response).isEqualTo("Hello! How can I help you?");
-    }
-}
-\end{minted}
-	}
-\end{frame}
-%
-\section{Svantaggi e Limitazioni} % (fold)
+\section{Svantaggi e limitazioni} % (fold)
 \label{sec:spring_ai_disadvantages}
 %
 \begin{frame}[t,fragile] \frametitle{Svantaggi di Spring AI}
 	{\small
 		\framesubtitle{Considerazioni e limitazioni}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<1->\item[\alert{\faArrowCircleRight}] \alert{Progetto giovane:} API ancora in evoluzione (versione 1.x)
-			\onslide<2->\item[\alert{\faArrowCircleRight}] \alert{Astrazione overhead:} layer aggiuntivo rispetto alle API native
-			\onslide<3->\item[\alert{\faArrowCircleRight}] \alert{Dipendenza dall'ecosistema Spring:} lock-in tecnologico
-			\onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Supporto provider limitato:} non tutti i provider sono supportati
-			\onslide<5->\item[\alert{\faArrowCircleRight}] \alert{Funzionalità avanzate:} alcuni provider offrono feature specifiche non astratte
-			\onslide<6->\item[\alert{\faArrowCircleRight}] \alert{Learning curve:} necessario apprendere nuovi concetti AI oltre Spring
+			\onslide<1->\item[\alert{\faArrowCircleRight}] \alert{Progetto giovane:} API ancora in evoluzione (versione 1.0.2)
+			\onslide<2->\item[\alert{\faArrowCircleRight}] \alert{\textit{Abstraction overhead:}} \textit{layer} aggiuntivo rispetto alle API native
+			\onslide<3->\item[\alert{\faArrowCircleRight}] \alert{Dipendenza dall'ecosistema Spring:} \textit{lock-in} tecnologico
+			\onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Supporto \textit{provider} limitato:} non tutti i \textit{provider} sono supportati
+			\onslide<5->\item[\alert{\faArrowCircleRight}] \alert{Funzionalità avanzate:} alcuni \textit{provider} offrono \textit{feature} specifiche non astratte
+			\onslide<6->\item[\alert{\faArrowCircleRight}] \alert{\textit{Learning curve:}} necessario apprendere nuovi concetti AI oltre Spring
 		\end{itemize}
 	}
 \end{frame}
 %
-\begin{frame}[t,fragile] \frametitle{API in Evoluzione}
+\begin{frame}[t,fragile] \frametitle{API in evoluzione}
 	{\small
 		\framesubtitle{Rischi del progetto giovane}
 		\begin{itemize}[leftmargin=10pt,align=right]
-			\onslide<2->\item[\alert{\faArrowCircleRight}] \alert{Breaking changes:} possibili modifiche incompatibili tra versioni
-			\onslide<3->\item[\alert{\faArrowCircleRight}] \alert{Documentazione incompleta:} esempi e best practices in sviluppo
-			\onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Community piccola:} meno risorse e troubleshooting disponibili
+			\onslide<1->\item[\alert{\faArrowCircleRight}] \alert{\textit{Breaking changes:}} possibili modifiche incompatibili tra versioni
+			\onslide<2->\item[\alert{\faArrowCircleRight}] \alert{Documentazione incompleta:} esempi e \textit{best practices} in sviluppo
+			\onslide<3->\item[\alert{\faArrowCircleRight}] \alert{\textit{Community} piccola:} meno risorse e \textit{troubleshooting} disponibili
 		\end{itemize}
-		\vspace*{.3cm}
-		\only<1-4>{
-		\begin{center}
-		\renewcommand{\epigraphsize}{\small}
-		\setlength{\afterepigraphskip}{0pt}
-		\setlength{\beforeepigraphskip}{5pt}
-		\setlength{\epigraphwidth}{0.8\textwidth}
-		\epigraph{\textit{Spring AI è attualmente in versione 1.0.1. Sebbene l'API principale sia stabile, alcune funzionalità potrebbero cambiare nelle future versioni minor.}}{Considerazione per progetti enterprise}
-		\end{center}
-		}
 	}
-\end{frame}
-%
-\begin{frame}[t,fragile] \frametitle{Overhead dell'Astrazione}
-	{\small
-		\framesubtitle{Il prezzo della portabilità}
-		\onslide<1->
-\begin{minted}[bgcolor=vscode-dark-bg, bgcolorpadding=0.5em]{java}
-// Chiamata diretta OpenAI (senza Spring AI)
-OpenAiService service = new OpenAiService("sk-...");
-CompletionRequest request = CompletionRequest.builder()
-    .model("gpt-4")
-    .prompt("Explain Spring Boot")
-    .temperature(0.7)
-    .maxTokens(150)
-    .build();
-CompletionResult result = service.createCompletion(request);
-
-// VS Spring AI (più semplice ma con overhead)  
-ChatClient client = ChatClient.builder().build();
-String response = client.prompt()
-    .user("Explain Spring Boot")
-    .call()
-    .content();
-\end{minted}
-		}
-		\only<2>{
-		\begin{center}
-			\alert{Semplicità vs Performance: trade-off da valutare}
-		\end{center}
-		}
 \end{frame}
