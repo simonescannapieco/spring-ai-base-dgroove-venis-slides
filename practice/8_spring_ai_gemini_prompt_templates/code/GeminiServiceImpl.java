@@ -16,17 +16,18 @@ import it.venis.ai.spring.demo.model.Question;
 @Service
 public class GeminiServiceImpl implements GeminiService {
 
-    ...
+    private final ChatModel chatModel;
 
-    @Value("classpath:templates/get-definition-prompt.st")
-    private Resource definitionPrompt;
+    public GeminiServiceImpl(ChatModel chatModel) {
+        this.chatModel = chatModel;
+    }
 
     @Override
-    public Answer getDefinition(DefinitionRequest definitionRequest) {    
-        PromptTemplate promptTemplate = new PromptTemplate(definitionPrompt);
-        Prompt prompt = promptTemplate.create(Map.of("lemma", definitionRequest.lemma()));
+    public String getAnswer(String question) {
+        PromptTemplate promptTemplate = new PromptTemplate(question);
+        Prompt prompt = promptTemplate.create();
         ChatResponse response = chatModel.call(prompt);
-        return new Answer(response.getResult().getOutput().getText());
+        return response.getResult().getOutput().getText();
     }
-}
+    ...
 \end{minted}
