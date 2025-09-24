@@ -1,0 +1,337 @@
+\begin{frame}[t] \frametitle{Large Language Models}
+\framesubtitle{Cosa sono?}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \vspace*{-.5cm}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.25\textwidth]{img/LLM-1.PNG}
+            \includegraphics[width=.25\textwidth]{img/LLM-2.PNG}
+        \end{figure}
+    \end{minipage}
+    \\\vspace*{.3cm}
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Non si sarebbe potuto spiegare meglio!
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{Large Language Models}
+\framesubtitle{A cosa servono?}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \vspace*{-.5cm}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.25\textwidth]{img/LLM-TASK-1.PNG}
+            \includegraphics[width=.25\textwidth]{img/LLM-TASK-2.PNG}
+        \end{figure}
+    \end{minipage}
+    \\\vspace*{.3cm}
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Conferma quanto anticipato nella nostra discussione su NLP \faSmileO\quad\faThumbsOUp
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{Large Language Models}
+\framesubtitle{Come vengono addestrati?}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \vspace*{-.5cm}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.25\textwidth]{img/LLM-Dataset-1.PNG}
+            \includegraphics[width=.25\textwidth]{img/LLM-Dataset-2.PNG}
+        \end{figure}
+    \end{minipage}
+    \\\vspace*{.3cm}
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] ChatGPT non si sbottona$\ldots$
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{Large Language Models}
+\framesubtitle{Come vengono addestrati?}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \vspace*{-.5cm}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] $\ldots$quindi ci penso io a fornirvi delle cifre
+        \end{itemize}
+    \end{minipage}
+    \onslide<2->
+    \begin{minipage}[t]{\textwidth}
+        \begin{minipage}[t]{.49\textwidth}
+            \vspace*{-.5cm}
+            {\tiny
+                \begin{table}
+                    %% increase table row spacing, adjust to taste
+                    \renewcommand{\arraystretch}{1}
+                    \centering
+                    \begin{tabularx}{\textwidth}{Xp{.9cm}p{1cm}p{.7cm}}
+                        \toprule
+                        \textbf{\emph{Dataset}} & \textbf{Proporzione} & \textbf{Spazio disco} & N° \emph{token}\\
+                        \midrule
+                        \textbf{CommonCrawl} & 67\% & 3.3TB & \multirow{7}{*}{1.4T}\\
+                        \textbf{C4} & 15\% & 783TB &\\
+                        \textbf{GitHub} & 4.5\% & 328TB &\\
+                        \textbf{Wikipedia} & 4.5\% & 83GB &\\
+                        \textbf{Gutemberg} & 4.5\% & 85GB &\\
+                        \textbf{ArXiv} & 2.5\% & 92GB &\\
+                        \textbf{StackExchange} & 2\% & 78GB &\\
+                        \bottomrule
+                    \end{tabularx}
+                    Meta AI Llama (\url{https://arxiv.org/pdf/2302.13971})
+                \end{table}
+            }
+        \end{minipage}
+        \begin{minipage}[t]{.49\textwidth}
+            \vspace*{-.5cm}
+            {\tiny
+                \begin{table}
+                    %% increase table row spacing, adjust to taste
+                    \renewcommand{\arraystretch}{1}
+                    \centering
+                    \begin{tabularx}{\textwidth}{Xp{.9cm}p{1cm}p{.7cm}}
+                        \toprule
+                        \textbf{\emph{Dataset}} & \textbf{Proporzione} & \textbf{Spazio disco} & N° \emph{token}\\
+                        \midrule
+                        \textbf{CommonCrawl} & 60\% & 3.3TB & 410B\\
+                        \textbf{WebText2} & 20\% & $\sim$66TB & 19B\\
+                        \textbf{Books1} & 33\% & --- & 12B\\
+                        \textbf{Books2} & 34\% & --- & 55B\\
+                        \textbf{Wikipedia} & 3\% & 83GB & 3B\\
+                        &&&\\
+                        &&&\\
+                        \bottomrule
+                    \end{tabularx}
+                    OpenAI GPT-3 (\url{https://gregoreite.com/})
+                \end{table}
+            }
+        \end{minipage}
+    \end{minipage}
+    \onslide<3->
+    \begin{minipage}[t]{\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.5\textwidth]{img/ThePile-dataset-composition-crop-no-bg.png}
+            {\tiny\\\textit{Dataset} ``The Pile''\\\vspace*{-1pt}\textit{\textcopyright DeepGram}}
+        \end{figure}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{Large Language Models}
+\framesubtitle{Da sequenze di testo a \emph{token}}
+{\scriptsize
+    \begin{minipage}[t]{\textwidth}
+        \onslide<2->\begin{minipage}[t]{.50\textwidth}
+            \vspace*{-.5cm}
+        \begin{enumerate}[leftmargin=10pt,align=right]
+            \item[\circled{alerted text.fg}{white}{1}] Pulizia preventiva del \emph{dataset}
+        \end{enumerate}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{img/C4-cleaning-guidelines-no-bg.png}
+                 {\tiny\\Linee guida pulizia C4\\\vspace*{-1pt}\textit{\textcopyright Paperswithcode.com}}
+            \end{figure}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{.45\textwidth}
+            \vspace*{-.5cm}
+            \onslide<3->\begin{enumerate}[leftmargin=10pt,align=right]
+                \item[\circled{alerted text.fg}{white}{2}] Pre-processamento e normalizzazione dei testi
+            \end{enumerate}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<4->\item[\alert{\faArrowCircleRight}] \emph{\alert{Sentence segmentation:}} testi suddivisi in paragrafi e frasi
+                \onslide<5->\item[\alert{\faArrowCircleRight}] \emph{\alert{Tokenization:}} frasi divise in ``parole'' (es. \emph{emoticon}$\ldots$)
+                \onslide<6->\item[\alert{\faArrowCircleRight}] \emph{\alert{Lemmatization:}} \emph{token} alla sua radice (es. \texttt{sei, fui, saranno, sarebbero} diventano \texttt{essere})
+                \onslide<7->\item[\alert{\faArrowCircleRight}] \emph{\alert{Stemming:}} \emph{token} senza suffisso (es. \texttt{calma} diventa \texttt{calm}), semplificazione di \emph{lemmatization}
+            \end{itemize}
+        \end{minipage}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{LLM in contesti \emph{business}: problemi}
+\framesubtitle{\emph{Knowledge cut-off}}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \vspace*{-.5cm}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.45\textwidth]{img/KCO-1-cut-censored.PNG}
+            \includegraphics[width=.45\textwidth]{img/KCO-2-cut-censored.PNG}
+        \end{figure}
+    \end{minipage}
+    \\\vspace*{.3cm}
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \onslide<1->\item[\alert{\faArrowCircleRight}] La conoscenza del modello è limitata dallo \emph{scope} del \emph{dataset} utilizzato per addestrarla
+    \end{itemize}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{LLM in contesti \emph{business}: problemi}
+\framesubtitle{\emph{Toxicity/Bias}}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \begin{minipage}[t]{.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/LLMs-political-biases-no-bg.png}
+            {\tiny\\\url{https://lnkd.in/epaPKv7y}\\\vspace*{-1pt}\textit{\textcopyright David Rozado}}
+        \end{minipage}
+        \begin{minipage}[t]{.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/Gender-biases.png}
+            {\tiny\\Esempi di \textit{bias} per genere\\\vspace*{-1pt}\textit{\textcopyright Studio fAIr Aligned AI and haia}}
+        \end{minipage}
+    \end{minipage}
+    \\\vspace*{.3cm}
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Se i dati di addestramento contengono elementi pregiudiziali (\emph{bias}), questi si riflettono sul modo di ragionare del modello
+            \onslide<2->\item[\alert{\faArrowCircleRight}] Modifiche al modello per mitigare alcuni pregiudizi tendono a guidare il modello verso specifiche ``correnti di pensiero'' (ad esempio, politiche)
+        \end{itemize}
+        \onslide<3->
+        \begin{minipage}[t]{\textwidth}
+            \renewcommand{\epigraphsize}{\tiny}
+            \setlength{\afterepigraphskip}{0pt}
+            \setlength{\beforeepigraphskip}{5pt}
+            \setlength{\epigraphwidth}{0.5\textwidth}
+            \centering
+            \epigraph{\textit{AI is shaping the future. But if we want it to be a fair and balanced future, we have to ensure AI is built with fairness and neutrality in mind.}}{\textbf{Andreas Horn}}
+        \end{minipage}%
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{LLM in contesti \emph{business}: problemi}
+\framesubtitle{\emph{Hallucination}}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[b]{.6\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.45\textwidth]{img/HAL-1.PNG}
+            \includegraphics[width=.45\textwidth]{img/HAL-2.PNG}
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}[b]{.39\textwidth}
+        \begin{minipage}[b]{\textwidth}
+            \centering
+            \includegraphics[width=.95\textwidth]{img/Targa_in_via_Golosine_153.png}
+            {\tiny\\\url{https://it.wikipedia.org/wiki/Golosine}\\\vspace*{-1pt}\textit{\textcopyright Stefanoghibellino, Wikipedia}}
+        \end{minipage}
+        \begin{minipage}[b]{\textwidth}
+            \vspace*{.3cm}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Il modello si comporta come un ``esperto bugiardo''
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Anche se reindirizzato verso la risposta che ci attendiamo, si comporta in maniera condiscendente
+                \onslide<4->\item[\alert{\faArrowCircleRight}] $\ldots$ pensate di usare ChatGPT come assistente autonomo per la gestione delle lamentele dei clienti della vostra azienda$\ldots$
+            \end{itemize}
+        \end{minipage}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{LLM in contesti \emph{business}: problemi}
+\framesubtitle{Etica}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \vspace*{-.5cm}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.25\textwidth]{img/ETH-1.PNG}
+            \includegraphics[width=.25\textwidth]{img/ETH-2.PNG}
+            \hspace*{1cm}
+            \includegraphics[width=.25\textwidth]{img/ETH-3.PNG}
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}[b]{\textwidth}
+        \vspace*{.3cm}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alert{\faArrowCircleRight}] In ambiti come il ragionamento di natura etica, i modelli sono bravi a fare i resoconti$\ldots$
+            \onslide<3->\item[\alert{\faArrowCircleRight}] $\ldots$ ma non si espongono mai!
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{LLM in contesti \emph{business}: problemi}
+\framesubtitle{Risorse computazionali}
+{\scriptsize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+    {\scriptsize
+    \vspace*{-.5cm}
+        \begin{table}
+            %% increase table row spacing, adjust to taste
+            \renewcommand{\arraystretch}{1}
+            \centering
+            \begin{tabularx}{\textwidth}{Xp{1.7cm}p{1.7cm}p{2cm}}
+                \toprule
+                & \textbf{OpenAI GPT-3} & \textbf{Meta AI Llama} & \textbf{Amazon Olympus}\\
+                \midrule
+                \textbf{Anno di uscita} & 2020 & 2023 & TBA\\
+                \textbf{Grandezza} & 175 miliardi & 65 miliardi & 2 trilioni\\
+                \textbf{Tempo di addestramento} & 34 giorni & 21 giorni & 48 giorni\\
+                \textbf{\emph{Hardware} (n° A100-80GB)} & 1024 & 2048 & 13760\\
+                \textbf{Spese di addestramento} & 4.6M USD & 4.05M USD & 65M USD\\
+                \bottomrule
+            \end{tabularx}
+        \end{table}
+    }
+    \end{minipage}
+    \begin{minipage}[b]{\textwidth}
+        \only<2|handout:0>{
+            \begin{figure}
+                \centering
+                \includegraphics[width=.7\textwidth]{img/LLM-2023-no-bg.png}
+            \end{figure}
+        }
+        \only<3|handout:1>{
+            \begin{figure}
+                \centering
+                \includegraphics[width=.7\textwidth]{img/LLM-2023-with-CNNs-no-bg.png}
+            \end{figure}
+        }
+        \only<4|handout:2>{
+            \begin{figure}
+                \centering
+                \includegraphics[width=.7\textwidth]{img/LLM-2024-no-bg.png}
+            \end{figure}
+        }
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{LLM in contesti \emph{business}}
+\framesubtitle{Per riassumere}
+{\footnotesize
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alert{\faArrowCircleRight}] Praticamente impossibile pre-addestrare un LLM (a meno che tu non sia Google, OpenAI, Mistral, Anthropic e pochissimi altri)
+            \onslide<3->\item[\alert{\faArrowCircleRight}] Utilizzare un LLM per scopi personali è un conto, adottarli in un contesto \emph{business} significa scontrarsi con problematiche di natura etica, legale ed economica
+            \onslide<4->\item[\alert{\faArrowCircleRight}] Gli LLM saranno sempre più bravi a modellare la comprensione del linguaggio$\ldots$
+        \end{itemize}
+        \vspace*{.5cm}
+        \centering {\normalsize \textbf{\alert{\faQuestionCircleO\ $\ldots$ ma come usarli per \emph{task} specifici\\o con conoscenza che a loro manca?!}}}
+    \end{minipage}
+}
+\end{frame}
