@@ -20,8 +20,8 @@
         System.out.println(chatResponse);
         String responseString;
         try {
-            JsonNode jsonNode = objectMapper.readTree(chatResponse.replace("`","").replaceFirst("json",""));
-            responseString = jsonNode.get("definizione").asText();
+            JsonNode rootNode = objectMapper.readTree(chatResponse.replace("`","").replaceFirst("json",""));
+            responseString = objectMapper.writeValueAsString(rootNode);
 
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
