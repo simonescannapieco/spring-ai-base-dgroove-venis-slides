@@ -60,8 +60,7 @@
                         \item[\alert{\faArrowCircleRight}] Struttura
                         \item[\alert{\faArrowCircleRight}] Scelta delle parole
                     \end{itemize}
-                    \onslide<6->\item[\alert{\faArrowCircleRight}] Dedica il suo lavoro a tutto questo
-                    \onslide<7->\item[\alert{\faExclamationTriangle}] Spinge il LLM verso un comportamento \alert{pseudo-deterministico}  
+                    \onslide<6->\item[\alert{\faExclamationTriangle}] Spinge il LLM verso un comportamento \alert{pseudo-deterministico}  
 				\end{itemize}
             \end{minipage}
             %
@@ -71,7 +70,7 @@
                 \centering
                 \begin{figure}[ht]
                     \includegraphics[width=\textwidth]{the-mentalist.jpg}
-                    {\tiny\\The mentalist\\\vspace*{-1pt}\textit{\textcopyright Prime Video}}
+                    {\tiny\\The Mentalist\\\vspace*{-1pt}\textit{\textcopyright Prime Video}}
                 \end{figure}
             \end{minipage}
 	    \end{minipage}
@@ -117,6 +116,10 @@
                     \item[\alert{\faExclamationTriangle}] Intervallo $[0, 1]$
                 \end{itemize}                    
                 \onslide<5->\item[\alert{\faExclamationTriangle}] Non sempre tutti disponibili!
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Se tutte disponibili, Top-K e Top-P scremano, temperatura decide
+                    \item[\alert{\faArrowCircleRight}] Se temperatura manca, Top-K e Top-P scremano, processo \textit{random} decide
+                \end{itemize}
             \end{itemize}
         \end{itemize}
     \end{minipage}
@@ -129,29 +132,29 @@
 	    \begin{minipage}[t]{\textwidth}
 			\begin{minipage}[t]{0.55\textwidth}
 	    		\begin{itemize}[leftmargin=10pt,align=right]
-					\onslide<1->\item[\alert{\faArrowCircleRight}] Attenzione alle configurazioni estreme
-                    {\scriptsize
-                        \begin{table}
-                        %% increase table row spacing, adjust to taste
-                        \renewcommand{\arraystretch}{1}
-                        \centering
-                        \begin{tabularx}{\textwidth}{p{.2\textwidth}p{.7\textwidth}}
-                            \toprule
-                            \textbf{\emph{Setup}} & \textbf{Effetto}\\
-                            \midrule
-                            Temp $=0$ & Top-P, Top-K irrilevanti (\alert{\textit{greedy decoding}})\\
-                            Temp $\gg 0$ & Temp irrilevante\\
-                            \midrule
-                            Top-K $=1$ & Temp, Top-P irrilevanti\\
-                            Top-K $\gg 1$ & Temp, Top-P irrilevanti (\alert{\textit{greedy decoding}})\\
-                            \midrule
-                            Top-P $=0$ & Temp, Top-K irrilevanti\\
-                            Top-P $=1$ & Top-P irrilevante\\
-                            \bottomrule
-                        \end{tabularx}
-                        \end{table}
-                    }
-                \end{itemize}
+					\onslide<1->\item[\alert{\faArrowCircleRight}] Attenzione alle configurazioni \textit{borderline}
+                \end{itemize}    
+                {\tiny
+                    \begin{table}
+                    %% increase table row spacing, adjust to taste
+                    \renewcommand{\arraystretch}{1}
+                    \centering
+                    \begin{tabularx}{\textwidth}{p{.2\textwidth}p{.7\textwidth}}
+                        \toprule
+                        \textbf{\emph{Setup}} & \textbf{Effetto}\\
+                        \midrule
+                        Temp $=$ 0 & Top-P, Top-K irrilevanti (\alert{\textit{greedy decoding}})\\
+                        Temp $\gg$ 0 & Temp irrilevante\\
+                        \midrule
+                        Top-K $=$ 1 & Temp, Top-P irrilevanti (\alert{\textit{greedy decoding}})\\
+                        Top-K $\gg$ 1 & Decide Temp ma processo decisamente \textit{random}\\
+                        \midrule
+                        Top-P $=$ 0 & Temp, Top-K irrilevanti (per maggioranza dei modelli)\\
+                        Top-P $=$ 1 & Top-P irrilevante\\
+                        \bottomrule
+                    \end{tabularx}
+                    \end{table}
+                }
             \end{minipage}
             %
 			\hfill
@@ -159,36 +162,34 @@
             \begin{minipage}[t]{0.38\textwidth}
                 \centering
                 \begin{figure}[ht]
-                    \includegraphics[width=.9\textwidth]{yzma-cronk.jpg}
+                    \includegraphics[width=\textwidth]{yzma-cronk.jpg}
                     {\tiny\\Yzma e Kronk\\\vspace*{-1pt}\textit{\textcopyright Disney}}
                 \end{figure}
             \end{minipage}
 	    \end{minipage}
-	}
-\end{frame}
-%
-\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Controlli di output LLM}
-{\footnotesize
-    \begin{minipage}[t]{\textwidth}
-        \begin{itemize}[leftmargin=80pt,align=right]
-            \onslide<1->\item[\alert{Creatività del modello}] quanta libertà lasciamo al LLM nella scelta del \emph{token} successivo
-            \begin{itemize}[leftmargin=50pt,align=right]
-            \onslide<2->\item[\alert{Temperatura}] più è bassa, più deterministica la generazione dei \emph{token} successivi (ovvero, preso sempre il \emph{token} più probabile)
-            \onslide<3->\item[\alert{\emph{Top P}}] definisce una finestra di probabilità entro la quale poter scegliere il \emph{token} successivo (da abbassare quando si vogliono risposte fattuali, da alzare se si vuole un testo più ``fuori dagli schemi'')
-            \onslide<4->\item[\alert{\faExclamationTriangle}] Non modificare entrambe!!!
-            \end{itemize}
-            \onslide<5->\item[\alert{Lunghezza massima}] numero di \emph{token} massimo generato dal modello
-            \onslide<6->\item[\alert{\emph{Stop sequences}}] lista di \emph{token} che dice al modello di terminare la generazione
-            \onslide<7->\item[\alert{\emph{Token penalties}}] contro la ripetizione dei medesimi \emph{token}
-            \begin{itemize}[leftmargin=63pt,align=right]
-                \onslide<8->\item[\alert{\emph{Frequence penalty}}] proporzionalmente al n° di volte usato nella sequenza
-                \onslide<9->\item[\alert{\emph{Presence penalty}}] globale per tutti i \emph{token} ripetuti
-                \onslide<10->\item[\alert{\faExclamationTriangle}] Non modificare entrambe!!!
-            \end{itemize}
+        \begin{itemize}[leftmargin=10pt,align=right]
+			\onslide<2->\item[\alert{\faArrowCircleRight}] Per iniziare (secondo Google)               
         \end{itemize}
-    \end{minipage}
-}
+        \begin{minipage}[t]{0.65\textwidth}
+        {\footnotesize
+            \begin{table}
+            %% increase table row spacing, adjust to taste
+            \renewcommand{\arraystretch}{1}
+            \centering
+            \begin{tabularx}{\textwidth}{llll}
+                \toprule
+                \textbf{Obiettivo} & \textbf{Temp} & \textbf{Top-P} & \textbf{Top-K}\\
+                \midrule
+                Risposte formali        & .2 & .95 & 30  \\
+                Risposte creative       & .1 & .9  & 20  \\
+                Risposte molto creative & .9 & .99 & 40  \\
+                Risposta matematica     & 0  & --- & --- \\
+                \bottomrule
+            \end{tabularx}
+            \end{table}
+        }
+        \end{minipage}
+	}
 \end{frame}
 %
 \begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
