@@ -44,7 +44,131 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Configurazione LLM per \emph{prompting}}
+\framesubtitle{Il perfetto prompt engineer}
+	{\footnotesize
+	    \begin{minipage}[t]{\textwidth}
+			\begin{minipage}[t]{0.6\textwidth}
+	    		\begin{itemize}[leftmargin=10pt,align=right]
+					\onslide<1->\item[\alert{\faArrowCircleRight}] Sceglie uno \alert{specifico} modello da ottimizzare
+					\onslide<2->\item[\alert{\faArrowCircleRight}] Capisce come è stato addestrato il modello
+					\onslide<3->\item[\alert{\faArrowCircleRight}] Capisce come è stato configurato il modello
+                    \onslide<4->\item[\alert{\faArrowCircleRight}] Comprende come riconfigurare il modello
+					\onslide<5->\item[\alert{\faArrowCircleRight}] Si esprime efficacemente con il modello
+                    \begin{itemize}[leftmargin=10pt,align=right]
+                        \item[\alert{\faArrowCircleRight}] Stile
+                        \item[\alert{\faArrowCircleRight}] Tono
+                        \item[\alert{\faArrowCircleRight}] Struttura
+                        \item[\alert{\faArrowCircleRight}] Scelta delle parole
+                    \end{itemize}
+                    \onslide<6->\item[\alert{\faArrowCircleRight}] Dedica il suo lavoro a tutto questo
+                    \onslide<7->\item[\alert{\faExclamationTriangle}] Spinge il LLM verso un comportamento \alert{pseudo-deterministico}  
+				\end{itemize}
+            \end{minipage}
+            %
+			\hfill
+            \onslide<1->
+            \begin{minipage}[t]{0.4\textwidth}
+                \centering
+                \begin{figure}[ht]
+                    \includegraphics[width=\textwidth]{the-mentalist.jpg}
+                    {\tiny\\The mentalist\\\vspace*{-1pt}\textit{\textcopyright Prime Video}}
+                \end{figure}
+            \end{minipage}
+	    \end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Controlli di output LLM}
+{\small
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{1}] \alert{Lunghezza massima:} numero di \emph{token} massimo generato dal modello
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Evitare alti consumi (energetici, economici, \ldots)
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Abbattere i tempi di risposta
+                \onslide<4->\item[\alert{\faArrowCircleRight}] Cruciale in alcuni tipi di strategie di \textit{prompting} (ReAct) e per alcune tipologie di \textit{task}
+                \onslide<5->\item[\alert{\faExclamationTriangle}] \alert{Non} impone modifiche stilistiche al modello!
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Controlli di output LLM}
+{\footnotesize
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{2}] \alert{Creatività del modello:} libertà nella scelta del \emph{token} successivo
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<2->\item[\alert{\faArrowCircleRight}] \alert{Temperatura:}
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] \alert{Bassa} se vogliamo risposte più deterministiche
+                    \item[\alert{\faArrowCircleRight}] \alert{Alta} per risposte ``creative''
+                    \item[\alert{\faExclamationTriangle}] Intervallo $[0, +\infty]$
+                \end{itemize}
+                \onslide<3->\item[\alert{\faArrowCircleRight}] \alert{Top-K:} seleziona i primi K \textit{token} più probabili dalla distribuzione
+                 \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faExclamationTriangle}] Intervallo $[0, +\infty]$
+                \end{itemize}               
+                \onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Top-P:} seleziona i \textit{token} più probabili e la cui probabilità cumulativa non supera P
+                  \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faExclamationTriangle}] Intervallo $[0, 1]$
+                \end{itemize}                    
+                \onslide<5->\item[\alert{\faExclamationTriangle}] Non sempre tutti disponibili!
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Come bilanciare temperatura, Top-P, Top-K?}
+	{\small
+	    \begin{minipage}[t]{\textwidth}
+			\begin{minipage}[t]{0.55\textwidth}
+	    		\begin{itemize}[leftmargin=10pt,align=right]
+					\onslide<1->\item[\alert{\faArrowCircleRight}] Attenzione alle configurazioni estreme
+                    {\scriptsize
+                        \begin{table}
+                        %% increase table row spacing, adjust to taste
+                        \renewcommand{\arraystretch}{1}
+                        \centering
+                        \begin{tabularx}{\textwidth}{p{.2\textwidth}p{.7\textwidth}}
+                            \toprule
+                            \textbf{\emph{Setup}} & \textbf{Effetto}\\
+                            \midrule
+                            Temp $=0$ & Top-P, Top-K irrilevanti (\alert{\textit{greedy decoding}})\\
+                            Temp $\gg 0$ & Temp irrilevante\\
+                            \midrule
+                            Top-K $=1$ & Temp, Top-P irrilevanti\\
+                            Top-K $\gg 1$ & Temp, Top-P irrilevanti (\alert{\textit{greedy decoding}})\\
+                            \midrule
+                            Top-P $=0$ & Temp, Top-K irrilevanti\\
+                            Top-P $=1$ & Top-P irrilevante\\
+                            \bottomrule
+                        \end{tabularx}
+                        \end{table}
+                    }
+                \end{itemize}
+            \end{minipage}
+            %
+			\hfill
+            \onslide<1->
+            \begin{minipage}[t]{0.38\textwidth}
+                \centering
+                \begin{figure}[ht]
+                    \includegraphics[width=.9\textwidth]{yzma-cronk.jpg}
+                    {\tiny\\Yzma e Kronk\\\vspace*{-1pt}\textit{\textcopyright Disney}}
+                \end{figure}
+            \end{minipage}
+	    \end{minipage}
+	}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Controlli di output LLM}
 {\footnotesize
     \begin{minipage}[t]{\textwidth}
         \begin{itemize}[leftmargin=80pt,align=right]
