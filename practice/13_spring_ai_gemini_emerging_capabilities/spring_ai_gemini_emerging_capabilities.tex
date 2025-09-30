@@ -1,0 +1,56 @@
+\section{\faWrench\ Proprietà emergenti} % (fold)
+\label{sec:spring-ai-gemini-emerging-capabilities}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+	\begin{itemize}[leftmargin=10pt,align=right]
+        \item[\alert{\faArrowCircleRight}] \textit{Embodiment}
+        \begin{itemize}[leftmargin=10pt,align=right]
+		    \item[\alertedcircled{1}] Modifica a \textit{string template} per richiesta definizione da dizionario con formato di \textit{output} automatizzato
+		    \item[\alertedcircled{2}] Modifica modello per richiesta a LLM (popolamento parametri di \textit{default})
+            \item[\alertedcircled{3}] Modifica \textit{file} \texttt{GeminiFromClientService.java} e \texttt{GeminiFromClientServiceImpl.java}
+            \item[\alertedcircled{4}] \textit{Test} delle funzionalità con Postman/Insomnia
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Modello di richiesta}
+        \begin{itemize}[leftmargin=10pt,align=right]
+		    \item[\alert{\faExclamationTriangle}] Il \textit{path} \texttt{resources/templates} viene creato automaticamente da Spring AI in fase di creazione del progetto
+        \end{itemize}
+        \begin{block}{\textit{File} \texttt{get-json-output-converter-format-definition-prompt.st}}
+			{\scriptsize\input{code/get-json-output-converter-format-definition-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Modello di richiesta}
+        \begin{block}{\textit{File} Modello di richiesta definizione}
+			{\scriptsize\input{code/DefinitionRequest.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini (da \textit{client}) - I}
+{\tiny\input{code/GeminiFromClientServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini (da \textit{client}) - II}
+{\tiny\input{code/GeminiFromClientServiceImpl-2.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{11-spring-ai-gemini-emerging-capabilities}}
+	\end{center}
+\end{frame}
