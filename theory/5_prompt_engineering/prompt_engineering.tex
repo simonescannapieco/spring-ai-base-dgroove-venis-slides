@@ -58,101 +58,7 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Componenti principali}
-{\small
-\onslide<1->
-    \begin{minipage}[t]{\textwidth}
-        \begin{itemize}[leftmargin=70pt,align=right]
-            \onslide<1->\item[\alert{Direttive}] istruzioni specifiche relative alla \textit{task} da eseguire
-            \onslide<2->\item[\alert{Esempi}] per guidare il LLM verso un \textit{output} più efficace
-            \onslide<3->\item[\alert{Ruolo (persona)}] la prospettiva che il LLM deve adottare per definire tono, stile e contenuto della risposta
-            \onslide<4->\item[\alert{``Contesto''}] informazioni aggiuntive che possono indirizzare e addestrare il modello in modo che generi risposte migliori, pertinenti e coerenti con l'obiettivo
-            \onslide<5->\item[\alert{Dati di \emph{input}}] il testo contenente l'istanza della \textit{task} da risolvere
-            \onslide<6->\item[\alert{Indicatore di \emph{output}}] la tipologia o il formato che si vuole ottenere nella risposta
-        \end{itemize}
-        \vspace*{.5cm}
-        \begin{itemize}[leftmargin=10pt,align=right]
-            \onslide<7->\item[\alert{\faArrowCircleRight}] Dati di \emph{input} obbligatori
-            \onslide<8->\item[\alert{\faArrowCircleRight}] Altri dati opzionali
-        \end{itemize}
-    \end{minipage}
-}
-\end{frame}
-%
-\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Best practice per componente - I}
-\vspace*{-15pt}
-{\small
-\onslide<1->
-    \begin{minipage}[t]{\textwidth}
-        \begin{itemize}[leftmargin=10pt,align=right]
-            \onslide<1->\item[\alert{\faArrowCircleRight}] Direttive
-            \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alert{\faExclamationTriangle}] Essere chiari e concisi
-                \item[\alert{\faExclamationTriangle}] Evitare istruzioni ambigue e vaghe
-                \item[\alert{\faExclamationTriangle}] Quando possibile, utilizzare verbi che decrivono le azioni da eseguire (``Traduci'', ``Fai una lista di \ldots'')
-            \end{itemize}
-            \onslide<2->\item[\alert{\faArrowCircleRight}] Esempi
-            \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alert{\faExclamationTriangle}] Chiari e rilevanti per la \textit{task}
-                \item[\alert{\faExclamationTriangle}] Mostrare la struttura o contenuto atteso
-                \item[\alert{\faExclamationTriangle}] Numero di esempi comminato alla complessità della \textit{task}
-            \end{itemize}
-            \onslide<3->\item[\alert{\faArrowCircleRight}] Ruolo (persona)
-            \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alert{\faExclamationTriangle}] Aggiungere \textit{expertise} o una prospettiva specifica
-                \item[\alert{\faExclamationTriangle}] Ruolo allineato alla \textit{task} (es., esperto di \textit{marketing} per generare contenuto promozionale)
-                \item[\alert{\faExclamationTriangle}] Combinare ruolo con il ``contesto''
-            \end{itemize}
-        \end{itemize}        
-    \end{minipage}
-}
-\end{frame}
-%
-\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Best practice per componente - II}
-\vspace*{-15pt}
-{\small
-\onslide<1->
-    \begin{minipage}[t]{\textwidth}
-        \begin{itemize}[leftmargin=10pt,align=right]
-            \onslide<1->\item[\alert{\faArrowCircleRight}] Contesto
-            \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alert{\faExclamationTriangle}] Includere informazione strettamente rilevante
-                \item[\alert{\faExclamationTriangle}] Informazione strettamente collegata alla \textit{task}
-                \item[\alert{\faExclamationTriangle}] Fornire un \textit{background}, soprattutto in sotto-casi specifici
-            \end{itemize}
-            \onslide<2->\item[\alert{\faArrowCircleRight}] Indicatore di \textit{output}
-            \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alert{\faExclamationTriangle}] Se possibile, sfruttare meccanismi automatici ottimizzati (es. \texttt{BeanOutputConverter} in Spring AI)
-            \end{itemize}
-        \end{itemize}        
-    \end{minipage}
-}
-\end{frame}
-%
-\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Esiste un ordine?}
-{\normalsize
-    \begin{minipage}[t]{\textwidth}
-        \begin{itemize}[leftmargin=10pt,align=right]
-            \onslide<1->\item[\alertedcircled{1}] Esempi (se necessari)
-            \onslide<2->\item[\alertedcircled{2}] ``Contesto'' (informazioni aggiuntive)
-            \onslide<3->\item[\alertedcircled{3}] Ruolo (persona)
-            \onslide<4->\item[\alertedcircled{4}] Direttive
-            \onslide<5->\item[\alertedcircled{5}] Dati di \textit{input}
-            \onslide<6->\item[\alertedcircled{6}] Indicatore di \textit{output}
-        \end{itemize}        
-    \end{minipage}
-    \onslide<7->
-    \begin{itemize}[leftmargin=10pt,align=right]
-        \item[\alert{\faExclamationTriangle}] Evitare che LLM generi \alert{ulteriore contesto} prima di seguire le istruzioni 
-    \end{itemize}
-}
-\end{frame}
-%
-\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Controlli di output LLM}
+\framesubtitle{Controlli di output LLM - I}
 {\small
     \begin{minipage}[t]{\textwidth}
         \begin{itemize}[leftmargin=10pt,align=right]
@@ -169,7 +75,7 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Controlli di output LLM}
+\framesubtitle{Controlli di output LLM - II}
 {\footnotesize
     \begin{minipage}[t]{\textwidth}
         \begin{itemize}[leftmargin=10pt,align=right]
@@ -267,6 +173,119 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Controlli di output LLM - III}
+{\small
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{3}] \alert{Sequenze di terminazione:} bloccano la terminazione della generazione
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Generazione di una lista di non più di 10 punti $\leadsto$ \texttt{stop\_sequence=[11]}     
+            \end{itemize}
+            \onslide<3->\item[\alertedcircled{4}] \alert{Penalità di ripetizione:} incentivare il modello a sfruttare la ricchezza del suo dizionario
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<4->\item[\alert{\faArrowCircleRight}] \alert{\textit{Frequency penalty:}} penalità calcolata su ciascun \textit{token} proporzionale al numero di apparizioni nella sequenza generata
+                \onslide<5->\item[\alert{\faArrowCircleRight}] \alert{\textit{Presence penalty:}} penalità \alert{globale} indipendente da \textit{token} o numero di occorrenze
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Componenti principali}
+{\small
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=70pt,align=right]
+            \onslide<1->\item[\alert{Direttive}] istruzioni specifiche relative alla \textit{task} da eseguire
+            \onslide<2->\item[\alert{Esempi}] per guidare il LLM verso un \textit{output} più efficace
+            \onslide<3->\item[\alert{Ruolo (persona)}] la prospettiva che il LLM deve adottare per definire tono, stile e contenuto della risposta
+            \onslide<4->\item[\alert{``Contesto''}] informazioni aggiuntive che possono indirizzare e addestrare il modello in modo che generi risposte migliori, pertinenti e coerenti con l'obiettivo
+            \onslide<5->\item[\alert{Dati di \emph{input}}] il testo contenente l'istanza della \textit{task} da risolvere
+            \onslide<6->\item[\alert{Indicatore di \emph{output}}] la tipologia o il formato che si vuole ottenere nella risposta
+        \end{itemize}
+        \vspace*{.5cm}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<7->\item[\alert{\faArrowCircleRight}] Dati di \emph{input} obbligatori
+            \onslide<8->\item[\alert{\faArrowCircleRight}] Altri dati opzionali
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Best practice per componente - I}
+\vspace*{-15pt}
+{\small
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Direttive
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faExclamationTriangle}] Essere chiari e concisi
+                \item[\alert{\faExclamationTriangle}] Evitare istruzioni ambigue e vaghe
+                \item[\alert{\faExclamationTriangle}] Quando possibile, utilizzare verbi che decrivono le azioni da eseguire (``Traduci'', ``Fai una lista di \ldots'')
+            \end{itemize}
+            \onslide<2->\item[\alert{\faArrowCircleRight}] Esempi
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faExclamationTriangle}] Chiari e rilevanti per la \textit{task}
+                \item[\alert{\faExclamationTriangle}] Mostrare la struttura o contenuto atteso
+                \item[\alert{\faExclamationTriangle}] Numero di esempi comminato alla complessità della \textit{task}
+            \end{itemize}
+            \onslide<3->\item[\alert{\faArrowCircleRight}] Ruolo (persona)
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faExclamationTriangle}] Aggiungere \textit{expertise} o una prospettiva specifica
+                \item[\alert{\faExclamationTriangle}] Ruolo allineato alla \textit{task} (es., esperto di \textit{marketing} per generare contenuto promozionale)
+                \item[\alert{\faExclamationTriangle}] Combinare ruolo con il ``contesto''
+            \end{itemize}
+        \end{itemize}        
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Best practice per componente - II}
+\vspace*{-15pt}
+{\small
+\onslide<1->
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Contesto
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faExclamationTriangle}] Includere informazione strettamente rilevante
+                \item[\alert{\faExclamationTriangle}] Informazione strettamente collegata alla \textit{task}
+                \item[\alert{\faExclamationTriangle}] Fornire un \textit{background}, soprattutto in sotto-casi specifici
+            \end{itemize}
+            \onslide<2->\item[\alert{\faArrowCircleRight}] Indicatore di \textit{output}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faExclamationTriangle}] Se possibile, sfruttare meccanismi automatici ottimizzati (es. \texttt{BeanOutputConverter} in Spring AI)
+            \end{itemize}
+        \end{itemize}        
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Esiste un ordine?}
+{\normalsize
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{1}] Esempi (se necessari)
+            \onslide<2->\item[\alertedcircled{2}] ``Contesto'' (informazioni aggiuntive)
+            \onslide<3->\item[\alertedcircled{3}] Ruolo (persona)
+            \onslide<4->\item[\alertedcircled{4}] Direttive
+            \onslide<5->\item[\alertedcircled{5}] Dati di \textit{input}
+            \onslide<6->\item[\alertedcircled{6}] Indicatore di \textit{output}
+        \end{itemize}        
+    \end{minipage}
+    \onslide<7->
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \item[\alert{\faExclamationTriangle}] Evitare che LLM generi \alert{ulteriore contesto} prima di seguire le istruzioni 
+    \end{itemize}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
 \framesubtitle{Tipologie di \emph{prompting}}
 {\footnotesize
     \begin{minipage}[t]{\textwidth}
@@ -279,8 +298,8 @@
             \onslide<3->\item[\alert{\emph{Few-shots}}] la richiesta dell'utente è seguita da alcuni esempi su cui la LLM tara il \emph{template} delle risposte da fornire
             \onslide<4->\item[\alert{\emph{Role-based}}] le informazioni del \emph{prompt} sono suddivise tra una entità \emph{superuser} (\emph{system} o \emph{admin}) e una entità \emph{user}
             \begin{itemize}[leftmargin=15pt,align=right]
-                \onslide<5->\item[\alert{\faArrowCircleRight}] Contesto, definizione \emph{task} e formattazione \emph{output} al \emph{system}
-                \onslide<6->\item[\alert{\faArrowCircleRight}] \emph{Input} allo \emph{user}
+                \onslide<5->\item[\alert{\faArrowCircleRight}] Esempi, contesto, direttive e indicatore \emph{output} al \emph{system}
+                \onslide<6->\item[\alert{\faArrowCircleRight}] Dati di \emph{input} allo \emph{user}
             \end{itemize}
             %\onslide<7->\item[\alert{\emph{Chain-of-Thought}}] il \emph{prompt} viene costruito affinché il LLM possa ``ragionare'' per passi sequenziali, sfruttando man mano i dati che ha generato
             %\begin{itemize}[leftmargin=15pt,align=right]
