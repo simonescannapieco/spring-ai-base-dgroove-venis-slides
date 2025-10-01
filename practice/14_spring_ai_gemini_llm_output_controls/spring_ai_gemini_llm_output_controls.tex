@@ -1,0 +1,47 @@
+\section{\faWrench\ Controlli di output LLM} % (fold)
+\label{sec:spring-ai-gemini-llm-output-controls}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \item[\alertedcircled{1}] Modifica \texttt{Question.java} per integrazione UUID
+		    \item[\alertedcircled{2}] Modifica \texttt{application.yml} con tutti possibili parametri
+            \item[\alertedcircled{3}] \textit{Tweak} temperatura/Top-P/Top-K (Gemini vs Llama)
+            \item[\alertedcircled{4}] \textit{Tweak} \textit{stop sequence} per richiesta di liste
+            \item[\alertedcircled{5}] \textit{Test} delle funzionalità con Postman/Insomnia
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Domande}
+        \begin{block}{Modello per domanda}
+			{\tiny\input{code/Question.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Modello di richiesta}
+    {\footnotesize
+        \begin{itemize}[leftmargin=10pt,align=right]
+		    \item[\alert{\faExclamationTriangle}] Proprietà non utilizzabili (es. \texttt{top-k} per OpenAI)
+		    \item[\alert{\faExclamationTriangle}] Proprietà limitate a priori (es. \texttt{temperature} $\in [0, 2]$ per OpenAI)
+            \item[\alert{\faExclamationTriangle}] Proprietà non stabili (es. \texttt{frequency-penalty})
+		    \item[\alert{\faExclamationTriangle}] Proprietà mutuamente esclusive (es. \texttt{max-tokens} e \texttt{max-completion-tokens})
+		    \item[] 
+        \end{itemize}
+        \vspace*{-.3cm}
+        \begin{block}{\textit{File} \texttt{application.yml}}
+			{\tiny\input{code/application.yml}}
+    	\end{block}
+    }
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{12-spring-ai-gemini-llm-output-controls}}
+	\end{center}
+\end{frame}
