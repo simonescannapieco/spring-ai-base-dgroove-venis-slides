@@ -17,7 +17,8 @@
                 //.presencePenalty(0.1)
                 .build())
                 .user(u -> u.text(this.artifactSentimentPrompt)
-                        .params(Map.of("recensione", artifactRequest.review(), "artefatto", artifactRequest.type())))
+                        .params(Map.of("recensione", artifactRequest.artifact().body(), 
+                                       "artefatto", artifactRequest.artifact().type())))
                 .templateRenderer(StTemplateRenderer.builder().startDelimiterToken('{')
                         .endDelimiterToken('}')
                         .build())
@@ -27,6 +28,4 @@
         return new Answer(chatResponse.getSentiment());
 
     }
-
-}
 \end{minted}

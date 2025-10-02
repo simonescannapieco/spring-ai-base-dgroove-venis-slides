@@ -1,21 +1,21 @@
 \begin{minted}{java}
-package it.venis.ai.spring.demo.data;
+package it.venis.ai.spring.demo.model;
 
-public enum Artifact {
+import java.util.Objects;
 
-    LIBRO("Libro"),
-    FILM("Film"),
-    SPETTACOLO("Spettacolo");
+import it.venis.ai.spring.demo.data.ArtifactType;
 
-    private String artifact;
-
-    Artifact(String artifact) {
-        this.artifact = artifact;
+public record Artifact(String title, String subtitle, ArtifactType type, String body) {
+    
+    @Override
+    public String title() {
+        return Objects.requireNonNullElse(this.title, "---");
     }
 
-    public String getArtifact() {
-        return artifact;
-    }
+    @Override
+    public String subtitle() {
+        return Objects.requireNonNullElse(this.subtitle, "---");
+    }   
 
 }
 \end{minted}
