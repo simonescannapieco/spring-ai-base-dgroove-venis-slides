@@ -11,18 +11,19 @@
             \end{itemize}
             \item[\alert{\faArrowCircleRight}] \textit{\textit{Zero-shot prompting} per \textit{sentiment analysis}}
             \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alertedcircled{1}] Creazione enumeratori \texttt{Artifact.java} e \texttt{Sentiment.java}
-                \item[\alertedcircled{2}] Creazione modello richiesta per artefatto \texttt{ArtifactRequest.java}
-                \item[\alertedcircled{3}] Creazione \textit{prompt template} per \textit{sentiment analysis} di tipo \textit{0-shot} per artefatti
-                \item[\alertedcircled{4}] Modifiche ad interfaccia ed implementazione del servizio Gemini
-                \item[\alertedcircled{5}] Modifica del controllore MVC per servizio Gemini
+                \item[\alertedcircled{1}] Creazione enumeratori \texttt{ArtifactType.java} e \texttt{Sentiment.java}
+                \item[\alertedcircled{2}] Creazione modello di artefatto \texttt{Artifact.java}
+                \item[\alertedcircled{3}] Creazione modello richiesta per artefatto \texttt{ArtifactRequest.java}
+                \item[\alertedcircled{4}] Creazione \textit{prompt template} per \textit{sentiment analysis} di tipo \textit{0-shot} per artefatti
+                \item[\alertedcircled{5}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+                \item[\alertedcircled{6}] Modifica del controllore MVC per servizio Gemini
             \end{itemize}
         \end{itemize}
     }
 \end{frame}
 %
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
-    \framesubtitle{Artefatto}
+    \framesubtitle{Tipo di artefatto}
         \begin{block}{Enumeratore per tipo di artefatto}
 			{\tiny\input{code/ArtifactType.java}}
     	\end{block}
