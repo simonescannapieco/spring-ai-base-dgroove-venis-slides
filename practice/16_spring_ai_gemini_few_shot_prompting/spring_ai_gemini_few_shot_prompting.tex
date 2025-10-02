@@ -5,13 +5,9 @@
     \framesubtitle{Passaggi}
     {\small
         \begin{itemize}[leftmargin=10pt,align=right]
-            \item[\alert{\faArrowCircleRight}] \textit{Implicit prompting}
-            \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alertedcircled{1}] \textit{Test} su REST API \texttt{/ask} per traduzione ITA/ENG, contrari, \ldots
-            \end{itemize}
             \item[\alert{\faArrowCircleRight}] \textit{\textit{Few-shot prompting} per NER \textit{extraction}}
             \begin{itemize}[leftmargin=10pt,align=right]
-                \item[\alertedcircled{1}] Creazione *prompt template* con esempi di estrazione NER da due articoli di giornale
+                \item[\alertedcircled{1}] Creazione \textit{prompt template} con esempi di estrazione NER da due articoli di giornale
                 \item[\alertedcircled{2}] Modifiche ad interfaccia ed implementazione del servizio Gemini
                 \item[\alertedcircled{3}] Modifica del controllore MVC per servizio Gemini
                 \item[\alertedcircled{4}] \textit{Test} delle funzionalità con Postman/Insomnia 
@@ -26,7 +22,7 @@
 		    \item[\alert{\faExclamationTriangle}] Il \textit{path} \texttt{resources/templates} viene creato automaticamente da Spring AI in fase di creazione del progetto
         \end{itemize}
         \begin{block}{\textit{File} \texttt{get-ner-yaml-prompt.st}}
-			{\scriptsize\input{code/get-ner-yaml-prompt.st}}
+			{\tiny\input{code/get-ner-yaml-prompt.st}}
     	\end{block}
 \end{frame}
 %
