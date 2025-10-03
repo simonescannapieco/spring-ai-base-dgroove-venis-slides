@@ -6,15 +6,17 @@
 
     @Override
     public Answer getSentimentForArtifact(ArtifactRequest artifactRequest) {
-        Sentiment chatResponse = this.chatClient.prompt()
+        List<String> stopSequences = Stream.of(" ", "\n").collect(Collectors.toList());
+        Sentiment chatResponse = Sentiment.valueOf(this.chatClient.prompt()
                 .options(ChatOptions.builder()
-                //.model("gemini-2.0-flash")
+                .model("gemini-2.0-flash")
                 .temperature(0.1)
-                .topP(1.0)
+                //.topP(1.0)
                 //.topK(30)
                 .maxTokens(10)
                 //.frequencyPenalty(0.1)
                 //.presencePenalty(0.1)
+                .stopSequences(stopSequences)
                 .build())
                 .user(u -> u.text(this.artifactSentimentPrompt)
                         .params(Map.of("recensione", artifactRequest.artifact().body(), 
@@ -23,8 +25,8 @@
                         .endDelimiterToken('}')
                         .build())
                 .call()
-                .entity(Sentiment.class);
-
+                .content()
+                );
         return new Answer(chatResponse.getSentiment());
 
     }
