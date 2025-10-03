@@ -1,0 +1,76 @@
+\section{\faWrench\ System e role prompting} % (fold)
+\label{sec:spring-ai-gemini-system-role-prompting}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \item[\alertedcircled{1}] Creazione \textit{string template} per istruzioni di sistema
+            \item[\alertedcircled{2}] Creazione \textit{string template} per istruzioni utente
+            \item[\alertedcircled{3}] Modifiche ad \texttt{application.yml} per evitare conflitti di configurazione
+            \item[\alertedcircled{4}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+            \item[\alertedcircled{5}] Modifica del controllore MVC per servizio Gemini
+            \item[\alertedcircled{6}] \textit{Test} delle funzionalità con Postman/Insomnia 
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per istruzioni system}
+        \begin{block}{\textit{File} \texttt{set-advice-system-prompt.st}}
+			{\tiny\input{code/set-advice-system-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per istruzioni utente}
+        \begin{block}{\textit{File} \texttt{get-advice-user-prompt.st}}
+			{\tiny\input{code/get-advice-user-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Configurazione applicativo}
+        \begin{block}{\textit{File} \texttt{application.yml}}
+			{\tiny\input{code/application.yml}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \begin{block}{Interfaccia servizio Gemini}
+{\tiny\input{code/GeminiFromClientService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - I}
+            {\tiny\input{code/GeminiFromClientServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - II}
+            {\tiny\input{code/GeminiFromClientServiceImpl-2.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{MVC del servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione controllore REST}
+			{\tiny\input{code/QuestionFromClientController.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{15-spring-ai-gemini-system-role-prompting}}
+	\end{center}
+\end{frame}

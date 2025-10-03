@@ -1,0 +1,22 @@
+\begin{minted}{yaml}
+spring:
+  application:
+    name: demo
+  ai:
+    openai:
+      api-key: ${GOOGLE_AI_API_KEY}
+      base-url: https://generativelanguage.googleapis.com/v1beta/openai
+      chat:
+        completions-path: /chat/completions
+        options:
+          model: gemini-2.0-flash-lite
+          temperature: 2
+          #top-p: .99
+          #top-k: 30
+          #max-tokens: 100  
+          #max-completion-tokens: 100 
+          #frequency-penalty: .2
+          #presence-penalty: .2
+          #stop-sequences:
+          #- 3
+\end{minted}
