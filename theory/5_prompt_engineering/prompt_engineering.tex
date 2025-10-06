@@ -286,7 +286,7 @@
 \end{frame}
 %
 \begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
-\framesubtitle{Tipologie di \emph{prompting}}
+\framesubtitle{Tipologie di \emph{prompting} base}
 {\footnotesize
     \begin{minipage}[t]{\textwidth}
         \begin{itemize}[leftmargin=50pt,align=right]
@@ -294,12 +294,18 @@
             \begin{itemize}[leftmargin=15pt,align=right]
                 \item[\alert{\faArrowCircleRight}] Sfruttare le capacità emergenti del LLM
             \end{itemize}
-            \onslide<2->\item[\alert{\emph{0-Shot}}] \emph{task} specificata, ma la richiesta dell'utente è priva di informazioni sul contesto o priva di esempi
+            \onslide<2->\item[\alert{\emph{0-Shot}}] \emph{task} e dati di \textit{input} specificati, ma priva di esempi
             \onslide<3->\item[\alert{\emph{Few-shots}}] la richiesta dell'utente è seguita da alcuni esempi su cui la LLM tara il \emph{template} delle risposte da fornire
             \onslide<4->\item[\alert{\emph{Role-based}}] le informazioni del \emph{prompt} sono suddivise tra una entità \emph{superuser} (\emph{system} o \emph{admin}) e una entità \emph{user}
             \begin{itemize}[leftmargin=15pt,align=right]
                 \onslide<5->\item[\alert{\faArrowCircleRight}] Esempi, contesto, direttive e indicatore \emph{output} al \emph{system}
                 \onslide<6->\item[\alert{\faArrowCircleRight}] Dati di \emph{input} allo \emph{user}
+            \end{itemize}
+            \onslide<7->\item[\alert{\emph{Step-back}}] suddividere la richiesta finale al LLM in due fasi
+            \begin{itemize}[leftmargin=15pt,align=right]
+                \onslide<8->\item[\alert{\faArrowCircleRight}] Porre una domanda generica pertinente alla task finale
+                \onslide<9->\item[\alert{\faArrowCircleRight}] Incapsulare la risposta in un nuovo prompt per modellare la task
+                \onslide<10->\item[\alert{\faExclamationTriangle}] Attivare dei \alert{percorsi neurali} e \alert{processi di ragionamento}
             \end{itemize}
             %\onslide<7->\item[\alert{\emph{Chain-of-Thought}}] il \emph{prompt} viene costruito affinché il LLM possa ``ragionare'' per passi sequenziali, sfruttando man mano i dati che ha generato
             %\begin{itemize}[leftmargin=15pt,align=right]
