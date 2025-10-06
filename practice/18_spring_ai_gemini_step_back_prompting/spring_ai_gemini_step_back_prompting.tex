@@ -1,0 +1,89 @@
+\section{\faWrench\ Step-back prompting} % (fold)
+\label{sec:spring-ai-gemini-step-back-prompting}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Passaggi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \item[\alertedcircled{1}] Modifica modello \texttt{Artifact.java} per inserimento caratteristica genere
+            \item[\alertedcircled{2}] Creazione \textit{string template} per ambientazioni chiave nuovo artefatto (\textit{system} e \textit{user})
+            \item[\alertedcircled{3}] Creazione \textit{string template} per generazione artefatto da lista di ambientazioni chiave
+            \item[\alertedcircled{4}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+            \item[\alertedcircled{5}] Modifica del controllore MVC per servizio Gemini
+            \item[\alertedcircled{6}] \textit{Test} delle funzionalità con Postman/Insomnia 
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Artefatto}
+        \begin{block}{Modello per artefatto}
+			{\tiny\input{code/Artifact.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per ambientazioni chiave}
+        \begin{block}{\textit{File} \texttt{get-key-settings-for-artifact-system-prompt.st}}
+			{\scriptsize\input{code/get-key-settings-for-artifact-system-prompt.st}}
+    	\end{block}
+        \vspace*{.3cm}
+        \begin{block}{\textit{File} \texttt{get-key-settings-for-artifact-user-prompt.st}}
+			{\scriptsize\input{code/get-key-settings-for-artifact-user-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per generazione artefatto da lista di ambientazioni}
+        \begin{block}{\textit{File} \texttt{get-generated-artifact-prompt.st}}
+			{\scriptsize\input{code/get-generated-artifact-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Interfaccia servizio Gemini}
+{\tiny\input{code/GeminiFromClientService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - I}
+            {\tiny\input{code/GeminiFromClientServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - II}
+            {\tiny\input{code/GeminiFromClientServiceImpl-2.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - III}
+            {\tiny\input{code/GeminiFromClientServiceImpl-3.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{MVC del servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione controllore REST}
+			{\tiny\input{code/QuestionFromClientController.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{16-spring-ai-gemini-step-back-prompting}}
+	\end{center}
+\end{frame}
