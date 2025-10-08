@@ -1,0 +1,145 @@
+\section{\faWrench\ Automatic prompting} % (fold)
+\label{sec:spring-ai-gemini-automatic-prompting}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Descrizione}
+    {\footnotesize
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{1}] \textit{Automatic prompting}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Tecnica per sfruttare il codice genetico del LLM
+                \item[\alert{\faArrowCircleRight}] Strategia: scrivere \textit{prompt} che generano \textit{prompt} più allineati con il modo di ragionare del LLM
+                \onslide<2->\begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Si chiede al LLM di generare varianti semantiche del \textit{prompt} utente
+                    \item[\alert{\faArrowCircleRight}] Il LLM analizza tali varianti in base a delle \alert{metriche di valutazione} del risultato
+                    \begin{itemize}[leftmargin=10pt,align=right]
+                        \item[\alert{\faArrowCircleRight}] \alert{BLEU} (\alert{B}i\alert{L}ingual \alert{E}valuation \alert{U}nderstudy)
+                        \item[\alert{\faArrowCircleRight}] \alert{ROUGE} (\alert{R}ecall-\alert{O}riented \alert{U}nderstudy for \alert{G}isting \alert{E}valuation)
+                    \end{itemize}
+                    \item[\alert{\faArrowCircleRight}] L'utente ottiene delle varianti semantiche da poter ulteriormente raffinare
+                \end{itemize}
+                \onslide<3->\item[\alert{\faExclamationTriangle}] Sgrava l'utente da parte della responsabilità nella scrittura di un buon \textit{prompt}
+                \onslide<4->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Approccio semi-automatizzato per la creazione di \textit{dataset} mirati
+                \end{itemize}
+                \onslide<5->\item[\alert{\faArrowCircleRight}] Svantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Richiede un approccio iterativo per determinare le migliori formulazioni
+                    \item[\alert{\faArrowCircleRight}] Metriche classiche sono ottimi indicatori ma non specializzate per la \textit{task}  
+                \end{itemize}               
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Applicazione e passaggi}
+    {\small
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \item[\alert{\faArrowCircleRight}] Sistema di \alert{raffinamento di richieste} per \textit{chatbot} specializzati
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alertedcircled{1}] Creazione \textit{prompt template} per generazione varianti semantiche (\textit{system} e \textit{user})
+            \onslide<3->\item[\alertedcircled{2}] Creazione modelli \texttt{Prompt.java}, \texttt{PromptEvaluationRequest.java} e \texttt{PromptEvaluationResponse.java} per serializzare e deserializzare richieste al/generazioni dal LLM 
+            \onslide<4->\item[\alertedcircled{3}] Creazione enumeratore \texttt{EvaluationMetric.java} con i possibili algoritmi di valutazione 
+            \onslide<5->\item[\alertedcircled{4}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+            \onslide<6->\item[\alertedcircled{5}] Modifica del controllore MVC per servizio Gemini
+            \onslide<7->\item[\alertedcircled{6}] \textit{Test} delle funzionalità con Postman/Insomnia 
+        \end{itemize}
+    \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per generazione varianti semantiche}
+        \begin{block}{\textit{File} \texttt{set-prompt-alternatives-system-prompt.st}}
+			{\scriptsize\input{code/set-prompt-alternatives-system-prompt.st}}
+    	\end{block}
+        \vspace*{.3cm}
+        \begin{block}{\textit{File} \texttt{get-prompt-alternatives-user-prompt.st}}
+			{\scriptsize\input{code/get-prompt-alternatives-user-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per ordinamento varianti semantiche}
+        \begin{block}{\textit{File} \texttt{get-ordered-prompt-alternatives-prompt.st}}
+			{\scriptsize\input{code/get-ordered-prompt-alternatives-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Artefatto}
+        \begin{block}{Enumeratore per metriche di valutazione}
+			{\Tiny\input{code/EvaluationMetric.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Valutazione di prompt}
+        \begin{block}{Modello per prompt}
+			{\tiny\input{code/Prompt.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Valutazione di prompt}
+        \begin{block}{Modello per richiesta di prompt}
+			{\tiny\input{code/PromptEvaluationRequest.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Valutazione di prompt}
+        \begin{block}{Modello per lisyta ordinata di varianti di prompt}
+			{\tiny\input{code/PromptEvaluationResponse.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Interfaccia servizio Gemini}
+{\tiny\input{code/GeminiFromClientService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - I}
+            {\tiny\input{code/GeminiFromClientServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - II}
+            {\tiny\input{code/GeminiFromClientServiceImpl-2.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - III}
+            {\tiny\input{code/GeminiFromClientServiceImpl-3.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{MVC del servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione controllore REST}
+			{\tiny\input{code/QuestionFromClientController.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{18-spring-ai-gemini-automatic-prompting}}
+	\end{center}
+\end{frame}
