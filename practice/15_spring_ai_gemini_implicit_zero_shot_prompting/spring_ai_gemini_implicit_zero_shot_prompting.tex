@@ -2,6 +2,57 @@
 \label{sec:spring-ai-gemini-implicit-zero-shot-prompting}
 %
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Descrizione - I}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{1}] \textit{Implicit prompting}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Strategia: atto di fede nei confronti del LLM
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Utente fornisce solo l'\textit{input} su cui lavorare
+                    \item[\alert{\faArrowCircleRight}] \textit{Output} del LLM determinato dalle sue \alert{capacità emergenti} 
+                    \item[\alert{\faExclamationTriangle}] LLM determina la \textit{task} dal contenuto dell'\textit{input} e dalla sua formattazione
+                    \item[\alert{\faExclamationTriangle}] Preferire formato strutturato di \textit{markdown} nel definire l'\textit{input} (rendere il processo di \alert{cattura dei \textit{pattern}} più semplice)
+                \end{itemize}
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Semplice da utilizzare
+                \end{itemize}
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Svantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Visto come esercizio di stile
+                    \item[\alert{\faArrowCircleRight}] Molto limitato a \textit{task} semplici (focalizzate sul puro significato dei \textit{token})
+                \end{itemize}               
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Descrizione - II}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{2}] \textit{Zero-shot prompting}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Strategia: \textit{implicit prompting} + direttive
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Utente \alert{non} fornisce esempi
+                \end{itemize}
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Semplice da utilizzare
+                \end{itemize}
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Svantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Molto limitato a \textit{task} semplici
+                    \item[\alert{\faArrowCircleRight}] Perché non utilizzare esempi\ldots?
+                \end{itemize}               
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
     \framesubtitle{Passaggi}
     {\small
         \begin{itemize}[leftmargin=10pt,align=right]
@@ -76,6 +127,20 @@
         \begin{block}{Implementazione controllore REST}
 			{\tiny\input{code/QuestionFromClientController-2.java}}
     	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{\ldots e ora a voi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Sistema di traduzione con \alert{lingua parametrizzata}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] \texttt{language} come parametro aggiuntivo del modello
+                \item[\alert{\faArrowCircleRight}] \textit{Output} atteso con \texttt{\{''lemma'':''aid''}, \texttt{''language'':''ENG''\}} è \texttt{ITA:aiuto,ESP:aiudo,\ldots}  
+            \end{itemize}
+            \onslide<2->\item[\alert{\faArrowCircleRight}] Sistema di \alert{sinonimi e contrari} per lingua italiana
+        \end{itemize}
+    }
 \end{frame}
 %
 \section{\faWrench\ Sentiment analysis} % (fold)
