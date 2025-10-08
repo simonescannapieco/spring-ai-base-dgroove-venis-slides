@@ -20,10 +20,8 @@ public interface GeminiFromClientService {
     Answer getJSONUserFormatDefinitionFromClient(DefinitionRequest definitionRequest);
 
     DefinitionResponse getJSONOutputConverterFormatDefinitionFromClient(DefinitionRequest definitionRequest);
-
+    
     Answer getTranslationForLemma(TranslationRequest translationRequest);
-
-    Answer getSentimentForArtifact(ArtifactRequest artifactRequest);
 
 }
 \end{minted}

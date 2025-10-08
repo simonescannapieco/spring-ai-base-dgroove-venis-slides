@@ -27,6 +27,60 @@
     }
 \end{frame}
 %
+\section{\faWrench\ Traduzione multilingua} % (fold)
+\label{sec:spring-ai-gemini-zero-implicit-prompting-translation}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Traduzione}
+        \begin{block}{Modello per richiesta traduzione}
+			{\tiny\input{code/TranslationRequest.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per traduzione multilingua}
+        \begin{itemize}[leftmargin=10pt,align=right]
+		    \item[\alert{\faExclamationTriangle}] Il \textit{path} \texttt{resources/templates} viene creato automaticamente da Spring AI in fase di creazione del progetto
+        \end{itemize}
+        \begin{block}{\textit{File} \texttt{get-lemma-translation-prompt.st}}
+			{\scriptsize\input{code/get-lemma-translation-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \begin{block}{Interfaccia servizio Gemini}
+{\tiny\input{code/GeminiFromClientService-2.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - I}
+            {\tiny\input{code/GeminiFromClientServiceImpl-3.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - II}
+            {\tiny\input{code/GeminiFromClientServiceImpl-4.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{MVC del servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione controllore REST}
+			{\tiny\input{code/QuestionFromClientController-2.java}}
+    	\end{block}
+\end{frame}
+%
+\section{\faWrench\ Sentiment analysis} % (fold)
+\label{sec:spring-ai-gemini-zero-shot-prompting-sentiment-analysis}
+%
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
     \framesubtitle{Tipo di artefatto}
         \begin{block}{Enumeratore per tipo di artefatto}
