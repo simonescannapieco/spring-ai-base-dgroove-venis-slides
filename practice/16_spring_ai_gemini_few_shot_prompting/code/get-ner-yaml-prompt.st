@@ -17,7 +17,7 @@ rivolgere principalmente la mente in questo momento>>. <<Le 25 ore di digiuno no
 invito alla riflessione e al ripensamento della nostra vita», è intervenuta la vicepresidente della comunità ebraica, Ester Silvana Israel. 
 <<Il nostro augurio è di una pace giusta e duratura>>.
 '''YAML'''
-```
+```yaml
 ner:
     persona:
     - Tomer Corinaldi
@@ -30,15 +30,13 @@ ner:
     - Castelvecchio
     - Israele
     - Gaza
-    festività:
-    - Yom Kippur
-    data:
-    organizzazione:
-    orario:
-    valuta:
-    percentuale:
-    quantità:
-    -25 ore
 ```
-...
+
+Serializza le informazioni NER da articoli giornalistici in formato YAML.
+
+ESEMPIO:
+'''Titolo''' {titolo}
+'''Sottotitolo''' {sottotitolo}
+'''Corpo''' {corpo}
+'''YAML'''
 \end{minted}

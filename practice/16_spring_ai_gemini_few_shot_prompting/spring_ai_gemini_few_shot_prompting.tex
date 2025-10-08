@@ -1,14 +1,44 @@
-\section{\faWrench\ Few-shot prompting} % (fold)
+\section{\faWrench\ One-shot/Few-shot prompting} % (fold)
 \label{sec:spring-ai-gemini-few-shot-prompting}
 %
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
-    \framesubtitle{Passaggi}
+    \framesubtitle{Descrizione}
     {\small
         \begin{itemize}[leftmargin=10pt,align=right]
-            \item[\alertedcircled{1}] Creazione \textit{string template} con esempi di estrazione NER da due articoli di giornale
-            \item[\alertedcircled{2}] Modifiche ad interfaccia ed implementazione del servizio Gemini
-            \item[\alertedcircled{3}] Modifica del controllore MVC per servizio Gemini
-            \item[\alertedcircled{4}] \textit{Test} delle funzionalità con Postman/Insomnia 
+            \onslide<1->\item[\alertedcircled{1}] \textit{One-shot/Few-shot prompting}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Strategia: fornire esempi di corretto comportamento al modello in relazione alla \textit{task} da eseguire
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Aggiunge un \textit{layer} informativo assistivo alle direttive
+                    \item[\alert{\faExclamationTriangle}] \textit{Few-shot} da preferire all'aumentare della complessità della \textit{task}
+                    \item[\alert{\faExclamationTriangle}] Preferire formato strutturato di \textit{markdown} nel definire gli esempi (rendere il processo di \alert{cattura dei \textit{pattern}} più semplice)
+                \end{itemize}
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] \alert{Per \textit{one-shot}}, risultati efficaci con \textit{task} piuttosto complesse (proprietà emergenti)
+                    \item[\alert{\faArrowCircleRight}] \alert{Per \textit{few-shot}}, risultati efficaci con numero di esempi relativamente contenuto (da 3 a 5)
+                \end{itemize}
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Svantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Farraginoso e \textit{time-consuming} lato utente
+                    \item[\alert{\faArrowCircleRight}] Limitazioni di \textit{context window} con LLM ``meno famosi''
+                \end{itemize}               
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Applicazione e passaggi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Sistema di \alert{estrazione entità denominate} (NER)
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<2->\item[\alertedcircled{1}] Creazione \textit{string template} con esempi di estrazione NER da articolo di giornale
+                \onslide<3->\item[\alertedcircled{2}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+                \onslide<4->\item[\alertedcircled{3}] Modifica del controllore MVC per servizio Gemini
+                \onslide<5->\item[\alertedcircled{4}] \textit{Test} delle funzionalità con Postman/Insomnia 
+            \end{itemize}
         \end{itemize}
     }
 \end{frame}
@@ -50,6 +80,20 @@
         \begin{block}{Implementazione controllore REST}
 			{\tiny\input{code/QuestionFromClientController.java}}
     	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{\ldots e ora a voi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Sistema di NER da \alert{\textit{one-shot} a \textit{few-shot}}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Aggiungere da 3 a 5 articoli come esempi
+                \item[\alert{\faArrowCircleRight}] Introdurre concetti NER come \texttt{data}, \texttt{organizzazione}, \texttt{orario}, \texttt{valuta}, \texttt{percentuale}, \texttt{quantità} 
+                \item[\alert{\faArrowCircleRight}] Imporre un formato standardizzato (es. orari \texttt{HH:MM}, data \texttt{DD/MM/YYYY})  
+            \end{itemize}
+        \end{itemize}
+    }
 \end{frame}
 %
 \begin{frame}[fragile] \frametitle{Codice}
