@@ -1,0 +1,151 @@
+\section{\faWrench\ CoT e Self consistency prompting} % (fold)
+\label{sec:spring-ai-gemini-cot-self-consistency-prompting}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Descrizione - I}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{1}] \textit{Chain-of-Thought} (CoT)
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Tecnica per aumentare le capacità di ragionamento LLM
+                \item[\alert{\faArrowCircleRight}] Strategia: generare \alert{passaggi di ragionamento intermedi}
+                \item[\alert{\faExclamationTriangle}] Utilizzare \textit{few-shot} se la \textit{task} risulta particolarmente complessa
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Efficace con minimo sforzo (\textit{prompting} semplice)
+                    \item[\alert{\faArrowCircleRight}] LLM più conosciuti hanno capacità di CoT come proprietà emergente
+                    \item[\alert{\faArrowCircleRight}] Facile capire \textit{dove} sbaglia (se sbaglia) (approccio \textit{explainable AI})
+                    \item[\alert{\faArrowCircleRight}] Approccio CoT più robusto in caso di cambio di LLM
+                \end{itemize}
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Svantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Costoso e lento (generazione di molti \textit{token} per i passaggi)
+                \end{itemize}               
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Descrizione - II}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alertedcircled{1}] \textit{Self consistency}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Tecnica utilizzata in combinata ad altre tecniche di \textit{prompting} che coinvolgono il \alert{ragionamento}
+                \onslide<2->\begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Capacità di ragionamento LLM basate su un approccio di \alert{non reale comprensione}
+                    \item[\alert{\faArrowCircleRight}] Prono a risultati finali variabili (\alert{inconsistenza})
+                \end{itemize}
+                \onslide<3->\item[\alert{\faArrowCircleRight}] Strategia: generare diversi \alert{percorsi di ragionamento}
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] \textit{Prompt} fornito al LLM più volte
+                    \item[\alert{\faExclamationTriangle}] Aumentare la temperatura del modello per farlo spaziare nel ragionamento 
+                    \item[\alert{\faArrowCircleRight}] Estrazione del risultato per ogni risposta
+                    \item[\alert{}] Meccanismo di \textit{voting} che sceglie la risposta più comune 
+                \end{itemize}
+                \onslide<4->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Mitiga l'inconsistenza intrinseca dei LLM
+                \end{itemize}
+                \onslide<5->\item[\alert{\faArrowCircleRight}] Svantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Costoso e lento (replica il lavoro di altre tecniche di ragionamento)
+                \end{itemize}               
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Applicazione e passaggi}
+    {\small
+    \begin{itemize}[leftmargin=10pt,align=right]
+        \item[\alert{\faArrowCircleRight}] Sistema di classificazione di un artefatto secondo lista di generi
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alertedcircled{1}] Creazione enumeratore \texttt{ArtifactGenre.java} per inserimento lista generi possibili
+            \onslide<3->\item[\alertedcircled{2}] Creazione modello \texttt{ArtifactGenreResponse.java} per \textit{guessing} del genere con relativa spiegazione
+            \onslide<4->\item[\alertedcircled{3}] Creazione \textit{string template} per applicazione della \textit{chain of thought}
+            \onslide<5->\item[\alertedcircled{4}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+            \onslide<6->\item[\alertedcircled{5}] Modifica del controllore MVC per servizio Gemini
+            \onslide<7->\item[\alertedcircled{6}] \textit{Test} delle funzionalità con Postman/Insomnia 
+        \end{itemize}
+    \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Artefatto}
+        \begin{block}{Enumeratore per genere di artefatto}
+			{\tiny\input{code/ArtifactGenre.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Artefatto}
+        \begin{block}{Modello per \textit{guessing} di artefatto}
+			{\tiny\input{code/ArtifactGenreResponse.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Prompt per \textit{guessing} del genere}
+        \begin{block}{\textit{File} \texttt{get-artifact-genre-prompt.st}}
+			{\scriptsize\input{code/get-artifact-genre-prompt.st}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Interfaccia servizio Gemini}
+{\tiny\input{code/GeminiFromClientService.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+		\vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - I}
+            {\tiny\input{code/GeminiFromClientServiceImpl.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Servizio Gemini}
+        \vspace*{-.7cm}
+        \begin{block}{Implementazione servizio Gemini - II}
+            {\tiny\input{code/GeminiFromClientServiceImpl-2.java}}
+    \end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{MVC del servizio Gemini}
+    	\vspace*{-.7cm}
+        \begin{block}{Implementazione controllore REST}
+			{\tiny\input{code/QuestionFromClientController.java}}
+    	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{\ldots e ora a voi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Sistema di classificazione \alert{binaria} di \textit{mail}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] \textit{Output}: \texttt{SPAM}/\texttt{NOT\_SPAM} oppure \texttt{IMPORTANTE}/\texttt{NON\_IMPORTANTE}
+                \item[\alert{\faArrowCircleRight}] \texttt{MAIL} come nuovo tipo di artefatto 
+                \item[\alert{\faArrowCircleRight}] REST API \texttt{/client/detector}
+                \item[\alert{\faArrowCircleRight}] Numero di cicli di generazione parametrizzato nella \textit{request}    
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[fragile] \frametitle{Codice}
+    \framesubtitle{Branch di riferimento}
+	\begin{center}
+		{\scriptsize \href{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}{\texttt{https://github.com/simonescannapieco/spring-ai-base-dgroove-venis-code.git}}}\\
+		\textit{Branch:} \alert{\texttt{17-spring-ai-gemini-cot-self-consistency-prompting}}
+	\end{center}
+\end{frame}
