@@ -2,15 +2,54 @@
 \label{sec:spring-ai-gemini-system-role-prompting}
 %
 \begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Descrizione - I}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{1}] \textit{System prompting}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] \textit{Focus:} impostare contesto, direttive, formato utilizzati dal LLM
+                \item[\alert{\faExclamationTriangle}] Lasciare alla parte \textit{user} il solo compito di fornire l'istanza della \textit{task} da risolvere
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Aumento dell'efficacia con modelli contenuti
+                    \item[\alert{\faArrowCircleRight}] Possibilità di sfruttare un \textit{system prompt} per molteplici \textit{user prompts}
+                    \item[\alert{\faArrowCircleRight}] Maggior chiarezza ed ordine nella scrittura dei \textit{prompt}
+                \end{itemize}              
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{Descrizione - II}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alertedcircled{2}] \textit{Role prompting}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] \textit{Focus:} assegnare un ruolo specifico al LLM
+                \item[\alert{\faExclamationTriangle}] Specializzare la conversazione, utilizzando terminologia e registri tipici di specialisti del settore
+                \onslide<2->\item[\alert{\faArrowCircleRight}] Vantaggi
+                \begin{itemize}[leftmargin=10pt,align=right]
+                    \item[\alert{\faArrowCircleRight}] Informazione generata in media più rilevante ed entropica
+                \end{itemize}              
+            \end{itemize}
+        \end{itemize}
+    }
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
     \framesubtitle{Passaggi}
     {\small
         \begin{itemize}[leftmargin=10pt,align=right]
-            \item[\alertedcircled{1}] Creazione \textit{string template} per istruzioni di sistema
-            \item[\alertedcircled{2}] Creazione \textit{string template} per istruzioni utente
-            \item[\alertedcircled{3}] Modifiche ad \texttt{application.yml} per evitare conflitti di configurazione
-            \item[\alertedcircled{4}] Modifiche ad interfaccia ed implementazione del servizio Gemini
-            \item[\alertedcircled{5}] Modifica del controllore MVC per servizio Gemini
-            \item[\alertedcircled{6}] \textit{Test} delle funzionalità con Postman/Insomnia 
+            \item[\alert{\faArrowCircleRight}] Sistema di \alert{risposta automatica} a recensioni utente su un artefatto
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \onslide<2->\item[\alertedcircled{1}] Creazione \textit{string template} per istruzioni di sistema
+                \onslide<3->\item[\alertedcircled{2}] Creazione \textit{string template} per istruzioni utente
+                \onslide<4->\item[\alertedcircled{3}] Modifiche ad \texttt{application.yml} per evitare conflitti di configurazione
+                \onslide<5-> \item[\alertedcircled{4}] Modifiche ad interfaccia ed implementazione del servizio Gemini
+                \onslide<6->\item[\alertedcircled{5}] Modifica del controllore MVC per servizio Gemini
+                \onslide<7->\item[\alertedcircled{6}] \textit{Test} delle funzionalità con Postman/Insomnia 
+            \end{itemize}
         \end{itemize}
     }
 \end{frame}
@@ -65,6 +104,20 @@
         \begin{block}{Implementazione controllore REST}
 			{\tiny\input{code/QuestionFromClientController.java}}
     	\end{block}
+\end{frame}
+%
+\begin{frame}[t,fragile] \frametitle{Progetto Spring AI}
+    \framesubtitle{\ldots e ora a voi}
+    {\small
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<1->\item[\alert{\faArrowCircleRight}] Sistema di promozione turistica di \alert{luoghi} a partire da recensione utente
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\faArrowCircleRight}] Ruolo del LLM: \alert{agente di viaggi}
+                \item[\alert{\faArrowCircleRight}] Suggerire tre posti da visitare per ciascun luogo estratto tramite NER dalla recenzione/descrizione dell'artefatto  
+                \item[\alert{\faArrowCircleRight}] REST API \texttt{/client/advice/place}  
+            \end{itemize}
+        \end{itemize}
+    }
 \end{frame}
 %
 \begin{frame}[fragile] \frametitle{Codice}
