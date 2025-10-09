@@ -303,8 +303,8 @@
             \end{itemize}
             \onslide<7->\item[\alert{\emph{Step-back}}] suddividere la richiesta finale al LLM in due fasi
             \begin{itemize}[leftmargin=15pt,align=right]
-                \onslide<8->\item[\alert{\faArrowCircleRight}] Porre una domanda generica pertinente alla task finale
-                \onslide<9->\item[\alert{\faArrowCircleRight}] Incapsulare la risposta in un nuovo prompt per modellare la task
+                \onslide<8->\item[\alert{\faArrowCircleRight}] Porre una domanda generica pertinente alla \textit{task} finale
+                \onslide<9->\item[\alert{\faArrowCircleRight}] Incapsulare la risposta in un nuovo \textit{prompt} per modellare la \textit{task}
                 \onslide<10->\item[\alert{\faExclamationTriangle}] Attivare dei \alert{percorsi neurali} e \alert{processi di ragionamento}
             \end{itemize}
             %\onslide<7->\item[\alert{\emph{Chain-of-Thought}}] il \emph{prompt} viene costruito affinché il LLM possa ``ragionare'' per passi sequenziali, sfruttando man mano i dati che ha generato
@@ -316,3 +316,78 @@
 }
 \end{frame}
 %
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Considerazioni finali - I}
+{\footnotesize
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alert{\alert{\faArrowCircleRight}}] \alert{Fornire esempi:} strumento di insegnamento sempre efficace per allineare il LLM al nostro risultato atteso
+            \onslide<3->\item[\alert{\alert{\faArrowCircleRight}}] \alert{Mirare alla semplicità:} utilizzare formulazioni ad alta entropia informativa
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] Se la formulazione è confusa ed ambigua già per l'utente, \ldots
+                \item[\alert{\alert{\faArrowCircleRight}}] Linguaggio semplice
+                \item[\alert{\alert{\faArrowCircleRight}}] Evitare informazione inutile (``Potresti dirmi quale\ldots'' $\Rightarrow$ ``Quale\ldots'')
+                \item[\alert{\alert{\faArrowCircleRight}}] Verbi che descrivono azioni (``Fai una lista\ldots di'' $\Rightarrow$ ``Elenca\ldots'')
+            \end{itemize}
+            \onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Istruzioni piuttosto che vincoli:} dire ``cosa fare'' piuttosto che ``non fare\ldots''
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] Evitare che il LLM debba chiedersi cosa è permesso generare se messo davanti ad una lista di vincoli
+                \item[\alert{\alert{\faArrowCircleRight}}] Gli LLM tendono a trovare scappatoie (ciò che non è esplicitamente vietato è permesso\ldots)
+            \end{itemize}
+            \onslide<5->\item[\alert{\faArrowCircleRight}] \alert{Mai sottovalutare le tecniche più semplici:} possono riservare piacevoli sorprese\ldots
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] Tenersi sempre aggionati sulle capacità emergenti dei modelli
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Considerazioni finali - II}
+{\footnotesize
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alert{\faArrowCircleRight}] \alert{Sperimentare con formati di \textit{input} e stili di scrittura}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] In caso di utilizzo di LLM in ambiti non prettamente \textit{business}
+                \item[\alert{\alert{\faArrowCircleRight}}] \textit{Wave} del \alert{JSON \textit{prompting}} e protocolli proprietari (es. OpenAI Harmony)
+            \end{itemize}           
+            \onslide<3->\item[\alert{\faArrowCircleRight}] \alert{Adattamento agli \textit{update} del modello}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] Modellare lo stile di \textit{prompting} in maniera retro-attiva
+            \end{itemize}
+            \onslide<4->\item[\alert{\faArrowCircleRight}] \alert{Affidarsi ad \textit{output} fortemente strutturati}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] Spring AI si sta muovendo nella giusta direzione\ldots
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
+%
+\begin{frame}[t] \frametitle{\emph{Prompt Engineering}}
+\framesubtitle{Considerazioni finali - III}
+{\footnotesize
+    \begin{minipage}[t]{\textwidth}
+        \begin{itemize}[leftmargin=10pt,align=right]
+            \onslide<2->\item[\alert{\faArrowCircleRight}] \alert{Documentazione dei tentativi di \textit{prompting}}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] Piattaforme specializzate (MLFlow)
+            \end{itemize}
+            \onslide<3->\item[\alert{\faArrowCircleRight}] \alert{Sperimentazione con altri \textit{prompt engineers}}
+            \begin{itemize}[leftmargin=10pt,align=right]
+                \item[\alert{\alert{\faArrowCircleRight}}] LLM istruita su informazioni create da miliardi di persone
+            \end{itemize}
+            \hfill
+            \begin{minipage}[t]{.5\textwidth}
+			    \renewcommand{\epigraphsize}{\scriptsize}
+			    \setlength{\afterepigraphskip}{5pt}
+			    \setlength{\beforeepigraphskip}{5pt}
+			    \setlength{\epigraphwidth}{\textwidth}
+			    \epigraph{\textit{Nessun uomo è un’isola, completo in se stesso; ogni uomo è un pezzo del continente, una parte del tutto.}}{\textbf{Thomas Merton, 1956}}
+            \end{minipage}
+        \end{itemize}
+    \end{minipage}
+}
+\end{frame}
